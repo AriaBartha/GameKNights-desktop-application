@@ -28,46 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonToBoardgamesForm = new System.Windows.Forms.Button();
+            this.buttonToBoardGamesForm = new System.Windows.Forms.Button();
             this.buttonToAppointments = new System.Windows.Forms.Button();
             this.buttonLogOut = new System.Windows.Forms.Button();
+            this.buttonToGuestscontactData = new System.Windows.Forms.Button();
+            this.buttonToEmployees = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // buttonToBoardgamesForm
+            // buttonToBoardGamesForm
             // 
-            this.buttonToBoardgamesForm.Location = new System.Drawing.Point(306, 57);
-            this.buttonToBoardgamesForm.Name = "buttonToBoardgamesForm";
-            this.buttonToBoardgamesForm.Size = new System.Drawing.Size(155, 41);
-            this.buttonToBoardgamesForm.TabIndex = 0;
-            this.buttonToBoardgamesForm.Text = "Társasok";
-            this.buttonToBoardgamesForm.UseVisualStyleBackColor = true;
+            this.buttonToBoardGamesForm.Location = new System.Drawing.Point(306, 31);
+            this.buttonToBoardGamesForm.Name = "buttonToBoardGamesForm";
+            this.buttonToBoardGamesForm.Size = new System.Drawing.Size(155, 41);
+            this.buttonToBoardGamesForm.TabIndex = 0;
+            this.buttonToBoardGamesForm.Text = "Board Games";
+            this.buttonToBoardGamesForm.UseVisualStyleBackColor = true;
             // 
             // buttonToAppointments
             // 
-            this.buttonToAppointments.Location = new System.Drawing.Point(306, 147);
+            this.buttonToAppointments.Location = new System.Drawing.Point(306, 101);
             this.buttonToAppointments.Name = "buttonToAppointments";
             this.buttonToAppointments.Size = new System.Drawing.Size(155, 41);
             this.buttonToAppointments.TabIndex = 1;
-            this.buttonToAppointments.Text = "Időpontok";
+            this.buttonToAppointments.Text = "Appointments";
             this.buttonToAppointments.UseVisualStyleBackColor = true;
             // 
             // buttonLogOut
             // 
-            this.buttonLogOut.Location = new System.Drawing.Point(306, 229);
+            this.buttonLogOut.Location = new System.Drawing.Point(577, 338);
             this.buttonLogOut.Name = "buttonLogOut";
             this.buttonLogOut.Size = new System.Drawing.Size(155, 41);
             this.buttonLogOut.TabIndex = 2;
-            this.buttonLogOut.Text = "Kilépés";
+            this.buttonLogOut.Text = "Log out";
             this.buttonLogOut.UseVisualStyleBackColor = true;
+            // 
+            // buttonToGuestscontactData
+            // 
+            this.buttonToGuestscontactData.Location = new System.Drawing.Point(306, 181);
+            this.buttonToGuestscontactData.Name = "buttonToGuestscontactData";
+            this.buttonToGuestscontactData.Size = new System.Drawing.Size(155, 41);
+            this.buttonToGuestscontactData.TabIndex = 3;
+            this.buttonToGuestscontactData.Text = "Guest\' contact data";
+            this.buttonToGuestscontactData.UseVisualStyleBackColor = true;
+            // 
+            // buttonToEmployees
+            // 
+            this.buttonToEmployees.Location = new System.Drawing.Point(306, 253);
+            this.buttonToEmployees.Name = "buttonToEmployees";
+            this.buttonToEmployees.Size = new System.Drawing.Size(155, 41);
+            this.buttonToEmployees.TabIndex = 4;
+            this.buttonToEmployees.Text = "Employees";
+            this.buttonToEmployees.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonToEmployees);
+            this.Controls.Add(this.buttonToGuestscontactData);
             this.Controls.Add(this.buttonLogOut);
             this.Controls.Add(this.buttonToAppointments);
-            this.Controls.Add(this.buttonToBoardgamesForm);
+            this.Controls.Add(this.buttonToBoardGamesForm);
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.ResumeLayout(false);
@@ -76,8 +98,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonToBoardgamesForm;
+        private System.Windows.Forms.Button buttonToBoardGamesForm;
         private System.Windows.Forms.Button buttonToAppointments;
         private System.Windows.Forms.Button buttonLogOut;
+        private System.Windows.Forms.Button buttonToGuestscontactData;
+        private System.Windows.Forms.Button buttonToEmployees;
     }
 }
