@@ -69,7 +69,7 @@
             this.buttonToGuestscontactData.Name = "buttonToGuestscontactData";
             this.buttonToGuestscontactData.Size = new System.Drawing.Size(155, 41);
             this.buttonToGuestscontactData.TabIndex = 3;
-            this.buttonToGuestscontactData.Text = "Guest\' contact data";
+            this.buttonToGuestscontactData.Text = "Guest\'s contact data";
             this.buttonToGuestscontactData.UseVisualStyleBackColor = true;
             // 
             // buttonToEmployees
