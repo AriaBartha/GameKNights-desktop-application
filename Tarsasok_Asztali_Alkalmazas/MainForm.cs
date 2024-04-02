@@ -19,7 +19,9 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void buttonToBoardGamesForm_Click(object sender, EventArgs e)
         {
-            
+            BoardGamesForm boardGamesForm = new BoardGamesForm();
+            boardGamesForm.ShowDialog();
+            //TODO: close Mainform when goes to BoardGamesForm
         }
     }
 }
