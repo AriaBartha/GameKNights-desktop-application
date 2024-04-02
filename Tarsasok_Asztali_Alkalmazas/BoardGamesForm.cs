@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Tarsasok_Asztali_Alkalmazas
 {
-    public partial class MainForm : Form
+    public partial class BoardGamesForm : Form
     {
-        public MainForm()
+        public BoardGamesForm()
         {
             InitializeComponent();
-        }
-
-        private void buttonToBoardGamesForm_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

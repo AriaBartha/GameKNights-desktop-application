@@ -43,6 +43,7 @@
             this.buttonToBoardGamesForm.TabIndex = 0;
             this.buttonToBoardGamesForm.Text = "Board Games";
             this.buttonToBoardGamesForm.UseVisualStyleBackColor = true;
+            this.buttonToBoardGamesForm.Click += new System.EventHandler(this.buttonToBoardGamesForm_Click);
             // 
             // buttonToAppointments
             // 

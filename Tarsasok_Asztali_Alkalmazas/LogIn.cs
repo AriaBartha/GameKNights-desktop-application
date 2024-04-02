@@ -16,5 +16,14 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             InitializeComponent();
         }
+
+        private void buttonLogIn_Click(object sender, EventArgs e)
+        {
+            //TODO: login if email and password are ok OR error message
+            //TODO: check if admin loginig in
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
+            //TODO: Close LogIn form when MainForm opens
+        }
     }
 }
