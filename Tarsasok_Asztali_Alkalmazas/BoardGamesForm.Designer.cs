@@ -96,6 +96,7 @@
             this.Controls.Add(this.listBoxBoardGames);
             this.Name = "BoardGamesForm";
             this.Text = "BoardGamesForm";
+            this.Load += new System.EventHandler(this.BoardGamesForm_Load);
             this.ResumeLayout(false);
 
         }
