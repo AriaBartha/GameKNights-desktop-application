@@ -30,14 +30,14 @@
         {
             this.listBoxAppointments = new System.Windows.Forms.ListBox();
             this.groupBoxAppointments = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxIdAppointment = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimeAppointment = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxEmployeeId = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.textBoxEName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxEmployeeId = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimeAppointment = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxIdAppointment = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonRefreshAppointments = new System.Windows.Forms.Button();
             this.buttonAddAppointment = new System.Windows.Forms.Button();
             this.buttonUpdateAppointment = new System.Windows.Forms.Button();
@@ -53,6 +53,7 @@
             this.listBoxAppointments.Name = "listBoxAppointments";
             this.listBoxAppointments.Size = new System.Drawing.Size(290, 450);
             this.listBoxAppointments.TabIndex = 0;
+            this.listBoxAppointments.SelectedIndexChanged += new System.EventHandler(this.listBoxAppointments_SelectedIndexChanged);
             // 
             // groupBoxAppointments
             // 
@@ -72,62 +73,12 @@
             this.groupBoxAppointments.TabStop = false;
             this.groupBoxAppointments.Text = "groupBoxAppointments";
             // 
-            // label1
+            // textBoxEName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(125, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Id:";
-            // 
-            // textBoxIdAppointment
-            // 
-            this.textBoxIdAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxIdAppointment.Location = new System.Drawing.Point(172, 40);
-            this.textBoxIdAppointment.Name = "textBoxIdAppointment";
-            this.textBoxIdAppointment.ReadOnly = true;
-            this.textBoxIdAppointment.Size = new System.Drawing.Size(100, 22);
-            this.textBoxIdAppointment.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(61, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Appointment:";
-            // 
-            // dateTimeAppointment
-            // 
-            this.dateTimeAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimeAppointment.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimeAppointment.Location = new System.Drawing.Point(172, 78);
-            this.dateTimeAppointment.MinDate = new System.DateTime(2024, 4, 4, 0, 0, 0, 0);
-            this.dateTimeAppointment.Name = "dateTimeAppointment";
-            this.dateTimeAppointment.Size = new System.Drawing.Size(200, 22);
-            this.dateTimeAppointment.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(60, 121);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Employee Id:";
-            // 
-            // textBoxEmployeeId
-            // 
-            this.textBoxEmployeeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxEmployeeId.Location = new System.Drawing.Point(172, 121);
-            this.textBoxEmployeeId.Name = "textBoxEmployeeId";
-            this.textBoxEmployeeId.Size = new System.Drawing.Size(100, 22);
-            this.textBoxEmployeeId.TabIndex = 5;
+            this.textBoxEName.Location = new System.Drawing.Point(172, 163);
+            this.textBoxEName.Name = "textBoxEName";
+            this.textBoxEName.Size = new System.Drawing.Size(216, 20);
+            this.textBoxEName.TabIndex = 7;
             // 
             // label4
             // 
@@ -139,12 +90,62 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Employee name:";
             // 
-            // textBoxEName
+            // textBoxEmployeeId
             // 
-            this.textBoxEName.Location = new System.Drawing.Point(172, 163);
-            this.textBoxEName.Name = "textBoxEName";
-            this.textBoxEName.Size = new System.Drawing.Size(216, 20);
-            this.textBoxEName.TabIndex = 7;
+            this.textBoxEmployeeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxEmployeeId.Location = new System.Drawing.Point(172, 121);
+            this.textBoxEmployeeId.Name = "textBoxEmployeeId";
+            this.textBoxEmployeeId.Size = new System.Drawing.Size(100, 22);
+            this.textBoxEmployeeId.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(60, 121);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Employee Id:";
+            // 
+            // dateTimeAppointment
+            // 
+            this.dateTimeAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dateTimeAppointment.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimeAppointment.Location = new System.Drawing.Point(172, 78);
+            this.dateTimeAppointment.MinDate = new System.DateTime(2024, 4, 4, 0, 0, 0, 0);
+            this.dateTimeAppointment.Name = "dateTimeAppointment";
+            this.dateTimeAppointment.Size = new System.Drawing.Size(200, 22);
+            this.dateTimeAppointment.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(61, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Appointment:";
+            // 
+            // textBoxIdAppointment
+            // 
+            this.textBoxIdAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxIdAppointment.Location = new System.Drawing.Point(172, 40);
+            this.textBoxIdAppointment.Name = "textBoxIdAppointment";
+            this.textBoxIdAppointment.ReadOnly = true;
+            this.textBoxIdAppointment.Size = new System.Drawing.Size(100, 22);
+            this.textBoxIdAppointment.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(125, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Id:";
             // 
             // buttonRefreshAppointments
             // 
@@ -199,6 +200,7 @@
             this.Controls.Add(this.listBoxAppointments);
             this.Name = "AppointmentForm";
             this.Text = "AppointmentForm";
+            this.Load += new System.EventHandler(this.AppointmentForm_Load);
             this.groupBoxAppointments.ResumeLayout(false);
             this.groupBoxAppointments.PerformLayout();
             this.ResumeLayout(false);

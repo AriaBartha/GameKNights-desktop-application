@@ -16,5 +16,15 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             InitializeComponent();
         }
+
+        private void AppointmentForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
