@@ -29,5 +29,11 @@ namespace Tarsasok_Asztali_Alkalmazas
             EmployeeForm employeesForm = new EmployeeForm();
             employeesForm.ShowDialog();
         }
+
+        private void buttonToAppointments_Click(object sender, EventArgs e)
+        {
+            AppointmentForm appointmentsForm = new AppointmentForm();
+            appointmentsForm.ShowDialog();
+        }
     }
 }

@@ -53,6 +53,7 @@
             this.buttonToAppointments.TabIndex = 1;
             this.buttonToAppointments.Text = "Appointments";
             this.buttonToAppointments.UseVisualStyleBackColor = true;
+            this.buttonToAppointments.Click += new System.EventHandler(this.buttonToAppointments_Click);
             // 
             // buttonLogOut
             // 
