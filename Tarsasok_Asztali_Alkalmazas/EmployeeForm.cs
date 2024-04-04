@@ -68,7 +68,11 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void listBoxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Employee employee = (Employee)listBoxEmployees.SelectedItem;
+            textBoxIdEmployee.Text = employee.Id.ToString();
+            textBoxNameEmployee.Text = employee.EName.ToString();
+            textBoxEmailEmployee.Text = employee.EEmail.ToString();
+            textBoxPassword.Text = employee.EPassword.ToString();
         }
 
         private void buttonRefreshListEmloyee_Click(object sender, EventArgs e)
