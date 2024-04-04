@@ -77,7 +77,7 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void buttonRefreshListEmloyee_Click(object sender, EventArgs e)
         {
-
+            refreshEmployeeList();
         }
 
         private void buttonAddEmployee_Click(object sender, EventArgs e)
