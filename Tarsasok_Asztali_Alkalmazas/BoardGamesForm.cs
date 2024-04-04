@@ -160,11 +160,43 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             listRefreshing();
         }
-       
+
         private void buttonDeleteBG_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxIdBG.Text))
+            {
+                MessageBox.Show("A board game must be selected!");
+                return;
+            }
+            if (MessageBox.Show("Are you sure, you want to delete the selected item?") == DialogResult.OK)
+            {
+                BoardGame boardGame = new BoardGame();
 
-            
+                boardGame.Id = long.Parse(textBoxIdBG.Text);
+                
+                boardGame.BgName = textBoxNameBG.Text;
+                boardGame.MinPlayers = (long)nuMinPlayerBG.Value;
+                boardGame.MaxPlayers = (long)nuMaxPlayerBG.Value;
+                boardGame.Description = richTextBoxDescriptionBG.Text;
+
+                string endPointDelete = $"{endPoint}/{boardGame.Id}";
+                var response = client.DeleteAsync(endPointDelete).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Delete is successful!");
+                    listRefreshing();
+                }
+                else
+                {
+                    MessageBox.Show("Delete failed!");
+                }
+                textBoxIdBG.Text = string.Empty;
+                textBoxNameBG.Text = string.Empty;
+                nuMinPlayerBG.Value = nuMinPlayerBG.Minimum;
+                nuMaxPlayerBG.Value = nuMaxPlayerBG.Minimum;
+                richTextBoxDescriptionBG.Text = string.Empty;
+
+            }
         }
 
         private void listBoxBoardGames_SelectedIndexChanged(object sender, EventArgs e)
