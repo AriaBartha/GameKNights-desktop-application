@@ -30,14 +30,14 @@
         {
             this.listBoxEmployees = new System.Windows.Forms.ListBox();
             this.groupBoxEmployees = new System.Windows.Forms.GroupBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxEmailEmployee = new System.Windows.Forms.TextBox();
+            this.textBoxNameEmployee = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBoxIdEmployee = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxNameEmployee = new System.Windows.Forms.TextBox();
-            this.textBoxEmailEmployee = new System.Windows.Forms.TextBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonRefreshListEmloyee = new System.Windows.Forms.Button();
             this.buttonAddEmployee = new System.Windows.Forms.Button();
             this.buttonUpdateEmployee = new System.Windows.Forms.Button();
@@ -53,6 +53,7 @@
             this.listBoxEmployees.Name = "listBoxEmployees";
             this.listBoxEmployees.Size = new System.Drawing.Size(380, 450);
             this.listBoxEmployees.TabIndex = 0;
+            this.listBoxEmployees.SelectedIndexChanged += new System.EventHandler(this.listBoxEmployees_SelectedIndexChanged);
             // 
             // groupBoxEmployees
             // 
@@ -72,6 +73,60 @@
             this.groupBoxEmployees.TabStop = false;
             this.groupBoxEmployees.Text = "groupBox1";
             // 
+            // textBoxPassword
+            // 
+            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxPassword.Location = new System.Drawing.Point(108, 149);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(211, 22);
+            this.textBoxPassword.TabIndex = 7;
+            // 
+            // textBoxEmailEmployee
+            // 
+            this.textBoxEmailEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxEmailEmployee.Location = new System.Drawing.Point(108, 110);
+            this.textBoxEmailEmployee.Name = "textBoxEmailEmployee";
+            this.textBoxEmailEmployee.Size = new System.Drawing.Size(211, 22);
+            this.textBoxEmailEmployee.TabIndex = 6;
+            // 
+            // textBoxNameEmployee
+            // 
+            this.textBoxNameEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxNameEmployee.Location = new System.Drawing.Point(108, 74);
+            this.textBoxNameEmployee.Name = "textBoxNameEmployee";
+            this.textBoxNameEmployee.Size = new System.Drawing.Size(211, 22);
+            this.textBoxNameEmployee.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(32, 149);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 16);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Password:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(58, 110);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Email:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(55, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Name:";
+            // 
             // textBoxIdEmployee
             // 
             this.textBoxIdEmployee.Location = new System.Drawing.Point(108, 38);
@@ -89,60 +144,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Id:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(55, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Name:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(58, 110);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Email:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(32, 149);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 16);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Password:";
-            // 
-            // textBoxNameEmployee
-            // 
-            this.textBoxNameEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxNameEmployee.Location = new System.Drawing.Point(108, 74);
-            this.textBoxNameEmployee.Name = "textBoxNameEmployee";
-            this.textBoxNameEmployee.Size = new System.Drawing.Size(211, 22);
-            this.textBoxNameEmployee.TabIndex = 5;
-            // 
-            // textBoxEmailEmployee
-            // 
-            this.textBoxEmailEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxEmailEmployee.Location = new System.Drawing.Point(108, 110);
-            this.textBoxEmailEmployee.Name = "textBoxEmailEmployee";
-            this.textBoxEmailEmployee.Size = new System.Drawing.Size(211, 22);
-            this.textBoxEmailEmployee.TabIndex = 6;
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxPassword.Location = new System.Drawing.Point(108, 149);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(211, 22);
-            this.textBoxPassword.TabIndex = 7;
-            // 
             // buttonRefreshListEmloyee
             // 
             this.buttonRefreshListEmloyee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -152,6 +153,7 @@
             this.buttonRefreshListEmloyee.TabIndex = 2;
             this.buttonRefreshListEmloyee.Text = "Refresh List";
             this.buttonRefreshListEmloyee.UseVisualStyleBackColor = true;
+            this.buttonRefreshListEmloyee.Click += new System.EventHandler(this.buttonRefreshListEmloyee_Click);
             // 
             // buttonAddEmployee
             // 
@@ -162,6 +164,7 @@
             this.buttonAddEmployee.TabIndex = 3;
             this.buttonAddEmployee.Text = "Add";
             this.buttonAddEmployee.UseVisualStyleBackColor = true;
+            this.buttonAddEmployee.Click += new System.EventHandler(this.buttonAddEmployee_Click);
             // 
             // buttonUpdateEmployee
             // 
@@ -172,6 +175,7 @@
             this.buttonUpdateEmployee.TabIndex = 4;
             this.buttonUpdateEmployee.Text = "Update";
             this.buttonUpdateEmployee.UseVisualStyleBackColor = true;
+            this.buttonUpdateEmployee.Click += new System.EventHandler(this.buttonUpdateEmployee_Click);
             // 
             // buttonDeleteEmployee
             // 
@@ -182,6 +186,7 @@
             this.buttonDeleteEmployee.TabIndex = 5;
             this.buttonDeleteEmployee.Text = "Delete";
             this.buttonDeleteEmployee.UseVisualStyleBackColor = true;
+            this.buttonDeleteEmployee.Click += new System.EventHandler(this.buttonDeleteEmployee_Click);
             // 
             // EmployeeForm
             // 
@@ -196,6 +201,7 @@
             this.Controls.Add(this.listBoxEmployees);
             this.Name = "EmployeeForm";
             this.Text = "EmployeeForm";
+            this.Load += new System.EventHandler(this.EmployeeForm_Load);
             this.groupBoxEmployees.ResumeLayout(false);
             this.groupBoxEmployees.PerformLayout();
             this.ResumeLayout(false);
