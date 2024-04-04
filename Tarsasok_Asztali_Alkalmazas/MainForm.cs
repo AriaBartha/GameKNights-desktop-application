@@ -23,5 +23,11 @@ namespace Tarsasok_Asztali_Alkalmazas
             boardGamesForm.ShowDialog();
             //TODO: close Mainform when goes to BoardGamesForm
         }
+
+        private void buttonToEmployees_Click(object sender, EventArgs e)
+        {
+            EmployeeForm employeesForm = new EmployeeForm();
+            employeesForm.ShowDialog();
+        }
     }
 }

@@ -80,6 +80,7 @@
             this.buttonToEmployees.TabIndex = 4;
             this.buttonToEmployees.Text = "Employees";
             this.buttonToEmployees.UseVisualStyleBackColor = true;
+            this.buttonToEmployees.Click += new System.EventHandler(this.buttonToEmployees_Click);
             // 
             // MainForm
             // 

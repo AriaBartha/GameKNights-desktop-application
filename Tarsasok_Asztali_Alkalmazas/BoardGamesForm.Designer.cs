@@ -121,7 +121,7 @@
             this.groupBoxBG.Size = new System.Drawing.Size(524, 376);
             this.groupBoxBG.TabIndex = 5;
             this.groupBoxBG.TabStop = false;
-            this.groupBoxBG.Text = "groupBox1";
+            this.groupBoxBG.Text = "groupBoxBG";
             // 
             // nuMaxPlayerBG
             // 
