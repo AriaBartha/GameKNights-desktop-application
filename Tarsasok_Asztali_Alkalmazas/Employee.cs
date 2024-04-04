@@ -34,6 +34,11 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         [JsonProperty("updated_at")]
         public DateTimeOffset UpdatedAt { get; set; }
+
+        public override string ToString()
+        {
+            return EName;
+        }
     }
 
     public partial class Employee

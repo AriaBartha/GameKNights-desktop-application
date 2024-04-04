@@ -40,7 +40,30 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
+            refreshEmployeeList();
+        }
 
+        private async void refreshEmployeeList()
+        {
+
+            listBoxEmployees.Items.Clear();
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(endPoint);
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonString = await response.Content.ReadAsStringAsync();
+                    var employee = Employee.FromJson(jsonString);
+                    foreach (Employee item in employee)
+                    {
+                        listBoxEmployees.Items.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void listBoxEmployees_SelectedIndexChanged(object sender, EventArgs e)

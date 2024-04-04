@@ -131,6 +131,7 @@
             // 
             this.textBoxIdEmployee.Location = new System.Drawing.Point(108, 38);
             this.textBoxIdEmployee.Name = "textBoxIdEmployee";
+            this.textBoxIdEmployee.ReadOnly = true;
             this.textBoxIdEmployee.Size = new System.Drawing.Size(112, 20);
             this.textBoxIdEmployee.TabIndex = 1;
             // 
