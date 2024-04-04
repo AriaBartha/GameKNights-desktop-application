@@ -72,7 +72,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             textBoxIdEmployee.Text = employee.Id.ToString();
             textBoxNameEmployee.Text = employee.EName.ToString();
             textBoxEmailEmployee.Text = employee.EEmail.ToString();
-            textBoxPassword.Text = employee.EPassword.ToString();
+            textBoxPasswordEmployee.Text = employee.EPassword.ToString();
         }
 
         private void buttonRefreshListEmloyee_Click(object sender, EventArgs e)
@@ -82,7 +82,44 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void buttonAddEmployee_Click(object sender, EventArgs e)
         {
-
+            Employee employee = new Employee();
+            if (string.IsNullOrEmpty(textBoxNameEmployee.Text))
+            {
+                MessageBox.Show("Employee name is required");
+                textBoxNameEmployee.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(textBoxEmailEmployee.Text))
+            {
+                MessageBox.Show("Email is required");
+                textBoxEmailEmployee.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(textBoxPasswordEmployee.Text))
+            {
+                MessageBox.Show("Password is required");
+                textBoxPasswordEmployee.Focus();
+                return;
+            }
+            employee.EName = textBoxNameEmployee.Text;
+            employee.EEmail = textBoxEmailEmployee.Text;
+            employee.EPassword = textBoxPasswordEmployee.Text;
+            var json = JsonConvert.SerializeObject(employee);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = client.PostAsync(endPoint, data).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("New employee has been added successfully");
+                refreshEmployeeList();
+            }
+            else
+            {
+                MessageBox.Show("Failed! Could not add new employee to database.");
+            }
+            textBoxIdEmployee.Text = string.Empty;
+            textBoxNameEmployee.Text = string.Empty;
+            textBoxEmailEmployee.Text = string.Empty;
+            textBoxPasswordEmployee.Text = string.Empty;
         }
 
         private void buttonUpdateEmployee_Click(object sender, EventArgs e)

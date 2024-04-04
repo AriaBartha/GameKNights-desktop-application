@@ -30,7 +30,7 @@
         {
             this.listBoxEmployees = new System.Windows.Forms.ListBox();
             this.groupBoxEmployees = new System.Windows.Forms.GroupBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxPasswordEmployee = new System.Windows.Forms.TextBox();
             this.textBoxEmailEmployee = new System.Windows.Forms.TextBox();
             this.textBoxNameEmployee = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             // 
             // groupBoxEmployees
             // 
-            this.groupBoxEmployees.Controls.Add(this.textBoxPassword);
+            this.groupBoxEmployees.Controls.Add(this.textBoxPasswordEmployee);
             this.groupBoxEmployees.Controls.Add(this.textBoxEmailEmployee);
             this.groupBoxEmployees.Controls.Add(this.textBoxNameEmployee);
             this.groupBoxEmployees.Controls.Add(this.label4);
@@ -73,13 +73,13 @@
             this.groupBoxEmployees.TabStop = false;
             this.groupBoxEmployees.Text = "groupBox1";
             // 
-            // textBoxPassword
+            // textBoxPasswordEmployee
             // 
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxPassword.Location = new System.Drawing.Point(108, 149);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(211, 22);
-            this.textBoxPassword.TabIndex = 7;
+            this.textBoxPasswordEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxPasswordEmployee.Location = new System.Drawing.Point(108, 149);
+            this.textBoxPasswordEmployee.Name = "textBoxPasswordEmployee";
+            this.textBoxPasswordEmployee.Size = new System.Drawing.Size(211, 22);
+            this.textBoxPasswordEmployee.TabIndex = 7;
             // 
             // textBoxEmailEmployee
             // 
@@ -220,7 +220,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxEmailEmployee;
         private System.Windows.Forms.TextBox textBoxNameEmployee;
-        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxPasswordEmployee;
         private System.Windows.Forms.Button buttonRefreshListEmloyee;
         private System.Windows.Forms.Button buttonAddEmployee;
         private System.Windows.Forms.Button buttonUpdateEmployee;
