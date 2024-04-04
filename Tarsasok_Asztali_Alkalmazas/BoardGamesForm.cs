@@ -69,5 +69,36 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             
         }
+
+        private void buttonAddBG_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonUpdateBG_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonRefreshListBG_Click(object sender, EventArgs e)
+        {
+            listRefreshing();
+        }
+       
+        private void buttonDeleteBG_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void listBoxBoardGames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BoardGame boardGame = (BoardGame)listBoxBoardGames.SelectedItem;
+            textBoxIdBG.Text = boardGame.Id.ToString();
+            textBoxNameBG.Text = boardGame.BgName.ToString();
+            nuMinPlayerBG.Value = boardGame.MinPlayers;
+            nuMaxPlayerBG.Value = boardGame.MaxPlayers;
+            richTextBoxDescriptionBG.Text = boardGame.Description.ToString();
+        }
     }
 }

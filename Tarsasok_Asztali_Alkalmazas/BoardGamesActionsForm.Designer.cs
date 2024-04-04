@@ -121,16 +121,36 @@
             // nuMinPlayerBG
             // 
             this.nuMinPlayerBG.Location = new System.Drawing.Point(167, 97);
+            this.nuMinPlayerBG.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nuMinPlayerBG.Name = "nuMinPlayerBG";
             this.nuMinPlayerBG.Size = new System.Drawing.Size(120, 20);
             this.nuMinPlayerBG.TabIndex = 8;
+            this.nuMinPlayerBG.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nuMaxPlayerBG
             // 
             this.nuMaxPlayerBG.Location = new System.Drawing.Point(167, 129);
+            this.nuMaxPlayerBG.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nuMaxPlayerBG.Name = "nuMaxPlayerBG";
             this.nuMaxPlayerBG.Size = new System.Drawing.Size(120, 20);
             this.nuMaxPlayerBG.TabIndex = 9;
+            this.nuMaxPlayerBG.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // buttonActionBG
             // 
