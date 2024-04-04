@@ -73,5 +73,25 @@ namespace Tarsasok_Asztali_Alkalmazas
             dateTimeAppointment.Value = DateTime.Parse(appointment.AppointmentAppointment);
             textBoxEmployeeId.Text = appointment.EmployeeId.ToString(); 
         }
+
+        private void buttonRefreshAppointments_Click(object sender, EventArgs e)
+        {
+            refreshAppointmentList();
+        }
+
+        private void buttonAddAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdateAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDeleteAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

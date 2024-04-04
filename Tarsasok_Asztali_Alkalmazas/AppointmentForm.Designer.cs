@@ -158,6 +158,7 @@
             this.buttonRefreshAppointments.TabIndex = 2;
             this.buttonRefreshAppointments.Text = "Refresh List";
             this.buttonRefreshAppointments.UseVisualStyleBackColor = true;
+            this.buttonRefreshAppointments.Click += new System.EventHandler(this.buttonRefreshAppointments_Click);
             // 
             // buttonAddAppointment
             // 
@@ -168,6 +169,7 @@
             this.buttonAddAppointment.TabIndex = 3;
             this.buttonAddAppointment.Text = "Add";
             this.buttonAddAppointment.UseVisualStyleBackColor = true;
+            this.buttonAddAppointment.Click += new System.EventHandler(this.buttonAddAppointment_Click);
             // 
             // buttonUpdateAppointment
             // 
@@ -178,6 +180,7 @@
             this.buttonUpdateAppointment.TabIndex = 4;
             this.buttonUpdateAppointment.Text = "Update";
             this.buttonUpdateAppointment.UseVisualStyleBackColor = true;
+            this.buttonUpdateAppointment.Click += new System.EventHandler(this.buttonUpdateAppointment_Click);
             // 
             // buttonDeleteAppointment
             // 
@@ -188,6 +191,7 @@
             this.buttonDeleteAppointment.TabIndex = 5;
             this.buttonDeleteAppointment.Text = "Delete";
             this.buttonDeleteAppointment.UseVisualStyleBackColor = true;
+            this.buttonDeleteAppointment.Click += new System.EventHandler(this.buttonDeleteAppointment_Click);
             // 
             // AppointmentForm
             // 
