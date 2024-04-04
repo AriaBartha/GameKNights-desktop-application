@@ -22,7 +22,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         public long Id { get; set; }
 
         [JsonProperty("appointment")]
-        public DateTimeOffset AppointmentAppointment { get; set; }
+        public string AppointmentAppointment { get; set; }
 
         [JsonProperty("employee_id")]
         public long EmployeeId { get; set; }

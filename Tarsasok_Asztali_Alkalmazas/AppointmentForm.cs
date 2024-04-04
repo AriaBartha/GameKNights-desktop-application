@@ -68,7 +68,10 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Appointment appointment = (Appointment)listBoxAppointments.SelectedItem;
+            textBoxIdAppointment.Text = appointment.Id.ToString();
+            dateTimeAppointment.Value = DateTime.Parse(appointment.AppointmentAppointment);
+            textBoxEmployeeId.Text = appointment.EmployeeId.ToString(); 
         }
     }
 }
