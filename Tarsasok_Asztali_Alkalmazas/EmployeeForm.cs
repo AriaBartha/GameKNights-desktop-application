@@ -124,7 +124,53 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void buttonUpdateEmployee_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxIdEmployee.Text))
+            {
+                MessageBox.Show("An employee must be selected!");
+                return;
+            }
+            if (string.IsNullOrEmpty(textBoxNameEmployee.Text))
+            {
+                MessageBox.Show("Employee name is required");
+                textBoxNameEmployee.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(textBoxEmailEmployee.Text))
+            {
+                MessageBox.Show("Email is required");
+                textBoxEmailEmployee.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(textBoxPasswordEmployee.Text))
+            {
+                MessageBox.Show("Password is required");
+                textBoxPasswordEmployee.Focus();
+                return;
+            }
+            Employee employee = new Employee();
 
+            employee.Id = long.Parse(textBoxIdEmployee.Text);
+            employee.EName = textBoxNameEmployee.Text;
+            employee.EEmail = textBoxEmailEmployee.Text;
+            employee.EPassword = textBoxPasswordEmployee.Text;
+
+            var json = JsonConvert.SerializeObject(employee);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            string endPointUpdate = $"{endPoint}/{employee.Id}";
+            var response = client.PutAsync(endPointUpdate, data).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Employee's data has been updated successfully");
+                refreshEmployeeList();
+            }
+            else
+            {
+                MessageBox.Show("Employee's data update FAILED!");
+            }
+            textBoxIdEmployee.Text = string.Empty;
+            textBoxNameEmployee.Text = string.Empty;
+            textBoxEmailEmployee.Text = string.Empty;
+            textBoxPasswordEmployee.Text = string.Empty;
         }
 
         private void buttonDeleteEmployee_Click(object sender, EventArgs e)
