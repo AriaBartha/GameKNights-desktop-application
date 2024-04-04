@@ -81,7 +81,37 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void buttonAddAppointment_Click(object sender, EventArgs e)
         {
-
+            Appointment appointment = new Appointment();
+            if (string.IsNullOrEmpty(textBoxEmployeeId.Text))
+            {
+                MessageBox.Show("Employee Id required!");
+                textBoxEmployeeId.Focus();
+                return;
+            }
+            if (dateTimeAppointment.Value == null)
+            {
+                MessageBox.Show("Appointment required!");
+                dateTimeAppointment.Focus();
+                return;
+            }
+            appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString();
+            appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
+            appointment.Booked = 0;
+            var json = JsonConvert.SerializeObject(appointment);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = client.PostAsync(endPoint, data).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("New appointment has been added successfully");
+                refreshAppointmentList();
+            }
+            else
+            {
+                MessageBox.Show("Failed! Could not add new appointment to database.");
+            }
+            textBoxIdAppointment.Text = string.Empty;
+            textBoxEmployeeId.Text = string.Empty;
+            dateTimeAppointment.Value = DateTime.Now;
         }
 
         private void buttonUpdateAppointment_Click(object sender, EventArgs e)
