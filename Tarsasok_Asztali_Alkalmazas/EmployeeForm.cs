@@ -175,7 +175,36 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void buttonDeleteEmployee_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxIdEmployee.Text))
+            {
+                MessageBox.Show("An employee must be selected!");
+                return;
+            }
+            if (MessageBox.Show("Are you sure, you want to delete the selected item?") == DialogResult.OK)
+            {
+                Employee employee = new Employee();
 
+                employee.Id = long.Parse(textBoxIdEmployee.Text);
+                employee.EName = textBoxNameEmployee.Text;
+                employee.EEmail = textBoxEmailEmployee.Text;
+                employee.EPassword = textBoxPasswordEmployee.Text;
+
+                string endPointDelete = $"{endPoint}/{employee.Id}";
+                var response = client.DeleteAsync(endPointDelete).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Delete is successful!");
+                    refreshEmployeeList();
+                }
+                else
+                {
+                    MessageBox.Show("Delete failed!");
+                }
+                textBoxIdEmployee.Text = string.Empty;
+                textBoxNameEmployee.Text = string.Empty;
+                textBoxEmailEmployee.Text = string.Empty;
+                textBoxPasswordEmployee.Text = string.Empty;
+            }
         }
     }
 }

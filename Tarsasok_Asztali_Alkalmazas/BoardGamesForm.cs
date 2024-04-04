@@ -173,7 +173,6 @@ namespace Tarsasok_Asztali_Alkalmazas
                 BoardGame boardGame = new BoardGame();
 
                 boardGame.Id = long.Parse(textBoxIdBG.Text);
-                
                 boardGame.BgName = textBoxNameBG.Text;
                 boardGame.MinPlayers = (long)nuMinPlayerBG.Value;
                 boardGame.MaxPlayers = (long)nuMaxPlayerBG.Value;
