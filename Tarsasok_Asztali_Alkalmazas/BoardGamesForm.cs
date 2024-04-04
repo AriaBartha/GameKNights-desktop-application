@@ -72,7 +72,40 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void buttonAddBG_Click(object sender, EventArgs e)
         {
-            
+            BoardGame boardGame = new BoardGame();
+            if (string.IsNullOrEmpty(textBoxNameBG.Text))
+            {
+                MessageBox.Show("Board game name is required");
+                textBoxNameBG.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(richTextBoxDescriptionBG.Text))
+            {
+                MessageBox.Show("Board game description is required");
+                textBoxNameBG.Focus();
+                return;
+            }
+            boardGame.BgName = textBoxNameBG.Text;
+            boardGame.MinPlayers = (long)nuMinPlayerBG.Value;
+            boardGame.MaxPlayers = (long)nuMaxPlayerBG.Value;
+            boardGame.Description = richTextBoxDescriptionBG.Text;
+            var json = JsonConvert.SerializeObject(boardGame);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = client.PostAsync(endPoint, data).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("New board game has been added successfully");
+                listRefreshing();
+            }
+            else
+            {
+                MessageBox.Show("Failed! Could not add new board game to database.");
+            }
+            textBoxIdBG.Text = string.Empty;
+            textBoxNameBG.Text = string.Empty;
+            nuMinPlayerBG.Value = nuMinPlayerBG.Minimum;
+            nuMaxPlayerBG.Value = nuMaxPlayerBG.Minimum;
+            richTextBoxDescriptionBG.Text =string.Empty;
         }
 
         private void buttonUpdateBG_Click(object sender, EventArgs e)
