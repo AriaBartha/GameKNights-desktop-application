@@ -48,7 +48,9 @@
             // listBoxAppointments
             // 
             this.listBoxAppointments.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBoxAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBoxAppointments.FormattingEnabled = true;
+            this.listBoxAppointments.ItemHeight = 16;
             this.listBoxAppointments.Location = new System.Drawing.Point(0, 0);
             this.listBoxAppointments.Name = "listBoxAppointments";
             this.listBoxAppointments.Size = new System.Drawing.Size(290, 450);

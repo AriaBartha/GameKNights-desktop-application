@@ -12,6 +12,7 @@ namespace Tarsasok_Asztali_Alkalmazas
     using System.Collections.Generic;
 
     using System.Globalization;
+    using System.Xml.Linq;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
@@ -43,6 +44,12 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         [JsonProperty("updated_at")]
         public DateTimeOffset UpdatedAt { get; set; }
+
+        public override string ToString()
+        {
+            //return AppointmentAppointment.ToString();
+            return $"{this.Id} - {this.AppointmentAppointment}";
+        }
     }
 
     public partial class Appointment
