@@ -22,7 +22,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         public long Id { get; set; }
 
         [JsonProperty("appointment")]
-        public string AppointmentAppointment { get; set; }
+        public DateTime AppointmentAppointment { get; set; }
 
         [JsonProperty("employee_id")]
         public long EmployeeId { get; set; }
@@ -57,12 +57,12 @@ namespace Tarsasok_Asztali_Alkalmazas
         public static Appointment[] FromJson(string json) => JsonConvert.DeserializeObject<Appointment[]>(json, Tarsasok_Asztali_Alkalmazas.Converter.Settings);
     }
 
-    public static class SerializeAppointment
+    public static class Serialize
     {
         public static string ToJson(this Appointment[] self) => JsonConvert.SerializeObject(self, Tarsasok_Asztali_Alkalmazas.Converter.Settings);
     }
 
-    internal static class ConverterAppointment
+    internal static class Converter
     {
         public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {

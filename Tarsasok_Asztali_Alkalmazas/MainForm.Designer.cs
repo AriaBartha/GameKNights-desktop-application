@@ -72,6 +72,7 @@
             this.buttonToGuestscontactData.TabIndex = 3;
             this.buttonToGuestscontactData.Text = "Guest\'s contact data";
             this.buttonToGuestscontactData.UseVisualStyleBackColor = true;
+            this.buttonToGuestscontactData.Click += new System.EventHandler(this.buttonToGuestscontactData_Click);
             // 
             // buttonToEmployees
             // 

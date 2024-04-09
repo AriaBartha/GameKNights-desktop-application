@@ -49,12 +49,12 @@ namespace Tarsasok_Asztali_Alkalmazas
         public static BoardGame[] FromJson(string json) => JsonConvert.DeserializeObject<BoardGame[]>(json, Tarsasok_Asztali_Alkalmazas.Converter.Settings);
     }
 
-    public static class Serialize
+    public static class SerializeBoardGame
     {
         public static string ToJson(this BoardGame[] self) => JsonConvert.SerializeObject(self, Tarsasok_Asztali_Alkalmazas.Converter.Settings);
     }
 
-    internal static class Converter
+    internal static class ConverterBoardGame
     {
         public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {

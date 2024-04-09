@@ -119,6 +119,7 @@
             this.dateTimeAppointment.Name = "dateTimeAppointment";
             this.dateTimeAppointment.Size = new System.Drawing.Size(200, 22);
             this.dateTimeAppointment.TabIndex = 3;
+            this.dateTimeAppointment.Value = new System.DateTime(2024, 4, 8, 21, 53, 0, 0);
             // 
             // label2
             // 
@@ -197,6 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.buttonDeleteAppointment);
             this.Controls.Add(this.buttonUpdateAppointment);

@@ -35,5 +35,11 @@ namespace Tarsasok_Asztali_Alkalmazas
             AppointmentForm appointmentsForm = new AppointmentForm();
             appointmentsForm.ShowDialog();
         }
+
+        private void buttonToGuestscontactData_Click(object sender, EventArgs e)
+        {
+            GuestForm guestForm = new GuestForm();
+            guestForm.ShowDialog();
+        }
     }
 }
