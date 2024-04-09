@@ -28,12 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dataGridViewGuests = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridViewGuests
+            // 
+            this.dataGridViewGuests.AllowUserToAddRows = false;
+            this.dataGridViewGuests.AllowUserToDeleteRows = false;
+            this.dataGridViewGuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGuests.Location = new System.Drawing.Point(33, 74);
+            this.dataGridViewGuests.Name = "dataGridViewGuests";
+            this.dataGridViewGuests.ReadOnly = true;
+            this.dataGridViewGuests.Size = new System.Drawing.Size(658, 325);
+            this.dataGridViewGuests.TabIndex = 0;
+            // 
+            // GuestForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridViewGuests);
+            this.Name = "GuestForm";
             this.Text = "GuestForm";
+            this.Load += new System.EventHandler(this.GuestForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dataGridViewGuests;
     }
 }
