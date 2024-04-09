@@ -1,17 +1,39 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Tarsasok_Asztali_Alkalmazas
 {
     public partial class GuestForm : Form
     {
+        HttpClient client = new HttpClient();
+        string endPoint = ReadSetting("endpointUrlGuest");
+
+        private static string ReadSetting(string keyName)
+        {
+            string result = null;
+            try
+            {
+                var value = ConfigurationManager.AppSettings;
+                result = value[keyName];
+            }
+            catch (ConfigurationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return result;
+        }
         public GuestForm()
         {
             InitializeComponent();
@@ -20,7 +42,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         private void GuestForm_Load(object sender, EventArgs e)
         {
             setupDataGrid();
-            //refreshDataGrid();
+            refreshDataGrid();
         }
 
         private void setupDataGrid()
@@ -69,9 +91,34 @@ namespace Tarsasok_Asztali_Alkalmazas
             dataGridViewGuests.Columns.Add(columnPhoneNumber);
         }
 
-        // private void refreshDataGrid()
-        // {
-        //     throw new NotImplementedException();
-        // }
+         private async void refreshDataGrid()
+         {
+            dataGridViewGuests.Rows.Clear();
+
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(endPoint);
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonString = await response.Content.ReadAsStringAsync();
+                    var guest = Guest.FromJson(jsonString);
+                    foreach (Guest item in guest)
+                    {
+                        
+                        int number = dataGridViewGuests.Rows.Add();
+                        DataGridViewRow row = dataGridViewGuests.Rows[number];
+                        row.Cells["username"].Value = item.GUsername;
+                        row.Cells["name"].Value = item.GName;
+                        row.Cells["email"].Value = item.GEmail;
+                        row.Cells["phone number"].Value = item.GPhoneNumber;
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

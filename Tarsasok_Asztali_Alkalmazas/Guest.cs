@@ -17,6 +17,18 @@ namespace Tarsasok_Asztali_Alkalmazas
 
     public partial class Guest
     {
+        public Guest(long id, string gUsername, string gPassword, string gName, string gEmail, string gPhoneNumber, DateTimeOffset createdAt, DateTimeOffset updatedAt)
+        {
+            Id = id;
+            GUsername = gUsername;
+            GPassword = gPassword;
+            GName = gName;
+            GEmail = gEmail;
+            GPhoneNumber = gPhoneNumber;
+            CreatedAt = createdAt;
+            UpdatedAt = updatedAt;
+        }
+
         [JsonProperty("id")]
         public long Id { get; set; }
 
@@ -40,6 +52,8 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         [JsonProperty("updated_at")]
         public DateTimeOffset UpdatedAt { get; set; }
+
+
     }
 
     public partial class Guest
