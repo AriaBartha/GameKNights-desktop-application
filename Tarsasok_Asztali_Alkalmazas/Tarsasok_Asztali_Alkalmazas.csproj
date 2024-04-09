@@ -71,6 +71,7 @@
     <Compile Include="EmployeeForm.Designer.cs">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Guest.cs" />
     <Compile Include="GuestForm.cs">
       <SubType>Form</SubType>
     </Compile>
