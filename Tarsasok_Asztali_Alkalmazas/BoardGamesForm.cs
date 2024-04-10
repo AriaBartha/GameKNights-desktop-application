@@ -32,7 +32,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             catch (ConfigurationException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error reading app settings! " + ex.Message);
             }
             return result;
         }
@@ -62,10 +62,14 @@ namespace Tarsasok_Asztali_Alkalmazas
                         listBoxBoardGames.Items.Add(item);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Calling API endpoint failed: " + response.ReasonPhrase);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
             
         }
@@ -99,13 +103,9 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             else
             {
-                MessageBox.Show("Failed! Could not add new board game to database.");
+                MessageBox.Show("Failed! Could not add new board game to database. " + response.ReasonPhrase);
             }
-            textBoxIdBG.Text = string.Empty;
-            textBoxNameBG.Text = string.Empty;
-            nuMinPlayerBG.Value = nuMinPlayerBG.Minimum;
-            nuMaxPlayerBG.Value = nuMaxPlayerBG.Minimum;
-            richTextBoxDescriptionBG.Text =string.Empty;
+            clearInputs();
         }
 
         private void buttonUpdateBG_Click(object sender, EventArgs e)
@@ -146,18 +146,15 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             else
             {
-                MessageBox.Show("Board game update FAILED!");
+                MessageBox.Show("Board game update FAILED! " + response.ReasonPhrase);
             }
-            textBoxIdBG.Text = string.Empty;
-            textBoxNameBG.Text = string.Empty;
-            nuMinPlayerBG.Value = nuMinPlayerBG.Minimum;
-            nuMaxPlayerBG.Value = nuMaxPlayerBG.Minimum;
-            richTextBoxDescriptionBG.Text = string.Empty;
+            clearInputs();
 
         }
 
         private void buttonRefreshListBG_Click(object sender, EventArgs e)
         {
+            clearInputs();
             listRefreshing();
         }
 
@@ -187,15 +184,10 @@ namespace Tarsasok_Asztali_Alkalmazas
                 }
                 else
                 {
-                    MessageBox.Show("Delete failed!");
+                    MessageBox.Show("Delete failed! " + response.ReasonPhrase);
                 }
-                textBoxIdBG.Text = string.Empty;
-                textBoxNameBG.Text = string.Empty;
-                nuMinPlayerBG.Value = nuMinPlayerBG.Minimum;
-                nuMaxPlayerBG.Value = nuMaxPlayerBG.Minimum;
-                richTextBoxDescriptionBG.Text = string.Empty;
-
-            }
+             }
+            clearInputs();
         }
 
         private void listBoxBoardGames_SelectedIndexChanged(object sender, EventArgs e)
@@ -206,6 +198,15 @@ namespace Tarsasok_Asztali_Alkalmazas
             nuMinPlayerBG.Value = boardGame.MinPlayers;
             nuMaxPlayerBG.Value = boardGame.MaxPlayers;
             richTextBoxDescriptionBG.Text = boardGame.Description.ToString();
+        }
+
+        private void clearInputs()
+        {
+            textBoxIdBG.Text = string.Empty;
+            textBoxNameBG.Text = string.Empty;
+            nuMinPlayerBG.Value = nuMinPlayerBG.Minimum;
+            nuMaxPlayerBG.Value = nuMaxPlayerBG.Minimum;
+            richTextBoxDescriptionBG.Text = string.Empty;
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             catch (ConfigurationException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error reading app settings! " + ex.Message);
             }
             return result;
         }
@@ -59,10 +59,14 @@ namespace Tarsasok_Asztali_Alkalmazas
                         listBoxEmployees.Items.Add(item);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Calling API endpoint failed: " + response.ReasonPhrase);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
         }
 
@@ -77,6 +81,7 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void buttonRefreshListEmloyee_Click(object sender, EventArgs e)
         {
+            clearInputs();
             refreshEmployeeList();
         }
 
@@ -114,12 +119,9 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             else
             {
-                MessageBox.Show("Failed! Could not add new employee to database.");
+                MessageBox.Show("Failed! Could not add new employee to database. " + response.ReasonPhrase);
             }
-            textBoxIdEmployee.Text = string.Empty;
-            textBoxNameEmployee.Text = string.Empty;
-            textBoxEmailEmployee.Text = string.Empty;
-            textBoxPasswordEmployee.Text = string.Empty;
+            clearInputs();
         }
 
         private void buttonUpdateEmployee_Click(object sender, EventArgs e)
@@ -165,12 +167,9 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             else
             {
-                MessageBox.Show("Employee's data update FAILED!");
+                MessageBox.Show("Employee's data update FAILED! " + response.ReasonPhrase);
             }
-            textBoxIdEmployee.Text = string.Empty;
-            textBoxNameEmployee.Text = string.Empty;
-            textBoxEmailEmployee.Text = string.Empty;
-            textBoxPasswordEmployee.Text = string.Empty;
+            clearInputs();
         }
 
         private void buttonDeleteEmployee_Click(object sender, EventArgs e)
@@ -198,13 +197,18 @@ namespace Tarsasok_Asztali_Alkalmazas
                 }
                 else
                 {
-                    MessageBox.Show("Delete failed!");
+                    MessageBox.Show("Delete FAILED! " + response.ReasonPhrase);
                 }
-                textBoxIdEmployee.Text = string.Empty;
-                textBoxNameEmployee.Text = string.Empty;
-                textBoxEmailEmployee.Text = string.Empty;
-                textBoxPasswordEmployee.Text = string.Empty;
             }
+            clearInputs();
+        }
+
+        private void clearInputs()
+        {
+            textBoxIdEmployee.Text = string.Empty;
+            textBoxNameEmployee.Text = string.Empty;
+            textBoxEmailEmployee.Text = string.Empty;
+            textBoxPasswordEmployee.Text = string.Empty;
         }
     }
 }

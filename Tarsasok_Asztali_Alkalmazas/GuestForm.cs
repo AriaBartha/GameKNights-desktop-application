@@ -30,7 +30,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             catch (ConfigurationException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error reading app settings! " + ex.Message);
             }
             return result;
         }
@@ -114,10 +114,14 @@ namespace Tarsasok_Asztali_Alkalmazas
                         
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Calling API endpoint failed: " + response.ReasonPhrase);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
         }
     }
