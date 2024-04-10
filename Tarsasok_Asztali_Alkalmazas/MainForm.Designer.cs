@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.buttonToBoardGamesForm = new System.Windows.Forms.Button();
             this.buttonToAppointments = new System.Windows.Forms.Button();
             this.buttonLogOut = new System.Windows.Forms.Button();
@@ -37,58 +38,74 @@
             // 
             // buttonToBoardGamesForm
             // 
-            this.buttonToBoardGamesForm.Location = new System.Drawing.Point(306, 31);
+            this.buttonToBoardGamesForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.buttonToBoardGamesForm.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonToBoardGamesForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
+            this.buttonToBoardGamesForm.Location = new System.Drawing.Point(466, 87);
             this.buttonToBoardGamesForm.Name = "buttonToBoardGamesForm";
-            this.buttonToBoardGamesForm.Size = new System.Drawing.Size(155, 41);
+            this.buttonToBoardGamesForm.Size = new System.Drawing.Size(120, 67);
             this.buttonToBoardGamesForm.TabIndex = 0;
             this.buttonToBoardGamesForm.Text = "Board Games";
-            this.buttonToBoardGamesForm.UseVisualStyleBackColor = true;
+            this.buttonToBoardGamesForm.UseVisualStyleBackColor = false;
             this.buttonToBoardGamesForm.Click += new System.EventHandler(this.buttonToBoardGamesForm_Click);
             // 
             // buttonToAppointments
             // 
-            this.buttonToAppointments.Location = new System.Drawing.Point(306, 101);
+            this.buttonToAppointments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.buttonToAppointments.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonToAppointments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
+            this.buttonToAppointments.Location = new System.Drawing.Point(217, 155);
             this.buttonToAppointments.Name = "buttonToAppointments";
-            this.buttonToAppointments.Size = new System.Drawing.Size(155, 41);
+            this.buttonToAppointments.Size = new System.Drawing.Size(119, 73);
             this.buttonToAppointments.TabIndex = 1;
             this.buttonToAppointments.Text = "Appointments";
-            this.buttonToAppointments.UseVisualStyleBackColor = true;
+            this.buttonToAppointments.UseVisualStyleBackColor = false;
             this.buttonToAppointments.Click += new System.EventHandler(this.buttonToAppointments_Click);
             // 
             // buttonLogOut
             // 
-            this.buttonLogOut.Location = new System.Drawing.Point(577, 338);
+            this.buttonLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.buttonLogOut.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
+            this.buttonLogOut.Location = new System.Drawing.Point(615, 420);
             this.buttonLogOut.Name = "buttonLogOut";
-            this.buttonLogOut.Size = new System.Drawing.Size(155, 41);
+            this.buttonLogOut.Size = new System.Drawing.Size(120, 64);
             this.buttonLogOut.TabIndex = 2;
             this.buttonLogOut.Text = "Log out";
-            this.buttonLogOut.UseVisualStyleBackColor = true;
+            this.buttonLogOut.UseVisualStyleBackColor = false;
             // 
             // buttonToGuestscontactData
             // 
-            this.buttonToGuestscontactData.Location = new System.Drawing.Point(306, 181);
+            this.buttonToGuestscontactData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.buttonToGuestscontactData.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonToGuestscontactData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
+            this.buttonToGuestscontactData.Location = new System.Drawing.Point(411, 237);
             this.buttonToGuestscontactData.Name = "buttonToGuestscontactData";
-            this.buttonToGuestscontactData.Size = new System.Drawing.Size(155, 41);
+            this.buttonToGuestscontactData.Size = new System.Drawing.Size(123, 80);
             this.buttonToGuestscontactData.TabIndex = 3;
             this.buttonToGuestscontactData.Text = "Guest\'s contact data";
-            this.buttonToGuestscontactData.UseVisualStyleBackColor = true;
+            this.buttonToGuestscontactData.UseVisualStyleBackColor = false;
             this.buttonToGuestscontactData.Click += new System.EventHandler(this.buttonToGuestscontactData_Click);
             // 
             // buttonToEmployees
             // 
-            this.buttonToEmployees.Location = new System.Drawing.Point(306, 253);
+            this.buttonToEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.buttonToEmployees.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonToEmployees.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
+            this.buttonToEmployees.Location = new System.Drawing.Point(133, 336);
             this.buttonToEmployees.Name = "buttonToEmployees";
-            this.buttonToEmployees.Size = new System.Drawing.Size(155, 41);
+            this.buttonToEmployees.Size = new System.Drawing.Size(124, 70);
             this.buttonToEmployees.TabIndex = 4;
             this.buttonToEmployees.Text = "Employees";
-            this.buttonToEmployees.UseVisualStyleBackColor = true;
+            this.buttonToEmployees.UseVisualStyleBackColor = false;
             this.buttonToEmployees.Click += new System.EventHandler(this.buttonToEmployees_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(814, 543);
             this.Controls.Add(this.buttonToEmployees);
             this.Controls.Add(this.buttonToGuestscontactData);
             this.Controls.Add(this.buttonLogOut);

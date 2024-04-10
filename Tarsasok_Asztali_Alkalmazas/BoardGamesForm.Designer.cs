@@ -1,4 +1,6 @@
-﻿namespace Tarsasok_Asztali_Alkalmazas
+﻿using System.Drawing;
+
+namespace Tarsasok_Asztali_Alkalmazas
 {
     partial class BoardGamesForm
     {
@@ -51,6 +53,7 @@
             // 
             // listBoxBoardGames
             // 
+            this.listBoxBoardGames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.listBoxBoardGames.Dock = System.Windows.Forms.DockStyle.Left;
             this.listBoxBoardGames.FormattingEnabled = true;
             this.listBoxBoardGames.Location = new System.Drawing.Point(0, 0);
@@ -61,50 +64,59 @@
             // 
             // buttonAddBG
             // 
+            this.buttonAddBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonAddBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonAddBG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.buttonAddBG.Location = new System.Drawing.Point(421, 409);
             this.buttonAddBG.Name = "buttonAddBG";
             this.buttonAddBG.Size = new System.Drawing.Size(106, 27);
             this.buttonAddBG.TabIndex = 1;
             this.buttonAddBG.Text = "Add";
-            this.buttonAddBG.UseVisualStyleBackColor = true;
+            this.buttonAddBG.UseVisualStyleBackColor = false;
             this.buttonAddBG.Click += new System.EventHandler(this.buttonAddBG_Click);
             // 
             // buttonUpdateBG
             // 
+            this.buttonUpdateBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonUpdateBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonUpdateBG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.buttonUpdateBG.Location = new System.Drawing.Point(550, 409);
             this.buttonUpdateBG.Name = "buttonUpdateBG";
             this.buttonUpdateBG.Size = new System.Drawing.Size(92, 27);
             this.buttonUpdateBG.TabIndex = 2;
             this.buttonUpdateBG.Text = "Update";
-            this.buttonUpdateBG.UseVisualStyleBackColor = true;
+            this.buttonUpdateBG.UseVisualStyleBackColor = false;
             this.buttonUpdateBG.Click += new System.EventHandler(this.buttonUpdateBG_Click);
             // 
             // buttonRefreshListBG
             // 
+            this.buttonRefreshListBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonRefreshListBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonRefreshListBG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.buttonRefreshListBG.Location = new System.Drawing.Point(290, 409);
             this.buttonRefreshListBG.Name = "buttonRefreshListBG";
             this.buttonRefreshListBG.Size = new System.Drawing.Size(115, 27);
             this.buttonRefreshListBG.TabIndex = 3;
             this.buttonRefreshListBG.Text = "Refresh List";
-            this.buttonRefreshListBG.UseVisualStyleBackColor = true;
+            this.buttonRefreshListBG.UseVisualStyleBackColor = false;
             this.buttonRefreshListBG.Click += new System.EventHandler(this.buttonRefreshListBG_Click);
             // 
             // buttonDeleteBG
             // 
-            this.buttonDeleteBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonDeleteBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.buttonDeleteBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonDeleteBG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.buttonDeleteBG.Location = new System.Drawing.Point(670, 409);
             this.buttonDeleteBG.Name = "buttonDeleteBG";
             this.buttonDeleteBG.Size = new System.Drawing.Size(92, 27);
             this.buttonDeleteBG.TabIndex = 4;
             this.buttonDeleteBG.Text = "Delete";
-            this.buttonDeleteBG.UseVisualStyleBackColor = true;
+            this.buttonDeleteBG.UseVisualStyleBackColor = false;
             this.buttonDeleteBG.Click += new System.EventHandler(this.buttonDeleteBG_Click);
             // 
             // groupBoxBG
             // 
+            this.groupBoxBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(89)))), ((int)(((byte)(77)))));
             this.groupBoxBG.Controls.Add(this.nuMaxPlayerBG);
             this.groupBoxBG.Controls.Add(this.nuMinPlayerBG);
             this.groupBoxBG.Controls.Add(this.richTextBoxDescriptionBG);
@@ -125,6 +137,7 @@
             // 
             // nuMaxPlayerBG
             // 
+            this.nuMaxPlayerBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.nuMaxPlayerBG.Location = new System.Drawing.Point(131, 117);
             this.nuMaxPlayerBG.Minimum = new decimal(new int[] {
             1,
@@ -142,6 +155,7 @@
             // 
             // nuMinPlayerBG
             // 
+            this.nuMinPlayerBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.nuMinPlayerBG.Location = new System.Drawing.Point(131, 85);
             this.nuMinPlayerBG.Minimum = new decimal(new int[] {
             1,
@@ -159,6 +173,7 @@
             // 
             // richTextBoxDescriptionBG
             // 
+            this.richTextBoxDescriptionBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.richTextBoxDescriptionBG.Location = new System.Drawing.Point(127, 151);
             this.richTextBoxDescriptionBG.Name = "richTextBoxDescriptionBG";
             this.richTextBoxDescriptionBG.Size = new System.Drawing.Size(331, 204);
@@ -167,6 +182,7 @@
             // 
             // textBoxNameBG
             // 
+            this.textBoxNameBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.textBoxNameBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxNameBG.Location = new System.Drawing.Point(131, 53);
             this.textBoxNameBG.Name = "textBoxNameBG";
@@ -175,6 +191,7 @@
             // 
             // textBoxIdBG
             // 
+            this.textBoxIdBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.textBoxIdBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxIdBG.Location = new System.Drawing.Point(131, 25);
             this.textBoxIdBG.Name = "textBoxIdBG";
@@ -186,6 +203,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label5.Location = new System.Drawing.Point(43, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 16);
@@ -196,6 +214,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label4.Location = new System.Drawing.Point(43, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 16);
@@ -206,6 +225,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label3.Location = new System.Drawing.Point(43, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 16);
@@ -216,6 +236,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label2.Location = new System.Drawing.Point(43, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 16);
@@ -226,6 +247,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label1.Location = new System.Drawing.Point(43, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 16);
@@ -236,6 +258,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(89)))), ((int)(((byte)(77)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBoxBG);
             this.Controls.Add(this.buttonDeleteBG);
