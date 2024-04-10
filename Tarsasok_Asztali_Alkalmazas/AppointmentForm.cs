@@ -71,18 +71,19 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             Appointment appointment = (Appointment)listBoxAppointments.SelectedItem;
 
-            //TODO: JSON format egyezzen meg az adatbáziosban lévővel
+
             dateTimeAppointment.Format = DateTimePickerFormat.Custom;
             dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
 
             textBoxIdAppointment.Text = appointment.Id.ToString();
-            //dateTimeAppointment.Value = DateTime.Parse(appointment.AppointmentAppointment);
-            dateTimeAppointment.Value = appointment.AppointmentAppointment;
+            dateTimeAppointment.Value = DateTime.Parse(appointment.AppointmentAppointment);
+            //dateTimeAppointment.Value = appointment.AppointmentAppointment;
             textBoxEmployeeId.Text = appointment.EmployeeId.ToString(); 
         }
 
         private void buttonRefreshAppointments_Click(object sender, EventArgs e)
         {
+            clearInputs();
             refreshAppointmentList();
         }
 
@@ -102,11 +103,10 @@ namespace Tarsasok_Asztali_Alkalmazas
                 return;
             }
 
-            //TODO: JSON format egyezzen meg az adatbáziosban lévővel
             dateTimeAppointment.Format = DateTimePickerFormat.Custom;
             dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
 
-            appointment.AppointmentAppointment = dateTimeAppointment.Value;
+            appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
             appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
             appointment.Booked = 0;
             var json = JsonConvert.SerializeObject(appointment);
@@ -120,11 +120,9 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             else
             {
-                MessageBox.Show("Failed! Could not add new appointment to database.");
+                MessageBox.Show("Failed! Could not add new appointment to database. " + response.ReasonPhrase);
             }
-            textBoxIdAppointment.Text = string.Empty;
-            textBoxEmployeeId.Text = string.Empty;
-            dateTimeAppointment.Value = DateTime.Now;
+            clearInputs();
         }
 
         private void buttonUpdateAppointment_Click(object sender, EventArgs e)
@@ -146,15 +144,13 @@ namespace Tarsasok_Asztali_Alkalmazas
                 dateTimeAppointment.Focus();
                 return;
             }
-            //TODO: datetime to string, make update work
 
             Appointment appointment = new Appointment();
             appointment.Id =long.Parse(textBoxIdAppointment.Text);
-            //TODO: JSON format egyezzen meg az adatbáziosban lévővel
             dateTimeAppointment.Format = DateTimePickerFormat.Custom;
             dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
 
-            appointment.AppointmentAppointment = dateTimeAppointment.Value;
+            appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
             appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
             
 
@@ -169,11 +165,9 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             else
             {
-                MessageBox.Show("Failed! Could not update appointment!");
+                MessageBox.Show("Failed! Could not update appointment! " + response.ReasonPhrase);
             }
-            textBoxIdAppointment.Text = string.Empty;
-            textBoxEmployeeId.Text = string.Empty;
-            dateTimeAppointment.Value = DateTime.Now;
+            clearInputs();
         }
 
         private void buttonDeleteAppointment_Click(object sender, EventArgs e)
@@ -187,7 +181,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             {
                 Appointment appointment = new Appointment();
                 appointment.Id = long.Parse(textBoxIdAppointment.Text);
-                appointment.AppointmentAppointment = dateTimeAppointment.Value;
+                appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString();
                 appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
                                 
                 string endPointDelete = $"{endPoint}/{appointment.Id}";
@@ -199,9 +193,14 @@ namespace Tarsasok_Asztali_Alkalmazas
                 }
                 else
                 {
-                    MessageBox.Show("Failed! Could not delete appointment!");
+                    MessageBox.Show("Failed! Could not delete appointment! " + response.ReasonPhrase);
                 }
             } 
+            clearInputs();
+        }
+
+        private void clearInputs()
+        {
             textBoxIdAppointment.Text = string.Empty;
             textBoxEmployeeId.Text = string.Empty;
             dateTimeAppointment.Value = DateTime.Now;

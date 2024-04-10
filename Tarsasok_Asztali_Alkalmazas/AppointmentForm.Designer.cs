@@ -112,14 +112,15 @@
             // 
             // dateTimeAppointment
             // 
+            this.dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
             this.dateTimeAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimeAppointment.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimeAppointment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimeAppointment.Location = new System.Drawing.Point(172, 78);
             this.dateTimeAppointment.MinDate = new System.DateTime(2024, 4, 4, 0, 0, 0, 0);
             this.dateTimeAppointment.Name = "dateTimeAppointment";
             this.dateTimeAppointment.Size = new System.Drawing.Size(200, 22);
             this.dateTimeAppointment.TabIndex = 3;
-            this.dateTimeAppointment.Value = new System.DateTime(2024, 4, 8, 21, 53, 0, 0);
+            this.dateTimeAppointment.Value = new System.DateTime(2024, 4, 10, 10, 0, 0, 0);
             // 
             // label2
             // 

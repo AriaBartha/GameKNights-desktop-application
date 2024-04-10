@@ -10,9 +10,8 @@ namespace Tarsasok_Asztali_Alkalmazas
 {
     using System;
     using System.Collections.Generic;
-
-    using System.Globalization;
     using System.Xml.Linq;
+    using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
@@ -22,7 +21,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         public long Id { get; set; }
 
         [JsonProperty("appointment")]
-        public DateTime AppointmentAppointment { get; set; }
+        public string AppointmentAppointment { get; set; }
 
         [JsonProperty("employee_id")]
         public long EmployeeId { get; set; }
@@ -31,13 +30,13 @@ namespace Tarsasok_Asztali_Alkalmazas
         public long Booked { get; set; }
 
         [JsonProperty("guest_id")]
-        public long GuestId { get; set; }
+        public object GuestId { get; set; }
 
         [JsonProperty("board_game_id")]
-        public long BoardGameId { get; set; }
+        public object BoardGameId { get; set; }
 
         [JsonProperty("number_of_players")]
-        public long NumberOfPlayers { get; set; }
+        public object NumberOfPlayers { get; set; }
 
         [JsonProperty("created_at")]
         public DateTimeOffset CreatedAt { get; set; }
