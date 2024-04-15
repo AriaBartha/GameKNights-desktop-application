@@ -79,6 +79,24 @@ namespace Tarsasok_Asztali_Alkalmazas
             
         }
 
+        // Kiválasztott társasjáték adatainak betöltése az input mezőkbe.
+        private void listBoxBoardGames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BoardGame boardGame = (BoardGame)listBoxBoardGames.SelectedItem;
+            textBoxIdBG.Text = boardGame.Id.ToString();
+            textBoxNameBG.Text = boardGame.BgName.ToString();
+            nuMinPlayerBG.Value = boardGame.MinPlayers;
+            nuMaxPlayerBG.Value = boardGame.MaxPlayers;
+            richTextBoxDescriptionBG.Text = boardGame.Description.ToString();
+        }
+
+        // Lista frissítés gomb (Refresh List) kattintási eseménye.
+        private void buttonRefreshListBG_Click(object sender, EventArgs e)
+        {
+            clearInputs();
+            listRefreshing();
+        }
+
         // Új társasjáték hozzáadása az adatbázishoz, Add gomb kattintási eseménye.
         private void buttonAddBG_Click(object sender, EventArgs e)
         {
@@ -159,13 +177,6 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         }
 
-        // Lista frissítés gomb (Refresh List) kattintási eseménye.
-        private void buttonRefreshListBG_Click(object sender, EventArgs e)
-        {
-            clearInputs();
-            listRefreshing();
-        }
-
         // Kiválasztott társasjáték törlése az adatbázisból, Delete gomb kattintási eseménye.
         private void buttonDeleteBG_Click(object sender, EventArgs e)
         {
@@ -197,17 +208,6 @@ namespace Tarsasok_Asztali_Alkalmazas
                 }
              }
             clearInputs();
-        }
-
-        // Kiválasztott társasjáték adatainak betöltése az input mezőkbe.
-        private void listBoxBoardGames_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BoardGame boardGame = (BoardGame)listBoxBoardGames.SelectedItem;
-            textBoxIdBG.Text = boardGame.Id.ToString();
-            textBoxNameBG.Text = boardGame.BgName.ToString();
-            nuMinPlayerBG.Value = boardGame.MinPlayers;
-            nuMaxPlayerBG.Value = boardGame.MaxPlayers;
-            richTextBoxDescriptionBG.Text = boardGame.Description.ToString();
         }
 
         // Input mezők kiürítése.

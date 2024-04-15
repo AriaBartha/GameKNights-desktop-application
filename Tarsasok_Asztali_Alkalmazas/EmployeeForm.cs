@@ -11,6 +11,7 @@ using Tarsasok_Asztali_Alkalmazas;
 using Newtonsoft.Json;
 using System.Configuration;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 
 namespace Tarsasok_Asztali_Alkalmazas
 {
@@ -110,6 +111,12 @@ namespace Tarsasok_Asztali_Alkalmazas
                 textBoxEmailEmployee.Focus();
                 return;
             }
+            if (!IsValidEmail(textBoxEmailEmployee.Text))
+            {
+                MessageBox.Show("Email address must be valid.");
+                textBoxEmailEmployee.Focus();
+                return;
+            }
             if (string.IsNullOrEmpty(textBoxPasswordEmployee.Text))
             {
                 MessageBox.Show("Password is required");
@@ -154,12 +161,19 @@ namespace Tarsasok_Asztali_Alkalmazas
                 textBoxEmailEmployee.Focus();
                 return;
             }
+            if (!IsValidEmail(textBoxEmailEmployee.Text))
+            {
+                MessageBox.Show("Email address must be valid.");
+                textBoxEmailEmployee.Focus();
+                return;
+            }
             if (string.IsNullOrEmpty(textBoxPasswordEmployee.Text))
             {
                 MessageBox.Show("Password is required");
                 textBoxPasswordEmployee.Focus();
                 return;
             }
+
             Employee employee = new Employee();
 
             employee.Id = long.Parse(textBoxIdEmployee.Text);
@@ -222,6 +236,14 @@ namespace Tarsasok_Asztali_Alkalmazas
             textBoxNameEmployee.Text = string.Empty;
             textBoxEmailEmployee.Text = string.Empty;
             textBoxPasswordEmployee.Text = string.Empty;
+        }
+
+        //Email cím validálás.
+        public static bool IsValidEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            var regex = new Regex(pattern, RegexOptions.IgnoreCase);
+            return regex.IsMatch(email);
         }
     }
 }
