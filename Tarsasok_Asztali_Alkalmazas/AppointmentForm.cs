@@ -20,6 +20,7 @@ namespace Tarsasok_Asztali_Alkalmazas
     {
         HttpClient client = new HttpClient();
         string endPoint = ReadSetting("endpointUrlAppointment");
+        string endpointEmployee = ReadSetting("endpointUrlEmployee");
 
         private static string ReadSetting(string keyName)
         {
@@ -71,10 +72,9 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
         }
 
-        private void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
+        private async void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
             Appointment appointment = (Appointment)listBoxAppointments.SelectedItem;
-
 
             dateTimeAppointment.Format = DateTimePickerFormat.Custom;
             dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
@@ -82,7 +82,28 @@ namespace Tarsasok_Asztali_Alkalmazas
             textBoxIdAppointment.Text = appointment.Id.ToString();
             dateTimeAppointment.Value = DateTime.Parse(appointment.AppointmentAppointment);
             //dateTimeAppointment.Value = appointment.AppointmentAppointment;
-            textBoxEmployeeId.Text = appointment.EmployeeId.ToString(); 
+            textBoxEmployeeId.Text = appointment.EmployeeId.ToString();
+
+            HttpResponseMessage response = await client.GetAsync(endpointEmployee);
+            if (response.IsSuccessStatusCode)
+            {
+                string jsonString = await response.Content.ReadAsStringAsync();
+                var employee = Employee.FromJson(jsonString);
+                foreach (Employee item in employee)
+                {
+                    if (Int64.Parse(textBoxEmployeeId.Text) == item.Id)
+                    {
+                        textBoxEName.Text = item.EName;
+                    }
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Calling API endpoint failed: " + response.ReasonPhrase);
+            }
+            
+            
         }
 
         private void buttonRefreshAppointments_Click(object sender, EventArgs e)
@@ -113,6 +134,10 @@ namespace Tarsasok_Asztali_Alkalmazas
             appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
             appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
             appointment.Booked = 0;
+            //appointment.GuestId = null;
+            //appointment.BoardGameId = null;
+            //appointment.NumberOfPlayers = null;
+
             var json = JsonConvert.SerializeObject(appointment);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = client.PostAsync(endPoint, data).Result;
