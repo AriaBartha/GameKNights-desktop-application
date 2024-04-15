@@ -46,8 +46,7 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         public override string ToString()
         {
-            //return AppointmentAppointment.ToString();
-            return $"{this.Id} - {this.AppointmentAppointment}";
+            return $"{this.Id}  -  {this.AppointmentAppointment}";
         }
     }
 

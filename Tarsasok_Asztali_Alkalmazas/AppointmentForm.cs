@@ -23,6 +23,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         string endpointEmployee = ReadSetting("endpointUrlEmployee");
 
         // Applikáció beállítások olvasása.
+
         private static string ReadSetting(string keyName)
         {
             string result = null;
@@ -37,6 +38,9 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             return result;
         }
+
+        // Inicializálás.
+
         public AppointmentForm()
         {
             InitializeComponent();
@@ -282,6 +286,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         }
 
         // Input mezők kiürítése.
+
         private void clearInputs()
         {
             textBoxIdAppointment.Text = string.Empty;

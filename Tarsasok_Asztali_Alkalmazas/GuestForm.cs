@@ -20,6 +20,8 @@ namespace Tarsasok_Asztali_Alkalmazas
         HttpClient client = new HttpClient();
         string endPoint = ReadSetting("endpointUrlGuest");
 
+        // Applikáció beállítások olvasása.
+
         private static string ReadSetting(string keyName)
         {
             string result = null;
@@ -34,10 +36,15 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             return result;
         }
+
+        // Inicializálás.
+
         public GuestForm()
         {
             InitializeComponent();
         }
+
+        // Form betöltése.
 
         private void GuestForm_Load(object sender, EventArgs e)
         {
@@ -45,9 +52,12 @@ namespace Tarsasok_Asztali_Alkalmazas
             refreshDataGrid();
         }
 
+        // Táblázat megjelenés beállításai.
+
         private void setupDataGrid()
         {
-            //--data grid global setup
+            // Globális beállítások.
+
             dataGridViewGuests.AutoSizeColumnsMode=DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewGuests.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewGuests.ColumnHeadersDefaultCellStyle.BackColor = Color.Navy;
@@ -57,7 +67,8 @@ namespace Tarsasok_Asztali_Alkalmazas
             dataGridViewGuests.MultiSelect = false;
             dataGridViewGuests.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            //-- column setup
+            // Oszlop beállítások.
+
             DataGridViewColumn columnUsername = new DataGridViewColumn();
             {
                 columnUsername.Name = "Username";
@@ -91,6 +102,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             dataGridViewGuests.Columns.Add(columnPhoneNumber);
         }
 
+        // Táblázat adatainak frissítése.
          private async void refreshDataGrid()
          {
             dataGridViewGuests.Rows.Clear();
