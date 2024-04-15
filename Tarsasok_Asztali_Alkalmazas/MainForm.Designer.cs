@@ -73,6 +73,7 @@
             this.buttonLogOut.TabIndex = 2;
             this.buttonLogOut.Text = "Log out";
             this.buttonLogOut.UseVisualStyleBackColor = false;
+            this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
             // buttonToGuestscontactData
             // 
@@ -83,7 +84,7 @@
             this.buttonToGuestscontactData.Name = "buttonToGuestscontactData";
             this.buttonToGuestscontactData.Size = new System.Drawing.Size(123, 80);
             this.buttonToGuestscontactData.TabIndex = 3;
-            this.buttonToGuestscontactData.Text = "Guest\'s contact data";
+            this.buttonToGuestscontactData.Text = "Guests\' contact data";
             this.buttonToGuestscontactData.UseVisualStyleBackColor = false;
             this.buttonToGuestscontactData.Click += new System.EventHandler(this.buttonToGuestscontactData_Click);
             // 

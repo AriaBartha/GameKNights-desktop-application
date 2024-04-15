@@ -25,7 +25,6 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             BoardGamesForm boardGamesForm = new BoardGamesForm();
             boardGamesForm.ShowDialog();
-            //TODO: close Mainform when goes to BoardGamesForm
         }
 
         // Employees gomb kattintási eseménye, megnyitja az EmployeeForm ablakot.
@@ -47,6 +46,12 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             GuestForm guestForm = new GuestForm();
             guestForm.ShowDialog();
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.logInForm.ShowDialog();
         }
     }
 }

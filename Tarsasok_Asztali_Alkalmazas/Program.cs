@@ -8,6 +8,8 @@ namespace Tarsasok_Asztali_Alkalmazas
 {
     internal static class Program
     {
+        public static MainForm mainForm = null;
+        public static LogIn logInForm = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,6 +18,8 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            mainForm = new MainForm();
+            logInForm = new LogIn();
             Application.Run(new LogIn());
         }
     }

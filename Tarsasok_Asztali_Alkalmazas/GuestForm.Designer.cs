@@ -37,10 +37,11 @@
             this.dataGridViewGuests.AllowUserToAddRows = false;
             this.dataGridViewGuests.AllowUserToDeleteRows = false;
             this.dataGridViewGuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewGuests.Location = new System.Drawing.Point(33, 74);
+            this.dataGridViewGuests.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewGuests.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewGuests.Name = "dataGridViewGuests";
             this.dataGridViewGuests.ReadOnly = true;
-            this.dataGridViewGuests.Size = new System.Drawing.Size(658, 325);
+            this.dataGridViewGuests.Size = new System.Drawing.Size(800, 450);
             this.dataGridViewGuests.TabIndex = 0;
             // 
             // GuestForm
