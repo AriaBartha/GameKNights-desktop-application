@@ -16,9 +16,12 @@ namespace Tarsasok_Asztali_Alkalmazas
 {
     public partial class EmployeeForm : Form
     {
+        // Oldal a munkavállalók adatainak kezelésére.
+
         HttpClient client = new HttpClient();
         string endPoint = ReadSetting("endpointUrlEmployee");
 
+        // Alkalmazás beállítások olvasása.
         private static string ReadSetting(string keyName)
         {
             string result = null;
@@ -33,16 +36,20 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             return result;
         }
+
+        // Inicializálás.
         public EmployeeForm()
         {
             InitializeComponent();
         }
 
+        // Form betöltése.
         private void EmployeeForm_Load(object sender, EventArgs e)
         {
             refreshEmployeeList();
         }
 
+        // Lista frissítése.
         private async void refreshEmployeeList()
         {
 
@@ -70,6 +77,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
         }
 
+        // Kiválasztott munkavállaló adatainak betöltése az input mezőkbe.
         private void listBoxEmployees_SelectedIndexChanged(object sender, EventArgs e)
         {
             Employee employee = (Employee)listBoxEmployees.SelectedItem;
@@ -79,12 +87,14 @@ namespace Tarsasok_Asztali_Alkalmazas
             textBoxPasswordEmployee.Text = employee.EPassword.ToString();
         }
 
+        // Lista frissítés gomb (Refresh List) kattintási eseménye.
         private void buttonRefreshListEmloyee_Click(object sender, EventArgs e)
         {
             clearInputs();
             refreshEmployeeList();
         }
 
+        // Új munkavállaló hozzáadása az adatbázishoz, "Add" gomb kattintási eseménye.
         private void buttonAddEmployee_Click(object sender, EventArgs e)
         {
             Employee employee = new Employee();
@@ -124,6 +134,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
+        // Kiválasztott munkavállaló adatainak módosítása az adatbázisban, "Update" gomb kattintási eseménye.
         private void buttonUpdateEmployee_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxIdEmployee.Text))
@@ -172,6 +183,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
+        // Kiválasztott munkavállaló törlése az adatbázisból, "Delete" gomb kattintási eseménye.
         private void buttonDeleteEmployee_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxIdEmployee.Text))
@@ -203,6 +215,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
+        // Input mezők kiürítése.
         private void clearInputs()
         {
             textBoxIdEmployee.Text = string.Empty;

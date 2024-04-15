@@ -15,13 +15,14 @@ using static System.Windows.Forms.LinkLabel;
 
 namespace Tarsasok_Asztali_Alkalmazas
 {
+    //Oldal a vendégek adatainak kezelésére.
+
     public partial class GuestForm : Form
     {
         HttpClient client = new HttpClient();
         string endPoint = ReadSetting("endpointUrlGuest");
 
-        // Applikáció beállítások olvasása.
-
+        // Alkalmazás beállítások olvasása.
         private static string ReadSetting(string keyName)
         {
             string result = null;
@@ -38,14 +39,12 @@ namespace Tarsasok_Asztali_Alkalmazas
         }
 
         // Inicializálás.
-
         public GuestForm()
         {
             InitializeComponent();
         }
 
         // Form betöltése.
-
         private void GuestForm_Load(object sender, EventArgs e)
         {
             setupDataGrid();
@@ -53,7 +52,6 @@ namespace Tarsasok_Asztali_Alkalmazas
         }
 
         // Táblázat megjelenés beállításai.
-
         private void setupDataGrid()
         {
             // Globális beállítások.

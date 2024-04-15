@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Tarsasok_Asztali_Alkalmazas
 {
+    // Az alkalmazás főoldala.
     public partial class MainForm : Form
     {
         public MainForm()

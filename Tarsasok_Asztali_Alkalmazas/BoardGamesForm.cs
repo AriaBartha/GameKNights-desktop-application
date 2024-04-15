@@ -17,6 +17,7 @@ using System.IO;
 
 namespace Tarsasok_Asztali_Alkalmazas
 {
+    // Oldal a társasjátékok adatainak kezelésére.
     public partial class BoardGamesForm : Form
     {
         HttpClient client = new HttpClient();
