@@ -149,6 +149,12 @@ namespace Tarsasok_Asztali_Alkalmazas
                     {
                         textBoxEmployeeId.Text = item.Id.ToString();
                     }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid employee name.");
+                        textBoxEName.Focus();
+                        return;
+                    }
                 }
             }
             else
@@ -221,6 +227,12 @@ namespace Tarsasok_Asztali_Alkalmazas
                     if (item.EName == textBoxEName.Text)
                     {
                         textBoxEmployeeId.Text = item.Id.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid employee name.");
+                        textBoxEName.Focus();
+                        return;
                     }
                 }
             }
