@@ -117,7 +117,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             refreshAppointmentList();
         }
 
-        // Új időpont hozzáadása az adatbázishoz, "Add" gomb kattintási eseménye.
+        // Új időpont hozzáadása az adatbázishoz, Add gomb kattintási eseménye.
         private async void buttonAddAppointment_Click(object sender, EventArgs e)
         {
             Appointment appointment = new Appointment();
@@ -178,7 +178,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
-        // Kiválasztott időpont adatainak módosítása az adatbázisban, "Update" gomb kattintási eseménye.
+        // Kiválasztott időpont adatainak módosítása az adatbázisban, Update gomb kattintási eseménye.
         private async void buttonUpdateAppointment_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxIdAppointment.Text))
@@ -247,7 +247,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
-        // Kiválasztott időpont törlése az adatbázisból, "Delete" gomb kattintási eseménye.
+        // Kiválasztott időpont törlése az adatbázisból, Delete gomb kattintási eseménye.
         private void buttonDeleteAppointment_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxIdAppointment.Text))

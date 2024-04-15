@@ -23,6 +23,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         HttpClient client = new HttpClient();
         string endPoint = ReadSetting("endpointUrlBoardGame");
 
+        // Alkalmazás beállítások olvasása.
         private static string ReadSetting(string keyName)
         {
             string result = null;
@@ -38,16 +39,19 @@ namespace Tarsasok_Asztali_Alkalmazas
             return result;
         }
 
+        // Inicializálás.
         public BoardGamesForm()
         {
             InitializeComponent();
         }
 
+        // Form betöltése.
         private void BoardGamesForm_Load(object sender, EventArgs e)
         {
             listRefreshing();
         }
 
+        // Lista frissítése.
         private async void listRefreshing()
         {
             listBoxBoardGames.Items.Clear();
@@ -75,6 +79,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             
         }
 
+        // Új társasjáték hozzáadása az adatbázishoz, Add gomb kattintási eseménye.
         private void buttonAddBG_Click(object sender, EventArgs e)
         {
             BoardGame boardGame = new BoardGame();
@@ -109,6 +114,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
+        // Kiválasztott társasjáték adatainak módosítása az adatbázisban, Update gomb kattintási eseménye.
         private void buttonUpdateBG_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxIdBG.Text))
@@ -153,12 +159,14 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         }
 
+        // Lista frissítés gomb (Refresh List) kattintási eseménye.
         private void buttonRefreshListBG_Click(object sender, EventArgs e)
         {
             clearInputs();
             listRefreshing();
         }
 
+        // Kiválasztott társasjáték törlése az adatbázisból, Delete gomb kattintási eseménye.
         private void buttonDeleteBG_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxIdBG.Text))
@@ -191,6 +199,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
+        // Kiválasztott társasjáték adatainak betöltése az input mezőkbe.
         private void listBoxBoardGames_SelectedIndexChanged(object sender, EventArgs e)
         {
             BoardGame boardGame = (BoardGame)listBoxBoardGames.SelectedItem;
@@ -201,6 +210,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             richTextBoxDescriptionBG.Text = boardGame.Description.ToString();
         }
 
+        // Input mezők kiürítése.
         private void clearInputs()
         {
             textBoxIdBG.Text = string.Empty;
