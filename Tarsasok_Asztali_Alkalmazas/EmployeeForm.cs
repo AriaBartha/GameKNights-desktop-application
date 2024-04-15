@@ -123,9 +123,18 @@ namespace Tarsasok_Asztali_Alkalmazas
                 textBoxPasswordEmployee.Focus();
                 return;
             }
+            string password = textBoxPasswordEmployee.Text;
+            if (password.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 character.");
+                textBoxPasswordEmployee.Focus();
+                return;
+            }
+
             employee.EName = textBoxNameEmployee.Text;
             employee.EEmail = textBoxEmailEmployee.Text;
             employee.EPassword = textBoxPasswordEmployee.Text;
+
             var json = JsonConvert.SerializeObject(employee);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = client.PostAsync(endPoint, data).Result;
@@ -170,6 +179,13 @@ namespace Tarsasok_Asztali_Alkalmazas
             if (string.IsNullOrEmpty(textBoxPasswordEmployee.Text))
             {
                 MessageBox.Show("Password is required");
+                textBoxPasswordEmployee.Focus();
+                return;
+            }
+            string password = textBoxPasswordEmployee.Text;
+            if (password.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 character.");
                 textBoxPasswordEmployee.Focus();
                 return;
             }
