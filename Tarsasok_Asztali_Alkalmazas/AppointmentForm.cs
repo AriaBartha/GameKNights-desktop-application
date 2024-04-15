@@ -95,15 +95,12 @@ namespace Tarsasok_Asztali_Alkalmazas
                     {
                         textBoxEName.Text = item.EName;
                     }
-                }
-                
+                } 
             }
             else
             {
                 MessageBox.Show("Calling API endpoint failed: " + response.ReasonPhrase);
             }
-            
-            
         }
 
         private void buttonRefreshAppointments_Click(object sender, EventArgs e)
@@ -112,13 +109,14 @@ namespace Tarsasok_Asztali_Alkalmazas
             refreshAppointmentList();
         }
 
-        private void buttonAddAppointment_Click(object sender, EventArgs e)
+        private async void buttonAddAppointment_Click(object sender, EventArgs e)
         {
             Appointment appointment = new Appointment();
-            if (string.IsNullOrEmpty(textBoxEmployeeId.Text))
+           
+            if (string.IsNullOrEmpty(textBoxEName.Text))
             {
-                MessageBox.Show("Employee Id required!");
-                textBoxEmployeeId.Focus();
+                MessageBox.Show("Employee name required!");
+                textBoxEName.Focus();
                 return;
             }
             if (dateTimeAppointment.Value == null)
@@ -130,8 +128,25 @@ namespace Tarsasok_Asztali_Alkalmazas
 
             dateTimeAppointment.Format = DateTimePickerFormat.Custom;
             dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
-
             appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
+            HttpResponseMessage responseGet = await client.GetAsync(endpointEmployee);
+            if (responseGet.IsSuccessStatusCode)
+            {
+                string jsonString = await responseGet.Content.ReadAsStringAsync();
+                var employee = Employee.FromJson(jsonString);
+                foreach (Employee item in employee)
+                {
+                    if(item.EName == textBoxEName.Text)
+                    {
+                        textBoxEmployeeId.Text = item.Id.ToString();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Calling API endpoint failed: " + responseGet.ReasonPhrase);
+            }
+
             appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
             appointment.Booked = 0;
             //appointment.GuestId = null;
