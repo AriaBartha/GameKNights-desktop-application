@@ -22,6 +22,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         string endPoint = ReadSetting("endpointUrlAppointment");
         string endpointEmployee = ReadSetting("endpointUrlEmployee");
 
+        // Applikáció beállítások olvasása.
         private static string ReadSetting(string keyName)
         {
             string result = null;
@@ -41,10 +42,14 @@ namespace Tarsasok_Asztali_Alkalmazas
             InitializeComponent();
         }
 
+        // Form betöltése.
+
         private void AppointmentForm_Load(object sender, EventArgs e)
         {
             refreshAppointmentList();
         }
+
+        // Lista frissítése.
 
         private async void refreshAppointmentList()
         {
@@ -71,6 +76,8 @@ namespace Tarsasok_Asztali_Alkalmazas
                 MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
         }
+
+        // Kiválasztott elem adatainak betöltése az input mezőkbe.
 
         private async void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -103,11 +110,15 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
         }
 
+        // Lista frissítés gomb (Refresh List) kattintási eseménye.
+
         private void buttonRefreshAppointments_Click(object sender, EventArgs e)
         {
             clearInputs();
             refreshAppointmentList();
         }
+
+        // Új időpont hozzáadása az adatbázishoz, "Add" gomb kattintási eseménye.
 
         private async void buttonAddAppointment_Click(object sender, EventArgs e)
         {
@@ -168,6 +179,8 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
             clearInputs();
         }
+
+        // Kiválasztott időpont adatainak módosítása az adatbázisban, "Update" gomb kattintási eseménye.
 
         private async void buttonUpdateAppointment_Click(object sender, EventArgs e)
         {
@@ -237,6 +250,8 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
+        // Kiválasztott időpont törlése az adatbázisból, "Delete" gomb kattintási eseménye.
+
         private void buttonDeleteAppointment_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxIdAppointment.Text))
@@ -266,6 +281,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
+        // Input mezők kiürítése.
         private void clearInputs()
         {
             textBoxIdAppointment.Text = string.Empty;
