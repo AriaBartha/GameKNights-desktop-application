@@ -169,11 +169,17 @@ namespace Tarsasok_Asztali_Alkalmazas
             clearInputs();
         }
 
-        private void buttonUpdateAppointment_Click(object sender, EventArgs e)
+        private async void buttonUpdateAppointment_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxIdAppointment.Text))
             {
                 MessageBox.Show("An appointment must be selected!");
+                return;
+            }
+            if (string.IsNullOrEmpty(textBoxEName.Text))
+            {
+                MessageBox.Show("Employee name required!");
+                textBoxEName.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(textBoxEmployeeId.Text))
@@ -195,8 +201,25 @@ namespace Tarsasok_Asztali_Alkalmazas
             dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
 
             appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
+            HttpResponseMessage responseGet = await client.GetAsync(endpointEmployee);
+            if (responseGet.IsSuccessStatusCode)
+            {
+                string jsonString = await responseGet.Content.ReadAsStringAsync();
+                var employee = Employee.FromJson(jsonString);
+                foreach (Employee item in employee)
+                {
+                    if (item.EName == textBoxEName.Text)
+                    {
+                        textBoxEmployeeId.Text = item.Id.ToString();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Calling API endpoint failed: " + responseGet.ReasonPhrase);
+            }
             appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
-            
+                      
 
             var json = JsonConvert.SerializeObject(appointment);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -247,6 +270,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             textBoxIdAppointment.Text = string.Empty;
             textBoxEmployeeId.Text = string.Empty;
+            textBoxEName.Text = string.Empty;
             dateTimeAppointment.Value = DateTime.Now;
         }
     }
