@@ -69,7 +69,6 @@ namespace Tarsasok_Asztali_Alkalmazas
             var response = client.PostAsync(endPoint, data).Result;
             if (response.IsSuccessStatusCode)
             {
-                
                 this.Hide();
                 Program.mainForm.ShowDialog();
             }
@@ -80,10 +79,42 @@ namespace Tarsasok_Asztali_Alkalmazas
             }
         }
 
+        // A program bezárása, program futása leáll. Exit gomb kattintási eseménye.
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            Program.mainForm.Close();
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit Application", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
+        }
+
+        // A program bezárása, program futása leáll.
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to close?",
+                    "Confirm Close",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                   
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
         }
     }
 }

@@ -53,5 +53,31 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.Hide();
             Program.logInForm.ShowDialog();
         }
+
+        // A program bezárása, program futása leáll.
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to close?",
+                    "Confirm Close",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+        }
     }
 }
