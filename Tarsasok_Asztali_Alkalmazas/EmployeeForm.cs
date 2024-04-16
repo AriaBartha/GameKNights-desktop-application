@@ -15,10 +15,9 @@ using System.Text.RegularExpressions;
 
 namespace Tarsasok_Asztali_Alkalmazas
 {
+    // Oldal a munkavállalók adatainak kezelésére.
     public partial class EmployeeForm : Form
     {
-        // Oldal a munkavállalók adatainak kezelésére.
-
         HttpClient client = new HttpClient();
         string endPoint = ReadSetting("endpointUrlEmployee");
 

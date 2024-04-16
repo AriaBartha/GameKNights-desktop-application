@@ -11,12 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
+
 namespace Tarsasok_Asztali_Alkalmazas
 {
+    //Belépés az alkalmazásba autentikációval.
     public partial class LogIn : Form
     {
         HttpClient client = new HttpClient();
-        string endPoint = ReadSetting("endpointUrlLogin");
+        string endPoint = ReadSetting("endpointUrlLogIn");
+        public string Token { get; set; }
+        
 
         // Alkalmazás beállítások olvasása.
         private static string ReadSetting(string keyName)
@@ -69,6 +73,11 @@ namespace Tarsasok_Asztali_Alkalmazas
             var response = client.PostAsync(endPoint, data).Result;
             if (response.IsSuccessStatusCode)
             {
+                Token = response.Content.ReadAsStringAsync().Result;
+                string[] splitObject = Token.Split(':');
+                string getToken = splitObject[1].Replace("\"", "");
+                string authToken = getToken.Replace("}", "");
+                Program.mainForm.Token = authToken;
                 this.Hide();
                 Program.mainForm.ShowDialog();
             }
