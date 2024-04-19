@@ -19,7 +19,7 @@ namespace Tarsasok_Asztali_Alkalmazas
     {
         HttpClient client = new HttpClient();
         string endPoint = ReadSetting("endpointUrlLogIn");
-        public string Token { get; set; }
+        public string token { get; set; }
         
 
         // Alkalmazás beállítások olvasása.
@@ -73,8 +73,8 @@ namespace Tarsasok_Asztali_Alkalmazas
             var response = client.PostAsync(endPoint, data).Result;
             if (response.IsSuccessStatusCode)
             {
-                Token = response.Content.ReadAsStringAsync().Result;
-                string[] splitObject = Token.Split(':');
+                token = response.Content.ReadAsStringAsync().Result;
+                string[] splitObject = token.Split(':');
                 string getToken = splitObject[1].Replace("\"", "");
                 string authToken = getToken.Replace("}", "");
                 Program.mainForm.Token = authToken;

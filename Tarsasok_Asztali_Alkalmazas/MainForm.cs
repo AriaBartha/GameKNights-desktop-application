@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,7 +43,9 @@ namespace Tarsasok_Asztali_Alkalmazas
         public MainForm()
         {
             InitializeComponent();
-            buttonToEmployees.Visible = false;
+            //buttonToEmployees.Visible = false;
+           
+           
         }
 
         // Form betöltése.
@@ -54,22 +57,21 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Bejelentkezett felhasználó ellenőrzése, ha admin, akkor hozzáfér az Employee gombhoz
         private async void CheckUser()
         {
-            
-            var json = JsonConvert.SerializeObject(Token);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = client.PostAsync(endPointAuthData, data).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                string jsonString = await response.Content.ReadAsStringAsync();
-                var employee = Employee.FromJson(jsonString);
-                foreach (Employee item in employee)
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            HttpResponseMessage response = await client.GetAsync(endPointAuthData);
+            string jsonString = await response.Content.ReadAsStringAsync();
+            var authEmployee = AuthEmployee.FromJson(jsonString);
+   
+                if (authEmployee.EEmail == "admin@gkn.com")
                 {
-                    if (item.EEmail == "admin@gkn.com")
-                    {
-                        buttonToEmployees.Visible=true;
-                    }
+                    buttonToEmployees.Enabled = true;
                 }
-            }
+                else
+                {
+                    buttonToEmployees.Enabled = false;
+                }
+            
         }
 
         // Board games gomb kattintási eseménye, megnyitja a BoardGamesForm ablakot.
@@ -82,8 +84,8 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Employees gomb kattintási eseménye, megnyitja az EmployeeForm ablakot.
         private void buttonToEmployees_Click(object sender, EventArgs e)
         {
-            EmployeeForm employeesForm = new EmployeeForm();
-            employeesForm.ShowDialog();
+                EmployeeForm employeesForm = new EmployeeForm();
+                employeesForm.ShowDialog();
         }
 
         //Appointments gomb kattintási eseménye, megnyitja az AppointmentForm ablakot.
@@ -102,15 +104,22 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
-            //átküldeni a tokent, amit előtte el kéne tárolni mikor loginol és itt kell meghívni
-           // var json = JsonConvert.SerializeObject(token);
-           // var data = new StringContent(json, Encoding.UTF8, "application/json");
-           // var response = client.PostAsync(endPoint, data).Result;
-           // if (response.IsSuccessStatusCode)
-           // {
-           //     this.Hide();
-            //    Program.logInForm.ShowDialog();
-           // }
+
+           /*client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+           HttpResponseMessage response = await client.PostAsync(endPointAuthData);
+            
+           if (response.IsSuccessStatusCode)
+           {
+               Token = "";
+               this.Hide();
+               Program.logInForm.ShowDialog();
+           }
+           if (response.StatusCode.ToString().Equals("401"))
+            {
+                Token = "";
+                this.Hide();
+                Program.logInForm.ShowDialog();
+            }*/
                 
         }
 
