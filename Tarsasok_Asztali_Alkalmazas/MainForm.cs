@@ -43,9 +43,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         public MainForm()
         {
             InitializeComponent();
-            //buttonToEmployees.Visible = false;
-           
-           
+
         }
 
         // Form betöltése.
@@ -54,7 +52,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             CheckUser();
         }
 
-        // Bejelentkezett felhasználó ellenőrzése, ha admin, akkor hozzáfér az Employee gombhoz
+        // Bejelentkezett felhasználó ellenőrzése, ha admin a felhasználó, akkor hozzáfér az Employee gombhoz
         private async void CheckUser()
         {
 
@@ -102,25 +100,22 @@ namespace Tarsasok_Asztali_Alkalmazas
             guestForm.ShowDialog();
         }
 
-        private void buttonLogOut_Click(object sender, EventArgs e)
+        // Logout gomb kattintási eseménye, kilépés a MainFormról vissza a LogIn-re.
+        private async void buttonLogOut_Click(object sender, EventArgs e)
         {
 
-           /*client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-           HttpResponseMessage response = await client.PostAsync(endPointAuthData);
-            
+           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+           HttpResponseMessage response = await client.PostAsync(endPoint, new StringContent(""));
            if (response.IsSuccessStatusCode)
            {
                Token = "";
                this.Hide();
                Program.logInForm.ShowDialog();
            }
-           if (response.StatusCode.ToString().Equals("401"))
+            else
             {
-                Token = "";
-                this.Hide();
-                Program.logInForm.ShowDialog();
-            }*/
-                
+                MessageBox.Show("Logout failed!");
+            }
         }
 
         // A program bezárása, program futása leáll.
