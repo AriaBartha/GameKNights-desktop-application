@@ -57,6 +57,12 @@
     <Compile Include="AppointmentForm.Designer.cs">
       <DependentUpon>AppointmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppointmentsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppointmentsDetails.Designer.cs">
+      <DependentUpon>AppointmentsDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="AuthEmployee.cs" />
     <Compile Include="BoardGame.cs" />
     <Compile Include="BoardGamesForm.cs">
@@ -95,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AppointmentForm.resx">
       <DependentUpon>AppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppointmentsDetails.resx">
+      <DependentUpon>AppointmentsDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BoardGamesForm.resx">
       <DependentUpon>BoardGamesForm.cs</DependentUpon>
