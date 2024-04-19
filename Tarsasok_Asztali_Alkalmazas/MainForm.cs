@@ -100,6 +100,13 @@ namespace Tarsasok_Asztali_Alkalmazas
             guestForm.ShowDialog();
         }
 
+        // Appointments' Details gomb kattintási eseménye, megnyitja az AppontmentDetails formot.
+        private void buttonAppointmentsDetails_Click(object sender, EventArgs e)
+        {
+            AppointmentsDetails appointmentsDetails = new AppointmentsDetails();
+            appointmentsDetails.ShowDialog();
+        }
+
         // Logout gomb kattintási eseménye, kilépés a MainFormról vissza a LogIn-re.
         private async void buttonLogOut_Click(object sender, EventArgs e)
         {
@@ -143,7 +150,5 @@ namespace Tarsasok_Asztali_Alkalmazas
                 }
             }
         }
-
-       
     }
 }

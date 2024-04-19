@@ -34,6 +34,7 @@
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.buttonToGuestscontactData = new System.Windows.Forms.Button();
             this.buttonToEmployees = new System.Windows.Forms.Button();
+            this.buttonAppointmentsDetails = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonToBoardGamesForm
@@ -101,12 +102,26 @@
             this.buttonToEmployees.UseVisualStyleBackColor = false;
             this.buttonToEmployees.Click += new System.EventHandler(this.buttonToEmployees_Click);
             // 
+            // buttonAppointmentsDetails
+            // 
+            this.buttonAppointmentsDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.buttonAppointmentsDetails.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonAppointmentsDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
+            this.buttonAppointmentsDetails.Location = new System.Drawing.Point(30, 80);
+            this.buttonAppointmentsDetails.Name = "buttonAppointmentsDetails";
+            this.buttonAppointmentsDetails.Size = new System.Drawing.Size(123, 80);
+            this.buttonAppointmentsDetails.TabIndex = 5;
+            this.buttonAppointmentsDetails.Text = "Appointments\' details";
+            this.buttonAppointmentsDetails.UseVisualStyleBackColor = false;
+            this.buttonAppointmentsDetails.Click += new System.EventHandler(this.buttonAppointmentsDetails_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(814, 543);
+            this.Controls.Add(this.buttonAppointmentsDetails);
             this.Controls.Add(this.buttonToEmployees);
             this.Controls.Add(this.buttonToGuestscontactData);
             this.Controls.Add(this.buttonLogOut);
@@ -126,5 +141,6 @@
         private System.Windows.Forms.Button buttonLogOut;
         private System.Windows.Forms.Button buttonToGuestscontactData;
         private System.Windows.Forms.Button buttonToEmployees;
+        private System.Windows.Forms.Button buttonAppointmentsDetails;
     }
 }
