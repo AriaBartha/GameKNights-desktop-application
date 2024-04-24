@@ -113,7 +113,7 @@ namespace Tarsasok_Asztali_Alkalmazas
 
            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
            HttpResponseMessage response = await client.PostAsync(endPoint, new StringContent(""));
-           if (response.IsSuccessStatusCode)
+           if (response.IsSuccessStatusCode || response.StatusCode.ToString().Equals("401"))
            {
                Token = "";
                this.Hide();
