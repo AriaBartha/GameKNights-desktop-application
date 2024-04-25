@@ -50,6 +50,7 @@
             this.listBoxMyAppointments.Name = "listBoxMyAppointments";
             this.listBoxMyAppointments.Size = new System.Drawing.Size(257, 450);
             this.listBoxMyAppointments.TabIndex = 0;
+            this.listBoxMyAppointments.SelectedIndexChanged += new System.EventHandler(this.listBoxMyAppointments_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -132,6 +133,7 @@
             this.buttonRefresh.TabIndex = 9;
             this.buttonRefresh.Text = "Refresh List";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // MyAppointmentsForm
             // 

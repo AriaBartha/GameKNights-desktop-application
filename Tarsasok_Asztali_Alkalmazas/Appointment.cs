@@ -46,7 +46,16 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         public override string ToString()
         {
-            return $"{this.Id}  -  {this.AppointmentAppointment}";
+            if (this.Booked == 1)
+            {
+                var alreadyBooked = "booked";
+                return $"{this.Id}  -  {this.AppointmentAppointment} - {alreadyBooked}";
+            }
+            else
+            {
+                return $"{this.Id}  -  {this.AppointmentAppointment}";
+            }
+            
         }
     }
 

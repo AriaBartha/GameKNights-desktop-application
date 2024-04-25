@@ -88,7 +88,6 @@ namespace Tarsasok_Asztali_Alkalmazas
 
             textBoxIdAppointment.Text = appointment.Id.ToString();
             dateTimeAppointment.Value = DateTime.Parse(appointment.AppointmentAppointment);
-            //dateTimeAppointment.Value = appointment.AppointmentAppointment;
             textBoxEmployeeId.Text = appointment.EmployeeId.ToString();
 
             HttpResponseMessage response = await client.GetAsync(endpointEmployee);
