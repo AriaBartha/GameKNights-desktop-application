@@ -15,7 +15,7 @@ using static System.Windows.Forms.LinkLabel;
 
 namespace Tarsasok_Asztali_Alkalmazas
 {
-    //Oldal a vendégek adatainak kezelésére.
+    //Oldal a vendégek adatainak kilistázására.
 
     public partial class GuestForm : Form
     {

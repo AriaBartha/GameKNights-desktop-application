@@ -163,9 +163,6 @@ namespace Tarsasok_Asztali_Alkalmazas
 
             appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
             appointment.Booked = 0;
-            //appointment.GuestId = null;
-            //appointment.BoardGameId = null;
-            //appointment.NumberOfPlayers = null;
 
             var json = JsonConvert.SerializeObject(appointment);
             var data = new StringContent(json, Encoding.UTF8, "application/json");

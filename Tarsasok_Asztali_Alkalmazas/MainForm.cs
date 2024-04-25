@@ -21,6 +21,8 @@ namespace Tarsasok_Asztali_Alkalmazas
         HttpClient client = new HttpClient();
         string endPoint = ReadSetting("endpointUrlLogOut");
         string endPointAuthData = ReadSetting("endPointUrlAuthData");
+
+        // Osztály a token definiálására
         public string Token { get; set; }
 
         // Alkalmazás beállítások olvasása.

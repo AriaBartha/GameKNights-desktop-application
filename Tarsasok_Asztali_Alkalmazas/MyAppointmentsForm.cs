@@ -25,6 +25,8 @@ namespace Tarsasok_Asztali_Alkalmazas
         string endPoint = ReadSetting("endPointUrlAuthEmployeeAppointment");
         string endPointGuest = ReadSetting("endpointUrlGuest");
         string endPointBoardGame = ReadSetting("endpointUrlBoardGame");
+
+        // Osztály a token definiálására
         public string MyToken { get; set; }
 
         // Alkalmazás beállítások olvasása.

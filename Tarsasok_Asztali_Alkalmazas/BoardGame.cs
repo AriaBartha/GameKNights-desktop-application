@@ -15,6 +15,7 @@ namespace Tarsasok_Asztali_Alkalmazas
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    // BoardGame osztály, társasjátékok tulajdonságai
     public partial class BoardGame
     {
         [JsonProperty("id")]
@@ -38,6 +39,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         [JsonProperty("updated_at")]
         public DateTimeOffset UpdatedAt { get; set; }
 
+        // ToString() az objektum szöveges megjelenítésére
         public override string ToString()
         {
             return BgName;

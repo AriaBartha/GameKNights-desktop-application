@@ -15,6 +15,8 @@ namespace Tarsasok_Asztali_Alkalmazas
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    // Appointment osztály, időpontok tulajdonságai
+
     public partial class Appointment
     {
         [JsonProperty("id")]
@@ -43,6 +45,8 @@ namespace Tarsasok_Asztali_Alkalmazas
 
         [JsonProperty("updated_at")]
         public DateTimeOffset UpdatedAt { get; set; }
+
+        // ToString() az objektum szöveges megjelenítésére
 
         public override string ToString()
         {

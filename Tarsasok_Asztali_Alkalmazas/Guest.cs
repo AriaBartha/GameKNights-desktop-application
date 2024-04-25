@@ -15,6 +15,7 @@ namespace Tarsasok_Asztali_Alkalmazas
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    // Guest osztály, vendékek tulajdonságai
     public partial class Guest
     {
         public Guest(long id, string gUsername, string gPassword, string gName, string gEmail, string gPhoneNumber, DateTimeOffset createdAt, DateTimeOffset updatedAt)
