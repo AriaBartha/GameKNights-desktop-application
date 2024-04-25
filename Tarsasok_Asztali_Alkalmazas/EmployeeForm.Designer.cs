@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
             this.listBoxEmployees = new System.Windows.Forms.ListBox();
             this.groupBoxEmployees = new System.Windows.Forms.GroupBox();
             this.textBoxPasswordEmployee = new System.Windows.Forms.TextBox();
@@ -48,10 +49,12 @@
             // listBoxEmployees
             // 
             this.listBoxEmployees.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBoxEmployees.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBoxEmployees.FormattingEnabled = true;
+            this.listBoxEmployees.ItemHeight = 16;
             this.listBoxEmployees.Location = new System.Drawing.Point(0, 0);
             this.listBoxEmployees.Name = "listBoxEmployees";
-            this.listBoxEmployees.Size = new System.Drawing.Size(380, 450);
+            this.listBoxEmployees.Size = new System.Drawing.Size(380, 485);
             this.listBoxEmployees.TabIndex = 0;
             this.listBoxEmployees.SelectedIndexChanged += new System.EventHandler(this.listBoxEmployees_SelectedIndexChanged);
             // 
@@ -68,31 +71,30 @@
             this.groupBoxEmployees.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxEmployees.Location = new System.Drawing.Point(380, 0);
             this.groupBoxEmployees.Name = "groupBoxEmployees";
-            this.groupBoxEmployees.Size = new System.Drawing.Size(420, 209);
+            this.groupBoxEmployees.Size = new System.Drawing.Size(420, 225);
             this.groupBoxEmployees.TabIndex = 1;
             this.groupBoxEmployees.TabStop = false;
-            this.groupBoxEmployees.Text = "groupBox1";
             // 
             // textBoxPasswordEmployee
             // 
-            this.textBoxPasswordEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxPasswordEmployee.Location = new System.Drawing.Point(108, 149);
+            this.textBoxPasswordEmployee.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxPasswordEmployee.Location = new System.Drawing.Point(108, 160);
             this.textBoxPasswordEmployee.Name = "textBoxPasswordEmployee";
             this.textBoxPasswordEmployee.Size = new System.Drawing.Size(211, 22);
             this.textBoxPasswordEmployee.TabIndex = 7;
             // 
             // textBoxEmailEmployee
             // 
-            this.textBoxEmailEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxEmailEmployee.Location = new System.Drawing.Point(108, 110);
+            this.textBoxEmailEmployee.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxEmailEmployee.Location = new System.Drawing.Point(108, 118);
             this.textBoxEmailEmployee.Name = "textBoxEmailEmployee";
             this.textBoxEmailEmployee.Size = new System.Drawing.Size(211, 22);
             this.textBoxEmailEmployee.TabIndex = 6;
             // 
             // textBoxNameEmployee
             // 
-            this.textBoxNameEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxNameEmployee.Location = new System.Drawing.Point(108, 74);
+            this.textBoxNameEmployee.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxNameEmployee.Location = new System.Drawing.Point(108, 80);
             this.textBoxNameEmployee.Name = "textBoxNameEmployee";
             this.textBoxNameEmployee.Size = new System.Drawing.Size(211, 22);
             this.textBoxNameEmployee.TabIndex = 5;
@@ -100,18 +102,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(32, 149);
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(32, 160);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 16);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Password:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(58, 110);
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(58, 118);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 16);
             this.label3.TabIndex = 3;
@@ -120,26 +122,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(55, 74);
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(55, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 16);
+            this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Name:";
             // 
             // textBoxIdEmployee
             // 
-            this.textBoxIdEmployee.Location = new System.Drawing.Point(108, 38);
+            this.textBoxIdEmployee.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxIdEmployee.Location = new System.Drawing.Point(108, 41);
             this.textBoxIdEmployee.Name = "textBoxIdEmployee";
             this.textBoxIdEmployee.ReadOnly = true;
-            this.textBoxIdEmployee.Size = new System.Drawing.Size(112, 20);
+            this.textBoxIdEmployee.Size = new System.Drawing.Size(112, 22);
             this.textBoxIdEmployee.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(81, 38);
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(81, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 16);
             this.label1.TabIndex = 0;
@@ -147,10 +150,10 @@
             // 
             // buttonRefreshListEmloyee
             // 
-            this.buttonRefreshListEmloyee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonRefreshListEmloyee.Location = new System.Drawing.Point(415, 237);
+            this.buttonRefreshListEmloyee.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonRefreshListEmloyee.Location = new System.Drawing.Point(415, 255);
             this.buttonRefreshListEmloyee.Name = "buttonRefreshListEmloyee";
-            this.buttonRefreshListEmloyee.Size = new System.Drawing.Size(108, 45);
+            this.buttonRefreshListEmloyee.Size = new System.Drawing.Size(108, 48);
             this.buttonRefreshListEmloyee.TabIndex = 2;
             this.buttonRefreshListEmloyee.Text = "Refresh List";
             this.buttonRefreshListEmloyee.UseVisualStyleBackColor = true;
@@ -158,10 +161,10 @@
             // 
             // buttonAddEmployee
             // 
-            this.buttonAddEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonAddEmployee.Location = new System.Drawing.Point(609, 237);
+            this.buttonAddEmployee.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonAddEmployee.Location = new System.Drawing.Point(609, 255);
             this.buttonAddEmployee.Name = "buttonAddEmployee";
-            this.buttonAddEmployee.Size = new System.Drawing.Size(108, 45);
+            this.buttonAddEmployee.Size = new System.Drawing.Size(108, 48);
             this.buttonAddEmployee.TabIndex = 3;
             this.buttonAddEmployee.Text = "Add";
             this.buttonAddEmployee.UseVisualStyleBackColor = true;
@@ -169,10 +172,10 @@
             // 
             // buttonUpdateEmployee
             // 
-            this.buttonUpdateEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonUpdateEmployee.Location = new System.Drawing.Point(415, 319);
+            this.buttonUpdateEmployee.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonUpdateEmployee.Location = new System.Drawing.Point(415, 344);
             this.buttonUpdateEmployee.Name = "buttonUpdateEmployee";
-            this.buttonUpdateEmployee.Size = new System.Drawing.Size(108, 45);
+            this.buttonUpdateEmployee.Size = new System.Drawing.Size(108, 48);
             this.buttonUpdateEmployee.TabIndex = 4;
             this.buttonUpdateEmployee.Text = "Update";
             this.buttonUpdateEmployee.UseVisualStyleBackColor = true;
@@ -180,10 +183,10 @@
             // 
             // buttonDeleteEmployee
             // 
-            this.buttonDeleteEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonDeleteEmployee.Location = new System.Drawing.Point(609, 319);
+            this.buttonDeleteEmployee.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonDeleteEmployee.Location = new System.Drawing.Point(609, 344);
             this.buttonDeleteEmployee.Name = "buttonDeleteEmployee";
-            this.buttonDeleteEmployee.Size = new System.Drawing.Size(108, 45);
+            this.buttonDeleteEmployee.Size = new System.Drawing.Size(108, 48);
             this.buttonDeleteEmployee.TabIndex = 5;
             this.buttonDeleteEmployee.Text = "Delete";
             this.buttonDeleteEmployee.UseVisualStyleBackColor = true;
@@ -191,17 +194,19 @@
             // 
             // EmployeeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 485);
             this.Controls.Add(this.buttonDeleteEmployee);
             this.Controls.Add(this.buttonUpdateEmployee);
             this.Controls.Add(this.buttonAddEmployee);
             this.Controls.Add(this.buttonRefreshListEmloyee);
             this.Controls.Add(this.groupBoxEmployees);
             this.Controls.Add(this.listBoxEmployees);
+            this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EmployeeForm";
-            this.Text = "EmployeeForm";
+            this.Text = "Employees";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
             this.groupBoxEmployees.ResumeLayout(false);
             this.groupBoxEmployees.PerformLayout();

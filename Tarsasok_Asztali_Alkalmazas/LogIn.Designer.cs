@@ -43,7 +43,7 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.label1.Location = new System.Drawing.Point(275, 104);
+            this.label1.Location = new System.Drawing.Point(275, 112);
             this.label1.Margin = new System.Windows.Forms.Padding(3);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(3);
@@ -57,7 +57,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.label2.Location = new System.Drawing.Point(254, 150);
+            this.label2.Location = new System.Drawing.Point(254, 162);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(3);
             this.label2.Size = new System.Drawing.Size(74, 22);
@@ -67,9 +67,9 @@
             // textBoxEmail
             // 
             this.textBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
-            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.textBoxEmail.Location = new System.Drawing.Point(338, 104);
+            this.textBoxEmail.Location = new System.Drawing.Point(338, 112);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(172, 22);
             this.textBoxEmail.TabIndex = 2;
@@ -77,9 +77,9 @@
             // textBoxPassword
             // 
             this.textBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxPassword.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.textBoxPassword.Location = new System.Drawing.Point(338, 150);
+            this.textBoxPassword.Location = new System.Drawing.Point(338, 162);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(172, 22);
             this.textBoxPassword.TabIndex = 3;
@@ -89,9 +89,9 @@
             this.buttonLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonLogIn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLogIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonLogIn.Location = new System.Drawing.Point(543, 268);
+            this.buttonLogIn.Location = new System.Drawing.Point(543, 289);
             this.buttonLogIn.Name = "buttonLogIn";
-            this.buttonLogIn.Size = new System.Drawing.Size(88, 64);
+            this.buttonLogIn.Size = new System.Drawing.Size(88, 69);
             this.buttonLogIn.TabIndex = 4;
             this.buttonLogIn.Text = "Log in";
             this.buttonLogIn.UseVisualStyleBackColor = false;
@@ -103,9 +103,9 @@
             this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.buttonExit.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonExit.ForeColor = System.Drawing.Color.OrangeRed;
-            this.buttonExit.Location = new System.Drawing.Point(543, 354);
+            this.buttonExit.Location = new System.Drawing.Point(543, 381);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(88, 64);
+            this.buttonExit.Size = new System.Drawing.Size(88, 69);
             this.buttonExit.TabIndex = 5;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
@@ -113,18 +113,20 @@
             // 
             // LogIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 485);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonLogIn);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LogIn";
-            this.Text = "Form1";
+            this.Text = "Log In";
             this.Load += new System.EventHandler(this.LogIn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

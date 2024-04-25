@@ -42,9 +42,9 @@
             this.buttonToBoardGamesForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonToBoardGamesForm.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonToBoardGamesForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonToBoardGamesForm.Location = new System.Drawing.Point(466, 87);
+            this.buttonToBoardGamesForm.Location = new System.Drawing.Point(466, 94);
             this.buttonToBoardGamesForm.Name = "buttonToBoardGamesForm";
-            this.buttonToBoardGamesForm.Size = new System.Drawing.Size(120, 67);
+            this.buttonToBoardGamesForm.Size = new System.Drawing.Size(120, 72);
             this.buttonToBoardGamesForm.TabIndex = 0;
             this.buttonToBoardGamesForm.Text = "Board Games";
             this.buttonToBoardGamesForm.UseVisualStyleBackColor = false;
@@ -55,9 +55,9 @@
             this.buttonToAppointments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonToAppointments.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonToAppointments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonToAppointments.Location = new System.Drawing.Point(217, 155);
+            this.buttonToAppointments.Location = new System.Drawing.Point(217, 167);
             this.buttonToAppointments.Name = "buttonToAppointments";
-            this.buttonToAppointments.Size = new System.Drawing.Size(119, 73);
+            this.buttonToAppointments.Size = new System.Drawing.Size(119, 79);
             this.buttonToAppointments.TabIndex = 1;
             this.buttonToAppointments.Text = "Appointments";
             this.buttonToAppointments.UseVisualStyleBackColor = false;
@@ -68,9 +68,9 @@
             this.buttonLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonLogOut.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonLogOut.Location = new System.Drawing.Point(615, 420);
+            this.buttonLogOut.Location = new System.Drawing.Point(615, 452);
             this.buttonLogOut.Name = "buttonLogOut";
-            this.buttonLogOut.Size = new System.Drawing.Size(120, 64);
+            this.buttonLogOut.Size = new System.Drawing.Size(120, 69);
             this.buttonLogOut.TabIndex = 2;
             this.buttonLogOut.Text = "Log out";
             this.buttonLogOut.UseVisualStyleBackColor = false;
@@ -81,9 +81,9 @@
             this.buttonToGuestscontactData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonToGuestscontactData.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonToGuestscontactData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonToGuestscontactData.Location = new System.Drawing.Point(411, 237);
+            this.buttonToGuestscontactData.Location = new System.Drawing.Point(411, 255);
             this.buttonToGuestscontactData.Name = "buttonToGuestscontactData";
-            this.buttonToGuestscontactData.Size = new System.Drawing.Size(123, 80);
+            this.buttonToGuestscontactData.Size = new System.Drawing.Size(123, 86);
             this.buttonToGuestscontactData.TabIndex = 3;
             this.buttonToGuestscontactData.Text = "Guests\' contact data";
             this.buttonToGuestscontactData.UseVisualStyleBackColor = false;
@@ -94,9 +94,9 @@
             this.buttonToEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonToEmployees.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonToEmployees.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonToEmployees.Location = new System.Drawing.Point(133, 336);
+            this.buttonToEmployees.Location = new System.Drawing.Point(133, 362);
             this.buttonToEmployees.Name = "buttonToEmployees";
-            this.buttonToEmployees.Size = new System.Drawing.Size(124, 70);
+            this.buttonToEmployees.Size = new System.Drawing.Size(124, 75);
             this.buttonToEmployees.TabIndex = 4;
             this.buttonToEmployees.Text = "Employees";
             this.buttonToEmployees.UseVisualStyleBackColor = false;
@@ -107,9 +107,9 @@
             this.buttonMyAppointments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonMyAppointments.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonMyAppointments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonMyAppointments.Location = new System.Drawing.Point(44, 87);
+            this.buttonMyAppointments.Location = new System.Drawing.Point(44, 94);
             this.buttonMyAppointments.Name = "buttonMyAppointments";
-            this.buttonMyAppointments.Size = new System.Drawing.Size(119, 73);
+            this.buttonMyAppointments.Size = new System.Drawing.Size(119, 79);
             this.buttonMyAppointments.TabIndex = 5;
             this.buttonMyAppointments.Text = "My appointments";
             this.buttonMyAppointments.UseVisualStyleBackColor = false;
@@ -117,18 +117,20 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(814, 543);
+            this.ClientSize = new System.Drawing.Size(814, 585);
             this.Controls.Add(this.buttonMyAppointments);
             this.Controls.Add(this.buttonToEmployees);
             this.Controls.Add(this.buttonToGuestscontactData);
             this.Controls.Add(this.buttonLogOut);
             this.Controls.Add(this.buttonToAppointments);
             this.Controls.Add(this.buttonToBoardGamesForm);
+            this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Main";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 

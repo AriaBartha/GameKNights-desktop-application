@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GuestForm));
             this.dataGridViewGuests = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).BeginInit();
             this.SuspendLayout();
@@ -39,19 +40,23 @@
             this.dataGridViewGuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGuests.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewGuests.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewGuests.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewGuests.Name = "dataGridViewGuests";
             this.dataGridViewGuests.ReadOnly = true;
-            this.dataGridViewGuests.Size = new System.Drawing.Size(800, 450);
+            this.dataGridViewGuests.Size = new System.Drawing.Size(933, 554);
             this.dataGridViewGuests.TabIndex = 0;
             // 
             // GuestForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(933, 554);
             this.Controls.Add(this.dataGridViewGuests);
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GuestForm";
-            this.Text = "GuestForm";
+            this.Text = "Guests\' Data";
             this.Load += new System.EventHandler(this.GuestForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGuests)).EndInit();
             this.ResumeLayout(false);

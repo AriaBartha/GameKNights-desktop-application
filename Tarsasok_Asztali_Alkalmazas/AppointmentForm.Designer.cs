@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppointmentForm));
             this.listBoxAppointments = new System.Windows.Forms.ListBox();
             this.groupBoxAppointments = new System.Windows.Forms.GroupBox();
             this.textBoxEName = new System.Windows.Forms.TextBox();
@@ -48,12 +49,12 @@
             // listBoxAppointments
             // 
             this.listBoxAppointments.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listBoxAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listBoxAppointments.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBoxAppointments.FormattingEnabled = true;
             this.listBoxAppointments.ItemHeight = 16;
             this.listBoxAppointments.Location = new System.Drawing.Point(0, 0);
             this.listBoxAppointments.Name = "listBoxAppointments";
-            this.listBoxAppointments.Size = new System.Drawing.Size(290, 450);
+            this.listBoxAppointments.Size = new System.Drawing.Size(290, 485);
             this.listBoxAppointments.TabIndex = 0;
             this.listBoxAppointments.SelectedIndexChanged += new System.EventHandler(this.listBoxAppointments_SelectedIndexChanged);
             // 
@@ -70,14 +71,14 @@
             this.groupBoxAppointments.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxAppointments.Location = new System.Drawing.Point(290, 0);
             this.groupBoxAppointments.Name = "groupBoxAppointments";
-            this.groupBoxAppointments.Size = new System.Drawing.Size(510, 227);
+            this.groupBoxAppointments.Size = new System.Drawing.Size(510, 244);
             this.groupBoxAppointments.TabIndex = 1;
             this.groupBoxAppointments.TabStop = false;
-            this.groupBoxAppointments.Text = "groupBoxAppointments";
             // 
             // textBoxEName
             // 
-            this.textBoxEName.Location = new System.Drawing.Point(172, 163);
+            this.textBoxEName.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxEName.Location = new System.Drawing.Point(172, 176);
             this.textBoxEName.Name = "textBoxEName";
             this.textBoxEName.Size = new System.Drawing.Size(216, 20);
             this.textBoxEName.TabIndex = 7;
@@ -85,17 +86,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(37, 164);
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(37, 177);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 16);
+            this.label4.Size = new System.Drawing.Size(105, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Employee name:";
             // 
             // textBoxEmployeeId
             // 
-            this.textBoxEmployeeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxEmployeeId.Location = new System.Drawing.Point(172, 121);
+            this.textBoxEmployeeId.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxEmployeeId.Location = new System.Drawing.Point(172, 130);
             this.textBoxEmployeeId.Name = "textBoxEmployeeId";
             this.textBoxEmployeeId.ReadOnly = true;
             this.textBoxEmployeeId.Size = new System.Drawing.Size(100, 22);
@@ -104,19 +105,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(60, 121);
+            this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(60, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 16);
+            this.label3.Size = new System.Drawing.Size(83, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Employee Id:";
             // 
             // dateTimeAppointment
             // 
             this.dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
-            this.dateTimeAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dateTimeAppointment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dateTimeAppointment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeAppointment.Location = new System.Drawing.Point(172, 78);
+            this.dateTimeAppointment.Location = new System.Drawing.Point(172, 84);
             this.dateTimeAppointment.MinDate = new System.DateTime(2024, 4, 4, 0, 0, 0, 0);
             this.dateTimeAppointment.Name = "dateTimeAppointment";
             this.dateTimeAppointment.Size = new System.Drawing.Size(200, 22);
@@ -126,17 +127,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(61, 78);
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(61, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 16);
+            this.label2.Size = new System.Drawing.Size(84, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Appointment:";
             // 
             // textBoxIdAppointment
             // 
-            this.textBoxIdAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxIdAppointment.Location = new System.Drawing.Point(172, 40);
+            this.textBoxIdAppointment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxIdAppointment.Location = new System.Drawing.Point(172, 43);
             this.textBoxIdAppointment.Name = "textBoxIdAppointment";
             this.textBoxIdAppointment.ReadOnly = true;
             this.textBoxIdAppointment.Size = new System.Drawing.Size(100, 22);
@@ -145,8 +146,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(125, 40);
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(125, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 16);
             this.label1.TabIndex = 0;
@@ -154,10 +155,10 @@
             // 
             // buttonRefreshAppointments
             // 
-            this.buttonRefreshAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonRefreshAppointments.Location = new System.Drawing.Point(318, 246);
+            this.buttonRefreshAppointments.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonRefreshAppointments.Location = new System.Drawing.Point(318, 265);
             this.buttonRefreshAppointments.Name = "buttonRefreshAppointments";
-            this.buttonRefreshAppointments.Size = new System.Drawing.Size(129, 35);
+            this.buttonRefreshAppointments.Size = new System.Drawing.Size(129, 38);
             this.buttonRefreshAppointments.TabIndex = 2;
             this.buttonRefreshAppointments.Text = "Refresh List";
             this.buttonRefreshAppointments.UseVisualStyleBackColor = true;
@@ -165,10 +166,10 @@
             // 
             // buttonAddAppointment
             // 
-            this.buttonAddAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonAddAppointment.Location = new System.Drawing.Point(485, 246);
+            this.buttonAddAppointment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonAddAppointment.Location = new System.Drawing.Point(485, 265);
             this.buttonAddAppointment.Name = "buttonAddAppointment";
-            this.buttonAddAppointment.Size = new System.Drawing.Size(129, 35);
+            this.buttonAddAppointment.Size = new System.Drawing.Size(129, 38);
             this.buttonAddAppointment.TabIndex = 3;
             this.buttonAddAppointment.Text = "Add";
             this.buttonAddAppointment.UseVisualStyleBackColor = true;
@@ -176,10 +177,10 @@
             // 
             // buttonUpdateAppointment
             // 
-            this.buttonUpdateAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonUpdateAppointment.Location = new System.Drawing.Point(318, 322);
+            this.buttonUpdateAppointment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonUpdateAppointment.Location = new System.Drawing.Point(318, 347);
             this.buttonUpdateAppointment.Name = "buttonUpdateAppointment";
-            this.buttonUpdateAppointment.Size = new System.Drawing.Size(129, 35);
+            this.buttonUpdateAppointment.Size = new System.Drawing.Size(129, 38);
             this.buttonUpdateAppointment.TabIndex = 4;
             this.buttonUpdateAppointment.Text = "Update";
             this.buttonUpdateAppointment.UseVisualStyleBackColor = true;
@@ -187,10 +188,10 @@
             // 
             // buttonDeleteAppointment
             // 
-            this.buttonDeleteAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonDeleteAppointment.Location = new System.Drawing.Point(485, 322);
+            this.buttonDeleteAppointment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonDeleteAppointment.Location = new System.Drawing.Point(485, 347);
             this.buttonDeleteAppointment.Name = "buttonDeleteAppointment";
-            this.buttonDeleteAppointment.Size = new System.Drawing.Size(129, 35);
+            this.buttonDeleteAppointment.Size = new System.Drawing.Size(129, 38);
             this.buttonDeleteAppointment.TabIndex = 5;
             this.buttonDeleteAppointment.Text = "Delete";
             this.buttonDeleteAppointment.UseVisualStyleBackColor = true;
@@ -198,18 +199,20 @@
             // 
             // AppointmentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 485);
             this.Controls.Add(this.buttonDeleteAppointment);
             this.Controls.Add(this.buttonUpdateAppointment);
             this.Controls.Add(this.buttonAddAppointment);
             this.Controls.Add(this.buttonRefreshAppointments);
             this.Controls.Add(this.groupBoxAppointments);
             this.Controls.Add(this.listBoxAppointments);
+            this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AppointmentForm";
-            this.Text = "AppointmentForm";
+            this.Text = "Appointments";
             this.Load += new System.EventHandler(this.AppointmentForm_Load);
             this.groupBoxAppointments.ResumeLayout(false);
             this.groupBoxAppointments.PerformLayout();
