@@ -1,4 +1,4 @@
-Társasjáték időpontfoglalós projekt 
+# Társasjáték időpontfoglalós projekt 
 
 A projekt egy vállalkozásnak készül, ahol játékmesterek tartanak társasjátékozós eseményeket. 
 Sokan szeretnek új stratégiai társasjátékokat kipróbálni barátokkal/családdal, de nem feltétlenül 
