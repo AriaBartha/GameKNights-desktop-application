@@ -91,6 +91,7 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             AppointmentForm appointmentsForm = new AppointmentForm();
             appointmentsForm.ShowDialog();
+            
         }
 
         // Guests' contact data gomb kattintási eseménye, megnyitja a GuestForm ablakot.
@@ -103,8 +104,9 @@ namespace Tarsasok_Asztali_Alkalmazas
         // My appointments gomb kattintási eseménye, megnyitja a MyAppointmentsForm ablakot.
         private void buttonMyAppointments_Click(object sender, EventArgs e)
         {
-            MyAppointmentsForm myAppointmentsForm = new MyAppointmentsForm();
-            myAppointmentsForm.ShowDialog();
+           
+            Program.myAppointmentsForm.MyToken = Token;
+            Program.myAppointmentsForm.ShowDialog();
         }
 
         // Logout gomb kattintási eseménye, kilépés a MainFormról vissza a LogIn-re.

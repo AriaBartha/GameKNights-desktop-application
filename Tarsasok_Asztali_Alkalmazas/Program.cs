@@ -10,6 +10,7 @@ namespace Tarsasok_Asztali_Alkalmazas
     {
         public static MainForm mainForm = null;
         public static LogIn logInForm = null;
+        public static MyAppointmentsForm myAppointmentsForm = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -20,6 +21,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             Application.SetCompatibleTextRenderingDefault(false);
             mainForm = new MainForm();
             logInForm = new LogIn();
+            myAppointmentsForm = new MyAppointmentsForm();
             Application.Run(new LogIn());
         }
     }
