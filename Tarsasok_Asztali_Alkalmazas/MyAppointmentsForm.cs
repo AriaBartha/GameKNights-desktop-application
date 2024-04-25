@@ -16,5 +16,10 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             InitializeComponent();
         }
+
+        private void MyAppointmentsForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

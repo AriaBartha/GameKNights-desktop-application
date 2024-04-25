@@ -100,7 +100,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             guestForm.ShowDialog();
         }
 
-        // My appointments gomb kattintási eseménye, megnyitja a MyAppointments formot.
+        // My appointments gomb kattintási eseménye, megnyitja a MyAppointmentsForm ablakot.
         private void buttonMyAppointments_Click(object sender, EventArgs e)
         {
             MyAppointmentsForm myAppointmentsForm = new MyAppointmentsForm();
