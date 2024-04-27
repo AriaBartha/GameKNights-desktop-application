@@ -68,7 +68,7 @@
             this.buttonLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonLogOut.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonLogOut.Location = new System.Drawing.Point(615, 452);
+            this.buttonLogOut.Location = new System.Drawing.Point(618, 420);
             this.buttonLogOut.Name = "buttonLogOut";
             this.buttonLogOut.Size = new System.Drawing.Size(120, 69);
             this.buttonLogOut.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.buttonToGuestscontactData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonToGuestscontactData.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonToGuestscontactData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonToGuestscontactData.Location = new System.Drawing.Point(411, 255);
+            this.buttonToGuestscontactData.Location = new System.Drawing.Point(405, 248);
             this.buttonToGuestscontactData.Name = "buttonToGuestscontactData";
             this.buttonToGuestscontactData.Size = new System.Drawing.Size(123, 86);
             this.buttonToGuestscontactData.TabIndex = 3;
@@ -120,7 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(814, 585);
+            this.ClientSize = new System.Drawing.Size(814, 540);
             this.Controls.Add(this.buttonMyAppointments);
             this.Controls.Add(this.buttonToEmployees);
             this.Controls.Add(this.buttonToGuestscontactData);
@@ -129,6 +129,9 @@
             this.Controls.Add(this.buttonToBoardGamesForm);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(830, 579);
+            this.MinimumSize = new System.Drawing.Size(830, 579);
             this.Name = "MainForm";
             this.Text = "Main";
             this.Load += new System.EventHandler(this.MainForm_Load);

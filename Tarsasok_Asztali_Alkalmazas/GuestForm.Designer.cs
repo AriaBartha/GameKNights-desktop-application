@@ -37,13 +37,13 @@
             // 
             this.dataGridViewGuests.AllowUserToAddRows = false;
             this.dataGridViewGuests.AllowUserToDeleteRows = false;
+            this.dataGridViewGuests.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridViewGuests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewGuests.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewGuests.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewGuests.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewGuests.Name = "dataGridViewGuests";
             this.dataGridViewGuests.ReadOnly = true;
-            this.dataGridViewGuests.Size = new System.Drawing.Size(933, 554);
+            this.dataGridViewGuests.Size = new System.Drawing.Size(933, 556);
             this.dataGridViewGuests.TabIndex = 0;
             // 
             // GuestForm
@@ -55,6 +55,9 @@
             this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(949, 593);
+            this.MinimumSize = new System.Drawing.Size(949, 593);
             this.Name = "GuestForm";
             this.Text = "Guests\' Data";
             this.Load += new System.EventHandler(this.GuestForm_Load);

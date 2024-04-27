@@ -69,7 +69,7 @@
             this.textBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.textBoxEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.textBoxEmail.Location = new System.Drawing.Point(338, 112);
+            this.textBoxEmail.Location = new System.Drawing.Point(346, 112);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(172, 22);
             this.textBoxEmail.TabIndex = 2;
@@ -79,7 +79,7 @@
             this.textBoxPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.textBoxPassword.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.textBoxPassword.Location = new System.Drawing.Point(338, 162);
+            this.textBoxPassword.Location = new System.Drawing.Point(346, 162);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(172, 22);
             this.textBoxPassword.TabIndex = 3;
@@ -87,9 +87,10 @@
             // buttonLogIn
             // 
             this.buttonLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
+            this.buttonLogIn.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.buttonLogIn.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonLogIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
-            this.buttonLogIn.Location = new System.Drawing.Point(543, 289);
+            this.buttonLogIn.Location = new System.Drawing.Point(631, 300);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(88, 69);
             this.buttonLogIn.TabIndex = 4;
@@ -102,8 +103,8 @@
             this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(51)))), ((int)(((byte)(43)))));
             this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.buttonExit.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonExit.ForeColor = System.Drawing.Color.OrangeRed;
-            this.buttonExit.Location = new System.Drawing.Point(543, 381);
+            this.buttonExit.ForeColor = System.Drawing.Color.Red;
+            this.buttonExit.Location = new System.Drawing.Point(631, 414);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(88, 69);
             this.buttonExit.TabIndex = 5;
@@ -116,15 +117,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 485);
+            this.ClientSize = new System.Drawing.Size(800, 540);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonLogIn);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(816, 579);
+            this.MinimumSize = new System.Drawing.Size(816, 579);
             this.Name = "LogIn";
             this.Text = "Log In";
             this.Load += new System.EventHandler(this.LogIn_Load);
