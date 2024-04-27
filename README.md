@@ -3,6 +3,7 @@
 
 # Game KNights asztali alkalmazás
 
+
 A projekt egy vállalkozásnak készül, ahol játékmesterek tartanak társasjátékos eseményeket. 
 Sokan szeretnek új stratégiai társasjátékokat kipróbálni barátokkal/családdal, de nem feltétlenül 
 akarják megvenni az adott társasjátékot vagy megtanulni a stratégiai társasjátékok hosszú 
@@ -25,7 +26,9 @@ kezelhetik a foglalásokat és a társasjátékok adatbázisát.
 ## Telepítés és futtatás
 
 - Az asztali alkalmazás git repojának klónozása után Visual Studioban megnyitva futtatható. (A futtatás előtt el kell indítani az alkalmazás Backendjét a [Backend](https://github.com/Abradave/boardGames_backend/blob/main/README.md) git repojának README.md fájljában leírtak szerint.)
+  
 - Vagy a az asztali alkalmazás git repojának klónozása után az alkalmazás mappájában a GameKNightsSetUp/Release/GameKNightsSetUp.msi fájlból telepíthetó az alkalmazás a számítógépre. Telepítés után az asztalról és a menüből is elérhető lesz. (A futtatás előtt ebben az esetben is el kell indítani az alkalmazás Backendjét a [Backend](https://github.com/Abradave/boardGames_backend/blob/main/README.md) git repojának README.md fájljában leírtak szerint.)
+  
 - A Backend alkalmazás seederében van két teszt munkavállaló, így seedelés után a következő munkavállalói adatokkal lehet bejelentkezni a GameKNights asztali alkalmazásba:
-  - Admin Admin e-mail: admin@gkn.com jelszó: admin123
-  - Teszt Elek teszt@gkn.com jelszó: 12345678
+  - név: Admin Admin   e-mail: admin@gkn.com   jelszó: admin123
+  - név: Teszt Elek   teszt@gkn.com   jelszó: 12345678
