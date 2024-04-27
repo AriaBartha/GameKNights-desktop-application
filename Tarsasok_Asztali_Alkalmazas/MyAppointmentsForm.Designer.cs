@@ -100,7 +100,7 @@
             // 
             // textBoxAppointment
             // 
-            this.textBoxAppointment.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.textBoxAppointment.BackColor = System.Drawing.Color.Honeydew;
             this.textBoxAppointment.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxAppointment.Location = new System.Drawing.Point(505, 56);
             this.textBoxAppointment.Name = "textBoxAppointment";
@@ -110,7 +110,7 @@
             // 
             // textBoxPlayers
             // 
-            this.textBoxPlayers.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.textBoxPlayers.BackColor = System.Drawing.Color.Honeydew;
             this.textBoxPlayers.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxPlayers.Location = new System.Drawing.Point(505, 107);
             this.textBoxPlayers.Name = "textBoxPlayers";
@@ -120,7 +120,7 @@
             // 
             // textBoxGuest
             // 
-            this.textBoxGuest.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.textBoxGuest.BackColor = System.Drawing.Color.Honeydew;
             this.textBoxGuest.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxGuest.Location = new System.Drawing.Point(505, 163);
             this.textBoxGuest.Name = "textBoxGuest";
@@ -130,7 +130,7 @@
             // 
             // textBoxBoardGame
             // 
-            this.textBoxBoardGame.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.textBoxBoardGame.BackColor = System.Drawing.Color.Honeydew;
             this.textBoxBoardGame.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxBoardGame.Location = new System.Drawing.Point(505, 222);
             this.textBoxBoardGame.Name = "textBoxBoardGame";
@@ -140,7 +140,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.BackColor = System.Drawing.Color.LightSalmon;
+            this.buttonRefresh.BackColor = System.Drawing.Color.Moccasin;
             this.buttonRefresh.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonRefresh.Location = new System.Drawing.Point(441, 319);
             this.buttonRefresh.Name = "buttonRefresh";

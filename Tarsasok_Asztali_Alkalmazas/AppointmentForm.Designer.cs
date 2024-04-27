@@ -48,7 +48,7 @@
             // 
             // listBoxAppointments
             // 
-            this.listBoxAppointments.BackColor = System.Drawing.Color.PeachPuff;
+            this.listBoxAppointments.BackColor = System.Drawing.Color.MistyRose;
             this.listBoxAppointments.Dock = System.Windows.Forms.DockStyle.Left;
             this.listBoxAppointments.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBoxAppointments.FormattingEnabled = true;
