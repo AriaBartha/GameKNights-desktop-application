@@ -35,6 +35,8 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -112,12 +114,24 @@
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
+            this.pictureBoxLogo.Location = new System.Drawing.Point(-2, 0);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(150, 150);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxLogo.TabIndex = 6;
+            this.pictureBoxLogo.TabStop = false;
+            // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 540);
+            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonLogIn);
             this.Controls.Add(this.textBoxPassword);
@@ -133,6 +147,7 @@
             this.Name = "LogIn";
             this.Text = "Log In";
             this.Load += new System.EventHandler(this.LogIn_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,6 +161,7 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonLogIn;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }
 
