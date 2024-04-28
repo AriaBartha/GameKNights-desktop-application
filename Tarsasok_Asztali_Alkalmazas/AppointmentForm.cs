@@ -21,7 +21,7 @@ namespace Tarsasok_Asztali_Alkalmazas
     {
         HttpClient client = new HttpClient();
         string endPoint = ReadSetting("endpointUrlAppointment");
-        string endpointEmployee = ReadSetting("endpointUrlEmployee");
+        string endPointEmployee = ReadSetting("endpointUrlEmployee");
 
         // Alkalmazás beállítások olvasása.
         private static string ReadSetting(string keyName)
@@ -88,16 +88,15 @@ namespace Tarsasok_Asztali_Alkalmazas
 
             textBoxIdAppointment.Text = appointment.Id.ToString();
             dateTimeAppointment.Value = DateTime.Parse(appointment.AppointmentAppointment);
-            textBoxEmployeeId.Text = appointment.EmployeeId.ToString();
 
-            HttpResponseMessage response = await client.GetAsync(endpointEmployee);
+            HttpResponseMessage response = await client.GetAsync(endPointEmployee);
             if (response.IsSuccessStatusCode)
             {
                 string jsonString = await response.Content.ReadAsStringAsync();
                 var employee = Employee.FromJson(jsonString);
                 foreach (Employee item in employee)
                 {
-                    if (Int64.Parse(textBoxEmployeeId.Text) == item.Id)
+                    if (appointment.EmployeeId == item.Id)
                     {
                         textBoxEName.Text = item.EName;
                     }
@@ -137,31 +136,30 @@ namespace Tarsasok_Asztali_Alkalmazas
             dateTimeAppointment.Format = DateTimePickerFormat.Custom;
             dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
             appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
-            HttpResponseMessage responseGet = await client.GetAsync(endpointEmployee);
+
+            HttpResponseMessage responseGet = await client.GetAsync(endPointEmployee);
             if (responseGet.IsSuccessStatusCode)
             {
                 string jsonString = await responseGet.Content.ReadAsStringAsync();
                 var employee = Employee.FromJson(jsonString);
                 foreach (Employee item in employee)
                 {
-                    if(item.EName == textBoxEName.Text)
+                    if (textBoxEName.Text == item.EName)
                     {
-                        textBoxEmployeeId.Text = item.Id.ToString();
+                        appointment.EmployeeId = item.Id;
                     }
-                    else
+                    /*else
                     {
                         MessageBox.Show("Please enter a valid employee name.");
                         textBoxEName.Focus();
                         return;
-                    }
+                    }*/
                 }
             }
             else
             {
                 MessageBox.Show("Calling API endpoint failed: " + responseGet.ReasonPhrase);
             }
-
-            appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
             appointment.Booked = 0;
 
             var json = JsonConvert.SerializeObject(appointment);
@@ -169,7 +167,6 @@ namespace Tarsasok_Asztali_Alkalmazas
             var response = client.PostAsync(endPoint, data).Result;
             if (response.IsSuccessStatusCode)
             {
-
                 MessageBox.Show("New appointment has been added successfully");
                 refreshAppointmentList();
             }
@@ -194,12 +191,6 @@ namespace Tarsasok_Asztali_Alkalmazas
                 textBoxEName.Focus();
                 return;
             }
-            if (string.IsNullOrEmpty(textBoxEmployeeId.Text))
-            {
-                MessageBox.Show("Employee Id required!");
-                textBoxEmployeeId.Focus();
-                return;
-            }
             if (dateTimeAppointment.Value == null)
             {
                 MessageBox.Show("Appointment required!");
@@ -211,9 +202,9 @@ namespace Tarsasok_Asztali_Alkalmazas
             appointment.Id =long.Parse(textBoxIdAppointment.Text);
             dateTimeAppointment.Format = DateTimePickerFormat.Custom;
             dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
-
             appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
-            HttpResponseMessage responseGet = await client.GetAsync(endpointEmployee);
+
+            HttpResponseMessage responseGet = await client.GetAsync(endPointEmployee);
             if (responseGet.IsSuccessStatusCode)
             {
                 string jsonString = await responseGet.Content.ReadAsStringAsync();
@@ -222,22 +213,20 @@ namespace Tarsasok_Asztali_Alkalmazas
                 {
                     if (item.EName == textBoxEName.Text)
                     {
-                        textBoxEmployeeId.Text = item.Id.ToString();
+                        appointment.EmployeeId = item.Id;
                     }
-                    else
+                    /*else
                     {
                         MessageBox.Show("Please enter a valid employee name.");
                         textBoxEName.Focus();
                         return;
-                    }
+                    }*/
                 }
             }
             else
             {
                 MessageBox.Show("Calling API endpoint failed: " + responseGet.ReasonPhrase);
-            }
-            appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
-                      
+            }                    
 
             var json = JsonConvert.SerializeObject(appointment);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -267,8 +256,6 @@ namespace Tarsasok_Asztali_Alkalmazas
             {
                 Appointment appointment = new Appointment();
                 appointment.Id = long.Parse(textBoxIdAppointment.Text);
-                appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString();
-                appointment.EmployeeId = long.Parse(textBoxEmployeeId.Text);
                                 
                 string endPointDelete = $"{endPoint}/{appointment.Id}";
                 var response = client.DeleteAsync(endPointDelete).Result;
@@ -289,7 +276,6 @@ namespace Tarsasok_Asztali_Alkalmazas
         private void clearInputs()
         {
             textBoxIdAppointment.Text = string.Empty;
-            textBoxEmployeeId.Text = string.Empty;
             textBoxEName.Text = string.Empty;
             dateTimeAppointment.Value = DateTime.Now;
         }

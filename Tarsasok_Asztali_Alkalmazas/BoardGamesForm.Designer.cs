@@ -36,7 +36,6 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.buttonUpdateBG = new System.Windows.Forms.Button();
             this.buttonRefreshListBG = new System.Windows.Forms.Button();
             this.buttonDeleteBG = new System.Windows.Forms.Button();
-            this.groupBoxBG = new System.Windows.Forms.GroupBox();
             this.nuMaxPlayerBG = new System.Windows.Forms.NumericUpDown();
             this.nuMinPlayerBG = new System.Windows.Forms.NumericUpDown();
             this.richTextBoxDescriptionBG = new System.Windows.Forms.RichTextBox();
@@ -47,7 +46,6 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBoxBG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nuMaxPlayerBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuMinPlayerBG)).BeginInit();
             this.SuspendLayout();
@@ -121,32 +119,11 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.buttonDeleteBG.UseVisualStyleBackColor = false;
             this.buttonDeleteBG.Click += new System.EventHandler(this.buttonDeleteBG_Click);
             // 
-            // groupBoxBG
-            // 
-            this.groupBoxBG.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBoxBG.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBoxBG.BackgroundImage")));
-            this.groupBoxBG.Controls.Add(this.nuMaxPlayerBG);
-            this.groupBoxBG.Controls.Add(this.nuMinPlayerBG);
-            this.groupBoxBG.Controls.Add(this.richTextBoxDescriptionBG);
-            this.groupBoxBG.Controls.Add(this.textBoxNameBG);
-            this.groupBoxBG.Controls.Add(this.textBoxIdBG);
-            this.groupBoxBG.Controls.Add(this.label5);
-            this.groupBoxBG.Controls.Add(this.label4);
-            this.groupBoxBG.Controls.Add(this.label3);
-            this.groupBoxBG.Controls.Add(this.label2);
-            this.groupBoxBG.Controls.Add(this.label1);
-            this.groupBoxBG.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBoxBG.Location = new System.Drawing.Point(276, 0);
-            this.groupBoxBG.Name = "groupBoxBG";
-            this.groupBoxBG.Size = new System.Drawing.Size(524, 405);
-            this.groupBoxBG.TabIndex = 5;
-            this.groupBoxBG.TabStop = false;
-            // 
             // nuMaxPlayerBG
             // 
             this.nuMaxPlayerBG.BackColor = System.Drawing.Color.OldLace;
             this.nuMaxPlayerBG.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nuMaxPlayerBG.Location = new System.Drawing.Point(131, 126);
+            this.nuMaxPlayerBG.Location = new System.Drawing.Point(444, 157);
             this.nuMaxPlayerBG.Minimum = new decimal(new int[] {
             1,
             0,
@@ -165,7 +142,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             // 
             this.nuMinPlayerBG.BackColor = System.Drawing.Color.OldLace;
             this.nuMinPlayerBG.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nuMinPlayerBG.Location = new System.Drawing.Point(131, 92);
+            this.nuMinPlayerBG.Location = new System.Drawing.Point(444, 113);
             this.nuMinPlayerBG.Minimum = new decimal(new int[] {
             1,
             0,
@@ -184,9 +161,9 @@ namespace Tarsasok_Asztali_Alkalmazas
             // 
             this.richTextBoxDescriptionBG.BackColor = System.Drawing.Color.OldLace;
             this.richTextBoxDescriptionBG.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBoxDescriptionBG.Location = new System.Drawing.Point(127, 163);
+            this.richTextBoxDescriptionBG.Location = new System.Drawing.Point(444, 199);
             this.richTextBoxDescriptionBG.Name = "richTextBoxDescriptionBG";
-            this.richTextBoxDescriptionBG.Size = new System.Drawing.Size(331, 219);
+            this.richTextBoxDescriptionBG.Size = new System.Drawing.Size(331, 194);
             this.richTextBoxDescriptionBG.TabIndex = 17;
             this.richTextBoxDescriptionBG.Text = "";
             // 
@@ -194,7 +171,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             // 
             this.textBoxNameBG.BackColor = System.Drawing.Color.OldLace;
             this.textBoxNameBG.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxNameBG.Location = new System.Drawing.Point(131, 60);
+            this.textBoxNameBG.Location = new System.Drawing.Point(444, 72);
             this.textBoxNameBG.Name = "textBoxNameBG";
             this.textBoxNameBG.Size = new System.Drawing.Size(327, 22);
             this.textBoxNameBG.TabIndex = 16;
@@ -203,7 +180,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             // 
             this.textBoxIdBG.BackColor = System.Drawing.Color.OldLace;
             this.textBoxIdBG.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxIdBG.Location = new System.Drawing.Point(131, 27);
+            this.textBoxIdBG.Location = new System.Drawing.Point(444, 29);
             this.textBoxIdBG.Name = "textBoxIdBG";
             this.textBoxIdBG.ReadOnly = true;
             this.textBoxIdBG.Size = new System.Drawing.Size(100, 22);
@@ -215,7 +192,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(26, 163);
+            this.label5.Location = new System.Drawing.Point(327, 202);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 16);
             this.label5.TabIndex = 14;
@@ -227,7 +204,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(16, 126);
+            this.label4.Location = new System.Drawing.Point(317, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 16);
             this.label4.TabIndex = 13;
@@ -239,7 +216,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(20, 92);
+            this.label3.Location = new System.Drawing.Point(321, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 12;
@@ -251,7 +228,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(57, 60);
+            this.label2.Location = new System.Drawing.Point(361, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 16);
             this.label2.TabIndex = 11;
@@ -263,7 +240,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(168)))), ((int)(((byte)(140)))));
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(77, 33);
+            this.label1.Location = new System.Drawing.Point(386, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 16);
             this.label1.TabIndex = 10;
@@ -276,9 +253,18 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 485);
-            this.Controls.Add(this.groupBoxBG);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxIdBG);
+            this.Controls.Add(this.textBoxNameBG);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.nuMinPlayerBG);
+            this.Controls.Add(this.nuMaxPlayerBG);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonDeleteBG);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.richTextBoxDescriptionBG);
             this.Controls.Add(this.buttonRefreshListBG);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonUpdateBG);
             this.Controls.Add(this.buttonAddBG);
             this.Controls.Add(this.listBoxBoardGames);
@@ -290,11 +276,10 @@ namespace Tarsasok_Asztali_Alkalmazas
             this.Name = "BoardGamesForm";
             this.Text = "Board Games";
             this.Load += new System.EventHandler(this.BoardGamesForm_Load);
-            this.groupBoxBG.ResumeLayout(false);
-            this.groupBoxBG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nuMaxPlayerBG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuMinPlayerBG)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -305,7 +290,6 @@ namespace Tarsasok_Asztali_Alkalmazas
         private System.Windows.Forms.Button buttonUpdateBG;
         private System.Windows.Forms.Button buttonRefreshListBG;
         private System.Windows.Forms.Button buttonDeleteBG;
-        private System.Windows.Forms.GroupBox groupBoxBG;
         private System.Windows.Forms.NumericUpDown nuMaxPlayerBG;
         private System.Windows.Forms.NumericUpDown nuMinPlayerBG;
         private System.Windows.Forms.RichTextBox richTextBoxDescriptionBG;
