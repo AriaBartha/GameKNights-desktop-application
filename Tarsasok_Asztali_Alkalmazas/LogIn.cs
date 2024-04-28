@@ -59,37 +59,20 @@ namespace Tarsasok_Asztali_Alkalmazas
         {
             try
             {
-                //email validálás
+                //ha nem ad meg emailt a felhasználó
                 if (string.IsNullOrEmpty(textBoxEmail.Text))
                 {
                     MessageBox.Show("Email is required");
                     textBoxEmail.Focus();
                     return;
                 }
+                //email validálás
                 if (!IsValidEmail(textBoxEmail.Text))
                 {
                     MessageBox.Show("Email address must be valid.");
                     textBoxEmail.Focus();
                     return;
                 }
-                /*try
-                {
-                    new System.Net.Mail.MailAddress(textBoxEmail.Text);
-                }
-                catch (ArgumentException)
-                {
-                    //ha nem ad meg semmit a felhasználó
-                    MessageBox.Show("Email is required!");
-                    textBoxEmail.Focus();
-                    return;
-                }
-                catch (FormatException)
-                {
-                    //ha nem email formátumot ad meg a felhasználó
-                    MessageBox.Show("Valid email is required!");
-                    textBoxEmail.Focus();
-                    return;
-                }*/
                 // ha nem ad meg jelszót a felhasználó
                 if (string.IsNullOrEmpty(textBoxPassword.Text))
                 {

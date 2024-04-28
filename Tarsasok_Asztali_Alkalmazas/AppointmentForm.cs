@@ -81,30 +81,37 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Kiválasztott időpont adatainak betöltése az input mezőkbe.
         private async void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Appointment appointment = (Appointment)listBoxAppointments.SelectedItem;
-
-            dateTimeAppointment.Format = DateTimePickerFormat.Custom;
-            dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
-
-            textBoxIdAppointment.Text = appointment.Id.ToString();
-            dateTimeAppointment.Value = DateTime.Parse(appointment.AppointmentAppointment);
-
-            HttpResponseMessage response = await client.GetAsync(endPointEmployee);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                string jsonString = await response.Content.ReadAsStringAsync();
-                var employee = Employee.FromJson(jsonString);
-                foreach (Employee item in employee)
+                Appointment appointment = (Appointment)listBoxAppointments.SelectedItem;
+
+                dateTimeAppointment.Format = DateTimePickerFormat.Custom;
+                dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+
+                textBoxIdAppointment.Text = appointment.Id.ToString();
+                dateTimeAppointment.Value = DateTime.Parse(appointment.AppointmentAppointment);
+
+                HttpResponseMessage response = await client.GetAsync(endPointEmployee);
+                if (response.IsSuccessStatusCode)
                 {
-                    if (appointment.EmployeeId == item.Id)
+                    string jsonString = await response.Content.ReadAsStringAsync();
+                    var employee = Employee.FromJson(jsonString);
+                    foreach (Employee item in employee)
                     {
-                        textBoxEName.Text = item.EName;
+                        if (appointment.EmployeeId == item.Id)
+                        {
+                            textBoxEName.Text = item.EName;
+                        }
                     }
-                } 
+                }
+                else
+                {
+                    MessageBox.Show("Calling API endpoint failed: " + response.ReasonPhrase);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Calling API endpoint failed: " + response.ReasonPhrase);
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
         }
 
@@ -118,66 +125,62 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Új időpont hozzáadása az adatbázishoz, Add gomb kattintási eseménye.
         private async void buttonAddAppointment_Click(object sender, EventArgs e)
         {
-            Appointment appointment = new Appointment();
-           
-            if (string.IsNullOrEmpty(textBoxEName.Text))
+            try
             {
-                MessageBox.Show("Employee name required!");
-                textBoxEName.Focus();
-                return;
-            }
-            if (dateTimeAppointment.Value == null)
-            {
-                MessageBox.Show("Appointment required!");
-                dateTimeAppointment.Focus();
-                return;
-            }
+                Appointment appointment = new Appointment();
 
-            dateTimeAppointment.Format = DateTimePickerFormat.Custom;
-            dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
-            appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
-
-            HttpResponseMessage responseGet = await client.GetAsync(endPointEmployee);
-            if (responseGet.IsSuccessStatusCode)
-            {
-                string jsonString = await responseGet.Content.ReadAsStringAsync();
-                var employee = Employee.FromJson(jsonString);
-                foreach (Employee item in employee)
+                if (string.IsNullOrEmpty(textBoxEName.Text))
                 {
-                    if (textBoxEName.Text == item.EName)
+                    MessageBox.Show("Employee name required!");
+                    textBoxEName.Focus();
+                    return;
+                }
+                if (dateTimeAppointment.Value == null)
+                {
+                    MessageBox.Show("Appointment required!");
+                    dateTimeAppointment.Focus();
+                    return;
+                }
+
+                dateTimeAppointment.Format = DateTimePickerFormat.Custom;
+                dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+                appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
+
+                HttpResponseMessage responseGet = await client.GetAsync(endPointEmployee);
+                if (responseGet.IsSuccessStatusCode)
+                {
+                    string jsonString = await responseGet.Content.ReadAsStringAsync();
+                    var employee = Employee.FromJson(jsonString);
+                    foreach (Employee item in employee)
                     {
-                        appointment.EmployeeId = item.Id;
+                        if (textBoxEName.Text == item.EName)
+                        {
+                            appointment.EmployeeId = item.Id;
+                        }
                     }
-                    //-- TODO: ha rosszul adja meg a munkavállaló nevét, kapjon hibaüzenetet
-                    /*if(item.EName.Contains(textBoxEName.Text) == false)
-                    {
-                        MessageBox.Show("Please enter a valid employee name.");
-                        textBoxEName.Focus();
-                        return;
-                    }
-                    else if (textBoxEName.Text == item.EName)
-                    {
-                        appointment.EmployeeId = item.Id;
-                    }*/
+                }
+                else
+                {
+                    MessageBox.Show("Calling API endpoint failed: " + responseGet.ReasonPhrase);
+                }
+                appointment.Booked = 0;
+
+                var json = JsonConvert.SerializeObject(appointment);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = client.PostAsync(endPoint, data).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("New appointment has been added successfully");
+                    refreshAppointmentList();
+                }
+                else
+                {
+                    MessageBox.Show("Failed! Could not add new appointment to database. " + response.ReasonPhrase);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Calling API endpoint failed: " + responseGet.ReasonPhrase);
-            }
-            appointment.Booked = 0;
-
-            var json = JsonConvert.SerializeObject(appointment);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = client.PostAsync(endPoint, data).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("New appointment has been added successfully");
-                refreshAppointmentList();
-            }
-            else
-            {
-                MessageBox.Show("Failed! Could not add new appointment to database. " + response.ReasonPhrase);
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
             clearInputs();
         }
@@ -185,61 +188,67 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Kiválasztott időpont adatainak módosítása az adatbázisban, Update gomb kattintási eseménye.
         private async void buttonUpdateAppointment_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxIdAppointment.Text))
+            try
             {
-                MessageBox.Show("An appointment must be selected!");
-                return;
-            }
-            if (string.IsNullOrEmpty(textBoxEName.Text))
-            {
-                MessageBox.Show("Employee name required!");
-                textBoxEName.Focus();
-                return;
-            }
-            if (dateTimeAppointment.Value == null)
-            {
-                MessageBox.Show("Appointment required!");
-                dateTimeAppointment.Focus();
-                return;
-            }
-
-            Appointment appointment = new Appointment();
-            appointment.Id =long.Parse(textBoxIdAppointment.Text);
-            dateTimeAppointment.Format = DateTimePickerFormat.Custom;
-            dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
-            appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
-
-            HttpResponseMessage responseGet = await client.GetAsync(endPointEmployee);
-            if (responseGet.IsSuccessStatusCode)
-            {
-                string jsonString = await responseGet.Content.ReadAsStringAsync();
-                var employee = Employee.FromJson(jsonString);
-                foreach (Employee item in employee)
+                if (string.IsNullOrEmpty(textBoxIdAppointment.Text))
                 {
-                    if (item.EName == textBoxEName.Text)
+                    MessageBox.Show("An appointment must be selected!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(textBoxEName.Text))
+                {
+                    MessageBox.Show("Employee name required!");
+                    textBoxEName.Focus();
+                    return;
+                }
+                if (dateTimeAppointment.Value == null)
+                {
+                    MessageBox.Show("Appointment required!");
+                    dateTimeAppointment.Focus();
+                    return;
+                }
+
+                Appointment appointment = new Appointment();
+                appointment.Id = long.Parse(textBoxIdAppointment.Text);
+                dateTimeAppointment.Format = DateTimePickerFormat.Custom;
+                dateTimeAppointment.CustomFormat = "yyyy-MM-dd hh:mm:ss";
+                appointment.AppointmentAppointment = dateTimeAppointment.Value.ToString("yyyy-MM-dd hh:mm:ss");
+
+                HttpResponseMessage responseGet = await client.GetAsync(endPointEmployee);
+                if (responseGet.IsSuccessStatusCode)
+                {
+                    string jsonString = await responseGet.Content.ReadAsStringAsync();
+                    var employee = Employee.FromJson(jsonString);
+                    foreach (Employee item in employee)
                     {
-                        appointment.EmployeeId = item.Id;
+                        if (item.EName == textBoxEName.Text)
+                        {
+                            appointment.EmployeeId = item.Id;
+                        }
                     }
-                    //-- TODO: ha rosszul adja meg a munkavállaló nevét, kapjon hibaüzenetet
+                }
+                else
+                {
+                    MessageBox.Show("Calling API endpoint failed: " + responseGet.ReasonPhrase);
+                }
+
+                var json = JsonConvert.SerializeObject(appointment);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                string endPointUpdate = $"{endPoint}/{appointment.Id}";
+                var response = client.PutAsync(endPointUpdate, data).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Appointment has been updated successfully!");
+                    refreshAppointmentList();
+                }
+                else
+                {
+                    MessageBox.Show("Failed! Could not update appointment! " + response.ReasonPhrase);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Calling API endpoint failed: " + responseGet.ReasonPhrase);
-            }                    
-
-            var json = JsonConvert.SerializeObject(appointment);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            string endPointUpdate = $"{endPoint}/{appointment.Id}";
-            var response = client.PutAsync(endPointUpdate, data).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("Appointment has been updated successfully!");
-                refreshAppointmentList();
-            }
-            else
-            {
-                MessageBox.Show("Failed! Could not update appointment! " + response.ReasonPhrase);
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
             clearInputs();
         }
@@ -247,31 +256,38 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Kiválasztott időpont törlése az adatbázisból, Delete gomb kattintási eseménye.
         private void buttonDeleteAppointment_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxIdAppointment.Text))
+            try
             {
-                MessageBox.Show("An appointment must be selected!");
-                return;
-            }
-            if (MessageBox.Show("Are you sure you want to delete the selected item?","Confirm delete",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                return;
-            }
-            else
-            {
-                Appointment appointment = new Appointment();
-                appointment.Id = long.Parse(textBoxIdAppointment.Text);
-
-                string endPointDelete = $"{endPoint}/{appointment.Id}";
-                var response = client.DeleteAsync(endPointDelete).Result;
-                if (response.IsSuccessStatusCode)
+                if (string.IsNullOrEmpty(textBoxIdAppointment.Text))
                 {
-                    MessageBox.Show("Appointment has been deleted successfully!");
-                    refreshAppointmentList();
+                    MessageBox.Show("An appointment must be selected!");
+                    return;
+                }
+                if (MessageBox.Show("Are you sure you want to delete the selected item?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
                 }
                 else
                 {
-                    MessageBox.Show("Failed! Could not delete appointment! " + response.ReasonPhrase);
+                    Appointment appointment = new Appointment();
+                    appointment.Id = long.Parse(textBoxIdAppointment.Text);
+
+                    string endPointDelete = $"{endPoint}/{appointment.Id}";
+                    var response = client.DeleteAsync(endPointDelete).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Appointment has been deleted successfully!");
+                        refreshAppointmentList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed! Could not delete appointment! " + response.ReasonPhrase);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
             clearInputs();
             
