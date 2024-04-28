@@ -88,56 +88,64 @@ namespace Tarsasok_Asztali_Alkalmazas
         private async void listBoxMyAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
             clearInputs();
-            Appointment appointment = (Appointment)listBoxMyAppointments.SelectedItem;
-
-            textBoxAppointment.Text = appointment.AppointmentAppointment.ToString();
-
-            if (appointment.NumberOfPlayers != null)
+            try
             {
-                textBoxPlayers.Text = appointment.NumberOfPlayers.ToString();
-            }
-           
-            if (appointment.GuestId != null)
-            {
-                HttpResponseMessage response = await client.GetAsync(endPointGuest);
-                if (response.IsSuccessStatusCode)
+                Appointment appointment = (Appointment)listBoxMyAppointments.SelectedItem;
+
+                textBoxAppointment.Text = appointment.AppointmentAppointment.ToString();
+
+                if (appointment.NumberOfPlayers != null)
                 {
-                    string jsonString = await response.Content.ReadAsStringAsync();
-                    var guest = Guest.FromJson(jsonString);
-                    foreach (Guest item in guest)
+                    textBoxPlayers.Text = appointment.NumberOfPlayers.ToString();
+                }
+
+                if (appointment.GuestId != null)
+                {
+                    HttpResponseMessage response = await client.GetAsync(endPointGuest);
+                    if (response.IsSuccessStatusCode)
                     {
-                        if (appointment.GuestId.ToString() == item.Id.ToString())
+                        string jsonString = await response.Content.ReadAsStringAsync();
+                        var guest = Guest.FromJson(jsonString);
+                        foreach (Guest item in guest)
                         {
-                            textBoxGuest.Text = item.GName;
+                            if (appointment.GuestId.ToString() == item.Id.ToString())
+                            {
+                                textBoxGuest.Text = item.GName;
+                            }
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Calling API/guest endpoint failed: " + response.ReasonPhrase);
+                    }
                 }
-                else
+
+                if (appointment.BoardGameId != null)
                 {
-                    MessageBox.Show("Calling API/guest endpoint failed: " + response.ReasonPhrase);
+                    HttpResponseMessage responseBoardGame = await client.GetAsync(endPointBoardGame);
+                    if (responseBoardGame.IsSuccessStatusCode)
+                    {
+                        string jsonStringBoardGame = await responseBoardGame.Content.ReadAsStringAsync();
+                        var boardGame = BoardGame.FromJson(jsonStringBoardGame);
+                        foreach (BoardGame item in boardGame)
+                        {
+                            if (appointment.BoardGameId.ToString() == item.Id.ToString())
+                            {
+                                textBoxBoardGame.Text = item.BgName;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Calling API/boardgame endpoint failed: " + responseBoardGame.ReasonPhrase);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
             
-            if (appointment.BoardGameId != null)
-            {
-                HttpResponseMessage responseBoardGame = await client.GetAsync(endPointBoardGame);
-                if (responseBoardGame.IsSuccessStatusCode)
-                {
-                    string jsonStringBoardGame = await responseBoardGame.Content.ReadAsStringAsync();
-                    var boardGame = BoardGame.FromJson(jsonStringBoardGame);
-                    foreach (BoardGame item in boardGame)
-                    {
-                        if (appointment.BoardGameId.ToString() == item.Id.ToString())
-                        {
-                            textBoxBoardGame.Text = item.BgName;
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Calling API/boardgame endpoint failed: " + responseBoardGame.ReasonPhrase);
-                }
-            }
         }
 
         // Lista frissítés gomb (Refresh List) kattintási eseménye.
