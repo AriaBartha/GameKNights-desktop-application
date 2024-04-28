@@ -46,7 +46,7 @@
             this.buttonToBoardGamesForm.Name = "buttonToBoardGamesForm";
             this.buttonToBoardGamesForm.Size = new System.Drawing.Size(120, 72);
             this.buttonToBoardGamesForm.TabIndex = 0;
-            this.buttonToBoardGamesForm.Text = "Board Games";
+            this.buttonToBoardGamesForm.Text = "Board games";
             this.buttonToBoardGamesForm.UseVisualStyleBackColor = false;
             this.buttonToBoardGamesForm.Click += new System.EventHandler(this.buttonToBoardGamesForm_Click);
             // 

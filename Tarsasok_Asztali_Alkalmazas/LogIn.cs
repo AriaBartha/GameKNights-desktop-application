@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
@@ -56,52 +57,71 @@ namespace Tarsasok_Asztali_Alkalmazas
         //Belépés az alkalmazásba, Log in gomb kattintási eseménye.
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            //email validálás
             try
             {
-                new System.Net.Mail.MailAddress(textBoxEmail.Text);
+                //email validálás
+                if (string.IsNullOrEmpty(textBoxEmail.Text))
+                {
+                    MessageBox.Show("Email is required");
+                    textBoxEmail.Focus();
+                    return;
+                }
+                if (!IsValidEmail(textBoxEmail.Text))
+                {
+                    MessageBox.Show("Email address must be valid.");
+                    textBoxEmail.Focus();
+                    return;
+                }
+                /*try
+                {
+                    new System.Net.Mail.MailAddress(textBoxEmail.Text);
+                }
+                catch (ArgumentException)
+                {
+                    //ha nem ad meg semmit a felhasználó
+                    MessageBox.Show("Email is required!");
+                    textBoxEmail.Focus();
+                    return;
+                }
+                catch (FormatException)
+                {
+                    //ha nem email formátumot ad meg a felhasználó
+                    MessageBox.Show("Valid email is required!");
+                    textBoxEmail.Focus();
+                    return;
+                }*/
+                // ha nem ad meg jelszót a felhasználó
+                if (string.IsNullOrEmpty(textBoxPassword.Text))
+                {
+                    MessageBox.Show("Password is required!");
+                    textBoxPassword.Focus();
+                    return;
+                }
+                Employee employee = new Employee();
+                employee.EEmail = textBoxEmail.Text;
+                employee.EPassword = textBoxPassword.Text;
+                var json = JsonConvert.SerializeObject(employee);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = client.PostAsync(endPoint, data).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    token = response.Content.ReadAsStringAsync().Result;
+                    string[] splitObject = token.Split(':');
+                    string getToken = splitObject[1].Replace("\"", "");
+                    string authToken = getToken.Replace("}", "");
+                    Program.mainForm.Token = authToken;
+                    this.Hide();
+                    Program.mainForm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect email or password.");
+                    return;
+                }
             }
-            catch (ArgumentException)
+            catch (Exception ex)
             {
-                //ha nem ad meg semmit a felhasználó
-                MessageBox.Show("Email is required!");
-                textBoxEmail.Focus();
-                return;
-            }
-            catch (FormatException)
-            {
-                //ha nem email formátumot ad meg a felhasználó
-                MessageBox.Show("Valid email is required!");
-                textBoxEmail.Focus();
-                return;
-            }
-            // ha nem ad meg jelszót a felhasználó
-            if (string.IsNullOrEmpty(textBoxPassword.Text))
-            {
-                MessageBox.Show("Password is required!");
-                textBoxPassword.Focus();
-                return;
-            }
-            Employee employee = new Employee();
-            employee.EEmail = textBoxEmail.Text;
-            employee.EPassword = textBoxPassword.Text;
-            var json = JsonConvert.SerializeObject(employee);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = client.PostAsync(endPoint, data).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                token = response.Content.ReadAsStringAsync().Result;
-                string[] splitObject = token.Split(':');
-                string getToken = splitObject[1].Replace("\"", "");
-                string authToken = getToken.Replace("}", "");
-                Program.mainForm.Token = authToken;
-                this.Hide();
-                Program.mainForm.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Incorrect email or password.");
-                return;
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
         }
 
@@ -141,6 +161,14 @@ namespace Tarsasok_Asztali_Alkalmazas
                     Application.Exit();
                 }
             }
+        }
+
+        //Email cím validálás.
+        public static bool IsValidEmail(string email)
+        {
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            var regex = new Regex(pattern, RegexOptions.IgnoreCase);
+            return regex.IsMatch(email);
         }
     }
 }

@@ -57,12 +57,13 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Bejelentkezett felhasználó ellenőrzése, ha admin a felhasználó, akkor hozzáfér az Employee gombhoz
         private async void CheckUser()
         {
+            try 
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+                HttpResponseMessage response = await client.GetAsync(endPointAuthData);
+                string jsonString = await response.Content.ReadAsStringAsync();
+                var authEmployee = AuthEmployee.FromJson(jsonString);
 
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-            HttpResponseMessage response = await client.GetAsync(endPointAuthData);
-            string jsonString = await response.Content.ReadAsStringAsync();
-            var authEmployee = AuthEmployee.FromJson(jsonString);
-   
                 if (authEmployee.EEmail == "admin@gkn.com")
                 {
                     buttonToEmployees.Enabled = true;
@@ -71,7 +72,11 @@ namespace Tarsasok_Asztali_Alkalmazas
                 {
                     buttonToEmployees.Enabled = false;
                 }
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
+            }
         }
 
         // Board games gomb kattintási eseménye, megnyitja a BoardGamesForm ablakot.
@@ -114,20 +119,26 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Logout gomb kattintási eseménye, kilépés a MainFormról vissza a LogIn-re.
         private async void buttonLogOut_Click(object sender, EventArgs e)
         {
-
-           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
-           HttpResponseMessage response = await client.PostAsync(endPoint, new StringContent(""));
-           if (response.IsSuccessStatusCode || response.StatusCode.ToString().Equals("401"))
-           { 
-                Token = "";
-                this.Hide();
-                Program.logInForm = new LogIn();
-                Program.logInForm.Closed += (s, args) => this.Close();
-                Program.logInForm.Show();
-            }
-            else
+            try
             {
-                MessageBox.Show("Logout failed!");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+                HttpResponseMessage response = await client.PostAsync(endPoint, new StringContent(""));
+                if (response.IsSuccessStatusCode || response.StatusCode.ToString().Equals("401"))
+                {
+                    Token = "";
+                    this.Hide();
+                    Program.logInForm = new LogIn();
+                    Program.logInForm.Closed += (s, args) => this.Close();
+                    Program.logInForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Logout failed!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
         }
 
@@ -156,7 +167,5 @@ namespace Tarsasok_Asztali_Alkalmazas
                 }
             }
         }
-
-        
     }
 }

@@ -125,7 +125,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             string password = textBoxPasswordEmployee.Text;
             if (password.Length < 8)
             {
-                MessageBox.Show("Password must be at least 8 character.");
+                MessageBox.Show("Password must be at least 8 characters.");
                 textBoxPasswordEmployee.Focus();
                 return;
             }
@@ -184,7 +184,7 @@ namespace Tarsasok_Asztali_Alkalmazas
             string password = textBoxPasswordEmployee.Text;
             if (password.Length < 8)
             {
-                MessageBox.Show("Password must be at least 8 character.");
+                MessageBox.Show("Password must be at least 8 characters.");
                 textBoxPasswordEmployee.Focus();
                 return;
             }
@@ -220,7 +220,11 @@ namespace Tarsasok_Asztali_Alkalmazas
                 MessageBox.Show("An employee must be selected!");
                 return;
             }
-            if (MessageBox.Show("Are you sure, you want to delete the selected item?") == DialogResult.OK)
+            if (MessageBox.Show("Are you sure you want to delete the selected item?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+            else
             {
                 Employee employee = new Employee();
 

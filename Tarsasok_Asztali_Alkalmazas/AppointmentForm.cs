@@ -252,11 +252,15 @@ namespace Tarsasok_Asztali_Alkalmazas
                 MessageBox.Show("An appointment must be selected!");
                 return;
             }
-            if (MessageBox.Show("Are you sure, you want to delete the selected item?") == DialogResult.OK)
+            if (MessageBox.Show("Are you sure you want to delete the selected item?","Confirm delete",MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+            else
             {
                 Appointment appointment = new Appointment();
                 appointment.Id = long.Parse(textBoxIdAppointment.Text);
-                                
+
                 string endPointDelete = $"{endPoint}/{appointment.Id}";
                 var response = client.DeleteAsync(endPointDelete).Result;
                 if (response.IsSuccessStatusCode)
@@ -268,8 +272,9 @@ namespace Tarsasok_Asztali_Alkalmazas
                 {
                     MessageBox.Show("Failed! Could not delete appointment! " + response.ReasonPhrase);
                 }
-            } 
+            }
             clearInputs();
+            
         }
 
         // Input mezők kiürítése.

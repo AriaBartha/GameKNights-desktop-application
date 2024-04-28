@@ -107,6 +107,18 @@ namespace Tarsasok_Asztali_Alkalmazas
                 textBoxNameBG.Focus();
                 return;
             }
+            if (string.IsNullOrEmpty(nuMinPlayerBG.Text))
+            {
+                MessageBox.Show("Min. players number is required");
+                textBoxNameBG.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(nuMaxPlayerBG.Text))
+            {
+                MessageBox.Show("Max. players number is required");
+                textBoxNameBG.Focus();
+                return;
+            }
             if (string.IsNullOrEmpty(richTextBoxDescriptionBG.Text))
             {
                 MessageBox.Show("Board game description is required");
@@ -143,6 +155,18 @@ namespace Tarsasok_Asztali_Alkalmazas
             if (string.IsNullOrEmpty(textBoxNameBG.Text))
             {
                 MessageBox.Show("Board game name is required");
+                textBoxNameBG.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(nuMinPlayerBG.Text))
+            {
+                MessageBox.Show("Min. players number is required");
+                textBoxNameBG.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(nuMaxPlayerBG.Text))
+            {
+                MessageBox.Show("Max. players number is required");
                 textBoxNameBG.Focus();
                 return;
             }
@@ -185,7 +209,11 @@ namespace Tarsasok_Asztali_Alkalmazas
                 MessageBox.Show("A board game must be selected!");
                 return;
             }
-            if (MessageBox.Show("Are you sure, you want to delete the selected item?") == DialogResult.OK)
+            if (MessageBox.Show("Are you sure you want to delete the selected item?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+            else
             {
                 BoardGame boardGame = new BoardGame();
 
@@ -206,7 +234,7 @@ namespace Tarsasok_Asztali_Alkalmazas
                 {
                     MessageBox.Show("Delete failed! " + response.ReasonPhrase);
                 }
-             }
+            }
             clearInputs();
         }
 
