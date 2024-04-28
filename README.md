@@ -32,3 +32,8 @@ kezelhetik a foglalásokat és a társasjátékok adatbázisát.
 - A Backend alkalmazás seederében van két teszt munkavállaló, így seedelés után a következő munkavállalói adatokkal lehet bejelentkezni a GameKNights asztali alkalmazásba:
   - név: Admin Admin   e-mail: admin@gkn.com   jelszó: admin123
   - név: Teszt Elek   teszt@gkn.com   jelszó: 12345678
+    
+## Dokumentáció
+
+- [Tesztelési jegyzőkönyv](https://github.com/AriaBartha/GameKNights-desktop-application/blob/main/GameKNights_desktop_test_documentation.pdf)
+- [Felhasználói kézikönyv](https://github.com/AriaBartha/GameKNights-desktop-application/blob/main/GameKNights_desktop_UsersHandbook.pdf)
