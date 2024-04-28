@@ -100,52 +100,59 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Új társasjáték hozzáadása az adatbázishoz, Add gomb kattintási eseménye.
         private void buttonAddBG_Click(object sender, EventArgs e)
         {
-            BoardGame boardGame = new BoardGame();
-            if (string.IsNullOrEmpty(textBoxNameBG.Text))
+            try
             {
-                MessageBox.Show("Board game name is required");
-                textBoxNameBG.Focus();
-                return;
+                BoardGame boardGame = new BoardGame();
+                if (string.IsNullOrEmpty(textBoxNameBG.Text))
+                {
+                    MessageBox.Show("Board game name is required");
+                    textBoxNameBG.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(nuMinPlayerBG.Text))
+                {
+                    MessageBox.Show("Min. players number is required");
+                    nuMinPlayerBG.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(nuMaxPlayerBG.Text))
+                {
+                    MessageBox.Show("Max. players number is required");
+                    nuMaxPlayerBG.Focus();
+                    return;
+                }
+                if (int.Parse(nuMinPlayerBG.Text) > int.Parse(nuMaxPlayerBG.Text))
+                {
+                    MessageBox.Show("Min. players number can't be smaller than Max. players number.");
+                    nuMinPlayerBG.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(richTextBoxDescriptionBG.Text))
+                {
+                    MessageBox.Show("Board game description is required");
+                    richTextBoxDescriptionBG.Focus();
+                    return;
+                }
+                boardGame.BgName = textBoxNameBG.Text;
+                boardGame.MinPlayers = (long)nuMinPlayerBG.Value;
+                boardGame.MaxPlayers = (long)nuMaxPlayerBG.Value;
+                boardGame.Description = richTextBoxDescriptionBG.Text;
+                var json = JsonConvert.SerializeObject(boardGame);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = client.PostAsync(endPoint, data).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("New board game has been added successfully");
+                    listRefreshing();
+                }
+                else
+                {
+                    MessageBox.Show("Failed! Could not add new board game to database. " + response.ReasonPhrase);
+                }
             }
-            if (string.IsNullOrEmpty(nuMinPlayerBG.Text))
+            catch (Exception ex)
             {
-                MessageBox.Show("Min. players number is required");
-                nuMinPlayerBG.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(nuMaxPlayerBG.Text))
-            {
-                MessageBox.Show("Max. players number is required");
-                nuMaxPlayerBG.Focus();
-                return;
-            }
-            if (int.Parse(nuMinPlayerBG.Text) > int.Parse(nuMaxPlayerBG.Text))
-            {
-                MessageBox.Show("Min. players number can't be smaller than Max. players number.");
-                nuMinPlayerBG.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(richTextBoxDescriptionBG.Text))
-            {
-                MessageBox.Show("Board game description is required");
-                richTextBoxDescriptionBG.Focus();
-                return;
-            }
-            boardGame.BgName = textBoxNameBG.Text;
-            boardGame.MinPlayers = (long)nuMinPlayerBG.Value;
-            boardGame.MaxPlayers = (long)nuMaxPlayerBG.Value;
-            boardGame.Description = richTextBoxDescriptionBG.Text;
-            var json = JsonConvert.SerializeObject(boardGame);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = client.PostAsync(endPoint, data).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("New board game has been added successfully");
-                listRefreshing();
-            }
-            else
-            {
-                MessageBox.Show("Failed! Could not add new board game to database. " + response.ReasonPhrase);
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
             clearInputs();
         }
@@ -153,80 +160,43 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Kiválasztott társasjáték adatainak módosítása az adatbázisban, Update gomb kattintási eseménye.
         private void buttonUpdateBG_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxIdBG.Text))
+            try
             {
-                MessageBox.Show("A board game must be selected!");
-                return;
-            }
-            if (string.IsNullOrEmpty(textBoxNameBG.Text))
-            {
-                MessageBox.Show("Board game name is required");
-                textBoxNameBG.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(nuMinPlayerBG.Text))
-            {
-                MessageBox.Show("Min. players number is required");
-                nuMinPlayerBG.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(nuMaxPlayerBG.Text))
-            {
-                MessageBox.Show("Max. players number is required");
-                nuMaxPlayerBG.Focus();
-                return;
-            }
-            if (int.Parse(nuMinPlayerBG.Text) > int.Parse(nuMaxPlayerBG.Text))
-            {
-                MessageBox.Show("Min. players number can't be smaller than Max. players number.");
-                nuMinPlayerBG.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(richTextBoxDescriptionBG.Text))
-            {
-                MessageBox.Show("Board game description is required");
-                richTextBoxDescriptionBG.Focus();
-                return;
-            }
-            BoardGame boardGame = new BoardGame();
-
-            boardGame.Id = long.Parse(textBoxIdBG.Text);
-            boardGame.BgName = textBoxNameBG.Text;
-            boardGame.MinPlayers = (long)nuMinPlayerBG.Value;
-            boardGame.MaxPlayers = (long)nuMaxPlayerBG.Value;
-            boardGame.Description = richTextBoxDescriptionBG.Text;
-
-            var json = JsonConvert.SerializeObject(boardGame);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            string endPointUpdate = $"{endPoint}/{boardGame.Id}";
-            var response = client.PutAsync(endPointUpdate, data).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("Board game has been updated successfully");
-                listRefreshing();
-            }
-            else
-            {
-                MessageBox.Show("Board game update FAILED! " + response.ReasonPhrase);
-            }
-            clearInputs();
-
-        }
-
-        // Kiválasztott társasjáték törlése az adatbázisból, Delete gomb kattintási eseménye.
-        private void buttonDeleteBG_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxIdBG.Text))
-            {
-                MessageBox.Show("A board game must be selected!");
-                return;
-            }
-            if (MessageBox.Show("Are you sure you want to delete the selected item?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                return;
-            }
-            else
-            {
+                if (string.IsNullOrEmpty(textBoxIdBG.Text))
+                {
+                    MessageBox.Show("A board game must be selected!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(textBoxNameBG.Text))
+                {
+                    MessageBox.Show("Board game name is required");
+                    textBoxNameBG.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(nuMinPlayerBG.Text))
+                {
+                    MessageBox.Show("Min. players number is required");
+                    nuMinPlayerBG.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(nuMaxPlayerBG.Text))
+                {
+                    MessageBox.Show("Max. players number is required");
+                    nuMaxPlayerBG.Focus();
+                    return;
+                }
+                if (int.Parse(nuMinPlayerBG.Text) > int.Parse(nuMaxPlayerBG.Text))
+                {
+                    MessageBox.Show("Min. players number can't be smaller than Max. players number.");
+                    nuMinPlayerBG.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(richTextBoxDescriptionBG.Text))
+                {
+                    MessageBox.Show("Board game description is required");
+                    richTextBoxDescriptionBG.Focus();
+                    return;
+                }
                 BoardGame boardGame = new BoardGame();
 
                 boardGame.Id = long.Parse(textBoxIdBG.Text);
@@ -235,17 +205,68 @@ namespace Tarsasok_Asztali_Alkalmazas
                 boardGame.MaxPlayers = (long)nuMaxPlayerBG.Value;
                 boardGame.Description = richTextBoxDescriptionBG.Text;
 
-                string endPointDelete = $"{endPoint}/{boardGame.Id}";
-                var response = client.DeleteAsync(endPointDelete).Result;
+                var json = JsonConvert.SerializeObject(boardGame);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                string endPointUpdate = $"{endPoint}/{boardGame.Id}";
+                var response = client.PutAsync(endPointUpdate, data).Result;
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Delete is successful!");
+                    MessageBox.Show("Board game has been updated successfully");
                     listRefreshing();
                 }
                 else
                 {
-                    MessageBox.Show("Delete failed! " + response.ReasonPhrase);
+                    MessageBox.Show("Board game update FAILED! " + response.ReasonPhrase);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
+            }
+            clearInputs();
+
+        }
+
+        // Kiválasztott társasjáték törlése az adatbázisból, Delete gomb kattintási eseménye.
+        private void buttonDeleteBG_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(textBoxIdBG.Text))
+                {
+                    MessageBox.Show("A board game must be selected!");
+                    return;
+                }
+                if (MessageBox.Show("Are you sure you want to delete the selected item?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    BoardGame boardGame = new BoardGame();
+
+                    boardGame.Id = long.Parse(textBoxIdBG.Text);
+                    boardGame.BgName = textBoxNameBG.Text;
+                    boardGame.MinPlayers = (long)nuMinPlayerBG.Value;
+                    boardGame.MaxPlayers = (long)nuMaxPlayerBG.Value;
+                    boardGame.Description = richTextBoxDescriptionBG.Text;
+
+                    string endPointDelete = $"{endPoint}/{boardGame.Id}";
+                    var response = client.DeleteAsync(endPointDelete).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Delete is successful!");
+                        listRefreshing();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Delete failed! " + response.ReasonPhrase);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
             clearInputs();
         }
