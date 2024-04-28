@@ -97,54 +97,61 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Új munkavállaló hozzáadása az adatbázishoz, "Add" gomb kattintási eseménye.
         private void buttonAddEmployee_Click(object sender, EventArgs e)
         {
-            Employee employee = new Employee();
-            if (string.IsNullOrEmpty(textBoxNameEmployee.Text))
+            try
             {
-                MessageBox.Show("Employee name is required");
-                textBoxNameEmployee.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(textBoxEmailEmployee.Text))
-            {
-                MessageBox.Show("Email is required");
-                textBoxEmailEmployee.Focus();
-                return;
-            }
-            if (!IsValidEmail(textBoxEmailEmployee.Text))
-            {
-                MessageBox.Show("Email address must be valid.");
-                textBoxEmailEmployee.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(textBoxPasswordEmployee.Text))
-            {
-                MessageBox.Show("Password is required");
-                textBoxPasswordEmployee.Focus();
-                return;
-            }
-            string password = textBoxPasswordEmployee.Text;
-            if (password.Length < 8)
-            {
-                MessageBox.Show("Password must be at least 8 characters.");
-                textBoxPasswordEmployee.Focus();
-                return;
-            }
+                Employee employee = new Employee();
+                if (string.IsNullOrEmpty(textBoxNameEmployee.Text))
+                {
+                    MessageBox.Show("Employee name is required");
+                    textBoxNameEmployee.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(textBoxEmailEmployee.Text))
+                {
+                    MessageBox.Show("Email is required");
+                    textBoxEmailEmployee.Focus();
+                    return;
+                }
+                if (!IsValidEmail(textBoxEmailEmployee.Text))
+                {
+                    MessageBox.Show("Email address must be valid.");
+                    textBoxEmailEmployee.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(textBoxPasswordEmployee.Text))
+                {
+                    MessageBox.Show("Password is required");
+                    textBoxPasswordEmployee.Focus();
+                    return;
+                }
+                string password = textBoxPasswordEmployee.Text;
+                if (password.Length < 8)
+                {
+                    MessageBox.Show("Password must be at least 8 characters.");
+                    textBoxPasswordEmployee.Focus();
+                    return;
+                }
 
-            employee.EName = textBoxNameEmployee.Text;
-            employee.EEmail = textBoxEmailEmployee.Text;
-            employee.EPassword = textBoxPasswordEmployee.Text;
+                employee.EName = textBoxNameEmployee.Text;
+                employee.EEmail = textBoxEmailEmployee.Text;
+                employee.EPassword = textBoxPasswordEmployee.Text;
 
-            var json = JsonConvert.SerializeObject(employee);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = client.PostAsync(endPoint, data).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("New employee has been added successfully");
-                refreshEmployeeList();
+                var json = JsonConvert.SerializeObject(employee);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = client.PostAsync(endPoint, data).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("New employee has been added successfully");
+                    refreshEmployeeList();
+                }
+                else
+                {
+                    MessageBox.Show("Failed! Could not add new employee to database. " + response.ReasonPhrase);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Failed! Could not add new employee to database. " + response.ReasonPhrase);
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
             clearInputs();
         }
@@ -152,80 +159,45 @@ namespace Tarsasok_Asztali_Alkalmazas
         // Kiválasztott munkavállaló adatainak módosítása az adatbázisban, "Update" gomb kattintási eseménye.
         private void buttonUpdateEmployee_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxIdEmployee.Text))
+            try
             {
-                MessageBox.Show("An employee must be selected!");
-                return;
-            }
-            if (string.IsNullOrEmpty(textBoxNameEmployee.Text))
-            {
-                MessageBox.Show("Employee name is required");
-                textBoxNameEmployee.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(textBoxEmailEmployee.Text))
-            {
-                MessageBox.Show("Email is required");
-                textBoxEmailEmployee.Focus();
-                return;
-            }
-            if (!IsValidEmail(textBoxEmailEmployee.Text))
-            {
-                MessageBox.Show("Email address must be valid.");
-                textBoxEmailEmployee.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(textBoxPasswordEmployee.Text))
-            {
-                MessageBox.Show("Password is required");
-                textBoxPasswordEmployee.Focus();
-                return;
-            }
-            string password = textBoxPasswordEmployee.Text;
-            if (password.Length < 8)
-            {
-                MessageBox.Show("Password must be at least 8 characters.");
-                textBoxPasswordEmployee.Focus();
-                return;
-            }
+                if (string.IsNullOrEmpty(textBoxIdEmployee.Text))
+                {
+                    MessageBox.Show("An employee must be selected!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(textBoxNameEmployee.Text))
+                {
+                    MessageBox.Show("Employee name is required");
+                    textBoxNameEmployee.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(textBoxEmailEmployee.Text))
+                {
+                    MessageBox.Show("Email is required");
+                    textBoxEmailEmployee.Focus();
+                    return;
+                }
+                if (!IsValidEmail(textBoxEmailEmployee.Text))
+                {
+                    MessageBox.Show("Email address must be valid.");
+                    textBoxEmailEmployee.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(textBoxPasswordEmployee.Text))
+                {
+                    MessageBox.Show("Password is required");
+                    textBoxPasswordEmployee.Focus();
+                    return;
+                }
+                string password = textBoxPasswordEmployee.Text;
+                if (password.Length < 8)
+                {
+                    MessageBox.Show("Password must be at least 8 characters.");
+                    textBoxPasswordEmployee.Focus();
+                    return;
+                }
 
-            Employee employee = new Employee();
-
-            employee.Id = long.Parse(textBoxIdEmployee.Text);
-            employee.EName = textBoxNameEmployee.Text;
-            employee.EEmail = textBoxEmailEmployee.Text;
-            employee.EPassword = textBoxPasswordEmployee.Text;
-
-            var json = JsonConvert.SerializeObject(employee);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            string endPointUpdate = $"{endPoint}/{employee.Id}";
-            var response = client.PutAsync(endPointUpdate, data).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("Employee's data has been updated successfully");
-                refreshEmployeeList();
-            }
-            else
-            {
-                MessageBox.Show("Employee's data update FAILED! " + response.ReasonPhrase);
-            }
-            clearInputs();
-        }
-
-        // Kiválasztott munkavállaló törlése az adatbázisból, "Delete" gomb kattintási eseménye.
-        private void buttonDeleteEmployee_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxIdEmployee.Text))
-            {
-                MessageBox.Show("An employee must be selected!");
-                return;
-            }
-            if (MessageBox.Show("Are you sure you want to delete the selected item?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                return;
-            }
-            else
-            {
                 Employee employee = new Employee();
 
                 employee.Id = long.Parse(textBoxIdEmployee.Text);
@@ -233,17 +205,66 @@ namespace Tarsasok_Asztali_Alkalmazas
                 employee.EEmail = textBoxEmailEmployee.Text;
                 employee.EPassword = textBoxPasswordEmployee.Text;
 
-                string endPointDelete = $"{endPoint}/{employee.Id}";
-                var response = client.DeleteAsync(endPointDelete).Result;
+                var json = JsonConvert.SerializeObject(employee);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                string endPointUpdate = $"{endPoint}/{employee.Id}";
+                var response = client.PutAsync(endPointUpdate, data).Result;
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Delete is successful!");
+                    MessageBox.Show("Employee's data has been updated successfully");
                     refreshEmployeeList();
                 }
                 else
                 {
-                    MessageBox.Show("Delete FAILED! " + response.ReasonPhrase);
+                    MessageBox.Show("Employee's data update FAILED! " + response.ReasonPhrase);
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
+            }
+            clearInputs();
+        }
+
+        // Kiválasztott munkavállaló törlése az adatbázisból, "Delete" gomb kattintási eseménye.
+        private void buttonDeleteEmployee_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(textBoxIdEmployee.Text))
+                {
+                    MessageBox.Show("An employee must be selected!");
+                    return;
+                }
+                if (MessageBox.Show("Are you sure you want to delete the selected item?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    Employee employee = new Employee();
+
+                    employee.Id = long.Parse(textBoxIdEmployee.Text);
+                    employee.EName = textBoxNameEmployee.Text;
+                    employee.EEmail = textBoxEmailEmployee.Text;
+                    employee.EPassword = textBoxPasswordEmployee.Text;
+
+                    string endPointDelete = $"{endPoint}/{employee.Id}";
+                    var response = client.DeleteAsync(endPointDelete).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Delete is successful!");
+                        refreshEmployeeList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Delete FAILED! " + response.ReasonPhrase);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Calling API endpoint failed: " + ex.Message);
             }
             clearInputs();
         }
