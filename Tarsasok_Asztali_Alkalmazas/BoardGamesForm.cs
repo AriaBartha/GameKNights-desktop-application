@@ -110,19 +110,25 @@ namespace Tarsasok_Asztali_Alkalmazas
             if (string.IsNullOrEmpty(nuMinPlayerBG.Text))
             {
                 MessageBox.Show("Min. players number is required");
-                textBoxNameBG.Focus();
+                nuMinPlayerBG.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(nuMaxPlayerBG.Text))
             {
                 MessageBox.Show("Max. players number is required");
-                textBoxNameBG.Focus();
+                nuMaxPlayerBG.Focus();
+                return;
+            }
+            if (int.Parse(nuMinPlayerBG.Text) > int.Parse(nuMaxPlayerBG.Text))
+            {
+                MessageBox.Show("Min. players number can't be smaller than Max. players number.");
+                nuMinPlayerBG.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(richTextBoxDescriptionBG.Text))
             {
                 MessageBox.Show("Board game description is required");
-                textBoxNameBG.Focus();
+                richTextBoxDescriptionBG.Focus();
                 return;
             }
             boardGame.BgName = textBoxNameBG.Text;
@@ -161,19 +167,25 @@ namespace Tarsasok_Asztali_Alkalmazas
             if (string.IsNullOrEmpty(nuMinPlayerBG.Text))
             {
                 MessageBox.Show("Min. players number is required");
-                textBoxNameBG.Focus();
+                nuMinPlayerBG.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(nuMaxPlayerBG.Text))
             {
                 MessageBox.Show("Max. players number is required");
-                textBoxNameBG.Focus();
+                nuMaxPlayerBG.Focus();
+                return;
+            }
+            if (int.Parse(nuMinPlayerBG.Text) > int.Parse(nuMaxPlayerBG.Text))
+            {
+                MessageBox.Show("Min. players number can't be smaller than Max. players number.");
+                nuMinPlayerBG.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(richTextBoxDescriptionBG.Text))
             {
                 MessageBox.Show("Board game description is required");
-                textBoxNameBG.Focus();
+                richTextBoxDescriptionBG.Focus();
                 return;
             }
             BoardGame boardGame = new BoardGame();
