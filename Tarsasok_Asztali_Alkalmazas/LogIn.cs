@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 
 
+
 namespace Tarsasok_Asztali_Alkalmazas
 {
     //Belépés az alkalmazásba autentikációval.
@@ -55,12 +56,26 @@ namespace Tarsasok_Asztali_Alkalmazas
         //Belépés az alkalmazásba, Log in gomb kattintási eseménye.
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxEmail.Text))
+            //email validálás
+            try
             {
+                new System.Net.Mail.MailAddress(textBoxEmail.Text);
+            }
+            catch (ArgumentException)
+            {
+                //ha nem ad meg semmit a felhasználó
                 MessageBox.Show("Email is required!");
                 textBoxEmail.Focus();
                 return;
             }
+            catch (FormatException)
+            {
+                //ha nem email formátumot ad meg a felhasználó
+                MessageBox.Show("Valid email is required!");
+                textBoxEmail.Focus();
+                return;
+            }
+            // ha nem ad meg jelszót a felhasználó
             if (string.IsNullOrEmpty(textBoxPassword.Text))
             {
                 MessageBox.Show("Password is required!");
