@@ -148,11 +148,16 @@ namespace Tarsasok_Asztali_Alkalmazas
                     {
                         appointment.EmployeeId = item.Id;
                     }
-                    /*else
+                    //-- TODO: ha rosszul adja meg a munkavállaló nevét, kapjon hibaüzenetet
+                    /*if(item.EName.Contains(textBoxEName.Text) == false)
                     {
                         MessageBox.Show("Please enter a valid employee name.");
                         textBoxEName.Focus();
                         return;
+                    }
+                    else if (textBoxEName.Text == item.EName)
+                    {
+                        appointment.EmployeeId = item.Id;
                     }*/
                 }
             }
@@ -215,12 +220,7 @@ namespace Tarsasok_Asztali_Alkalmazas
                     {
                         appointment.EmployeeId = item.Id;
                     }
-                    /*else
-                    {
-                        MessageBox.Show("Please enter a valid employee name.");
-                        textBoxEName.Focus();
-                        return;
-                    }*/
+                    //-- TODO: ha rosszul adja meg a munkavállaló nevét, kapjon hibaüzenetet
                 }
             }
             else
